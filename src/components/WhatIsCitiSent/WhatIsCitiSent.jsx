@@ -21,7 +21,7 @@ export default function WhatIsCitiSent({ onOpenDownload }) {
     {
       icon: Zap,
       title: "Frictionless Citizen Reporting",
-      desc: "No confusing bureaucratic hotlines. Snap a photo, add GPS location, and submit in seconds from your pocket."
+      desc: "No confusing bureaucratic hotlines. Describe the issue in your own words, add GPS location, and submit in seconds from your pocket."
     },
     {
       icon: Eye,
@@ -129,7 +129,7 @@ export default function WhatIsCitiSent({ onOpenDownload }) {
                 <ul className="compare-list">
                   <li className="compare-list__item compare-list__item--good">
                     <span className="dot-bullet green" />
-                    <span><strong>10-Second Submissions:</strong> Photo, GPS, and auto-categorization</span>
+                    <span><strong>Text-First Reporting:</strong> Describe issues in your own words with optional photos</span>
                   </li>
                   <li className="compare-list__item compare-list__item--good">
                     <span className="dot-bullet green" />

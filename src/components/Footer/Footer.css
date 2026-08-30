@@ -20,6 +20,8 @@
   margin-bottom: 1.25rem;
 }
 
+.brand-logo-image { width: 300px; height: auto; }
+
 .text-white {
   color: #FFFFFF !important;
 }

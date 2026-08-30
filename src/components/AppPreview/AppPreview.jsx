@@ -27,7 +27,7 @@ export default function AppPreview({ onOpenDownload }) {
     {
       id: 'submit',
       title: 'Submit Report',
-      subtitle: 'Effortless reporting in seconds with GPS and photo capture.',
+      subtitle: 'Effortless reporting in your own words with optional photos.',
       icon: Camera
     },
     {
@@ -97,15 +97,15 @@ export default function AppPreview({ onOpenDownload }) {
                 <>
                   <div className="preview-bullet">
                     <CheckCircle2 size={16} className="text-emerald" />
-                    <span>Instant camera & gallery upload with EXIF GPS tagging</span>
+                    <span>Choose the LGU responsible for your concern</span>
                   </div>
                   <div className="preview-bullet">
                     <CheckCircle2 size={16} className="text-emerald" />
-                    <span>Pre-configured categories (Roads, Utilities, Sanitation, Safety)</span>
+                    <span>Describe the issue clearly in your own words</span>
                   </div>
                   <div className="preview-bullet">
                     <CheckCircle2 size={16} className="text-emerald" />
-                    <span>Voice-to-text input for quick hands-free reporting</span>
+                    <span>Set the location and optionally add a photo</span>
                   </div>
                 </>
               )}
@@ -193,37 +193,41 @@ export default function AppPreview({ onOpenDownload }) {
                     </div>
 
                     <div className="mockup-field">
-                      <label>Report Category</label>
+                      <label>Select LGU</label>
                       <div className="category-pill-select">
-                        <span className="cat-pill active">🚧 Road Hazard</span>
-                        <span className="cat-pill">💡 Streetlight</span>
-                        <span className="cat-pill">🚰 Water Leak</span>
+                        <span className="cat-pill active">🏛️ Sto. Tomas City LGU</span>
                       </div>
                     </div>
 
                     <div className="mockup-field">
-                      <label>Photo Evidence</label>
+                      <label>Describe the Issue</label>
+                      <div className="mockup-input">
+                        There is a large pothole near the pedestrian crossing on Maharlika Hwy causing safety hazards for commuters.
+                      </div>
+                    </div>
+
+                    <div className="mockup-field">
+                      <label>📍 Location of Issue</label>
+                      <div className="mockup-input" style={{ fontSize: '10px', color: 'var(--color-primary)' }}>
+                        Maharlika Hwy, Sto. Tomas City, Batangas
+                      </div>
+                    </div>
+
+                    <div className="mockup-field">
+                      <label>📷 Optional Photo</label>
                       <div className="mockup-photo-upload">
                         <div className="photo-preview-box">
                           <img 
-                            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='%23e2e8f0'><rect width='100' height='100'/><text x='50%' y='50%' font-size='11' text-anchor='middle' fill='%2364748b' dy='.3em'>PHOTO ATTACHED</text></svg>" 
-                            alt="Attached hazard" 
+                            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='%23e2e8f0'><rect width='100' height='100'/><text x='50%' y='50%' font-size='11' text-anchor='middle' fill='%2364748b' dy='.3em'>OPTIONAL PHOTO</text></svg>" 
+                            alt="Optional attached photo" 
                             className="photo-thumb"
                           />
-                          <span className="photo-tag">GPS: 14.5995° N, 120.9842° E</span>
                         </div>
                       </div>
                     </div>
 
-                    <div className="mockup-field">
-                      <label>Issue Description</label>
-                      <div className="mockup-input">
-                        Deep pothole near pedestrian crossing causing severe vehicle slowdowns and safety hazards.
-                      </div>
-                    </div>
-
                     <div className="mockup-submit-btn">
-                      <span>Submit Verified Report</span>
+                      <span>Submit Report</span>
                       <Send size={14} />
                     </div>
                   </div>

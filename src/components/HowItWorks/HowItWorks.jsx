@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { 
-  Camera, 
-  Cpu, 
-  Search, 
+  Building2,
   MessageSquare, 
-  HeartHandshake, 
+  MapPin,
+  Send,
   ArrowRight,
   Sparkles,
   CheckCircle2
@@ -19,67 +18,54 @@ export default function HowItWorks() {
   const steps = [
     {
       num: '01',
-      title: 'Report',
-      subtitle: 'Submit in Seconds',
-      icon: Camera,
-      tag: 'Step 1: Citizen Action',
-      desc: 'Snap a picture of the issue, choose a category (e.g. Infrastructure, Waste, Public Safety), and your phone automatically embeds verified GPS coordinates.',
+      title: 'Choose Your LGU',
+      subtitle: 'Select who to report to',
+      icon: Building2,
+      tag: 'Step 1: Select Local Government',
+      desc: 'Select the Local Government Unit responsible for the concern you want to report. Since CitiSent is designed for Sto. Tomas City, the available LGU will be your local city government.',
       details: [
-        'High-resolution photo & video attachments',
-        'Automatic GPS geo-tagging & pinpoint map picker',
-        'Custom description & voice-to-text input'
+        'Choose the appropriate local government unit',
+        'Reports are routed directly to the selected LGU',
+        'Ensures your concern reaches the right officials'
       ]
     },
     {
       num: '02',
-      title: 'Analyze',
-      subtitle: 'AI Sentiment & Triage',
-      icon: Cpu,
-      tag: 'Step 2: Smart Processing',
-      desc: 'CitiSent’s AI engine instantly assesses the urgency and emotional weight of the report, automatically assigns a severity score, and routes it to the right department.',
+      title: 'Describe Your Concern',
+      subtitle: 'Your words are what matter most',
+      icon: MessageSquare,
+      tag: 'Step 2: Written Report Description',
+      desc: 'Tell your local government what is happening. Describe the issue clearly in your own words — what happened, what the problem is, and any other details that can help the LGU understand your concern.',
       details: [
-        'Automated municipal agency routing',
-        'AI hazard & risk severity scoring',
-        'Duplicate report clustering to avoid redundant tickets'
+        'Write your concern in your own words',
+        'Include relevant details: what, when, and why',
+        'Your written description is the most important part of the report'
       ]
     },
     {
       num: '03',
-      title: 'Track',
-      subtitle: 'Real-Time Visibility',
-      icon: Search,
-      tag: 'Step 3: Progress Monitoring',
-      desc: 'Follow the live lifecycle of your report on a transparent timeline: Submitted → Under Review → Assigned to Field Crew → Work in Progress → Resolved.',
+      title: 'Add Location & Photo',
+      subtitle: 'Where is the issue? (Photo is optional)',
+      icon: MapPin,
+      tag: 'Step 3: Location & Supporting Evidence',
+      desc: 'Pinpoint where the issue is located so the appropriate local government personnel can identify where action is needed. You may also add an optional photo to provide additional visual context.',
       details: [
-        'Milestone timestamp updates',
-        'Assigned municipal department & ticket ID',
-        'Instant push notifications on status changes'
+        'Set the exact location of the reported issue',
+        'Add a photo if available — photos are completely optional',
+        'You can submit your report without uploading an image'
       ]
     },
     {
       num: '04',
-      title: 'Connect',
-      subtitle: 'Direct Dialogue',
-      icon: MessageSquare,
-      tag: 'Step 4: Two-Way Collaboration',
-      desc: 'City officials can request more details directly in-app, and citizens can provide follow-ups or verify resolution with before-and-after proof.',
+      title: 'Submit Your Report',
+      subtitle: 'Send and track your concern',
+      icon: Send,
+      tag: 'Step 4: Submission & Tracking',
+      desc: 'Review your report and submit it to the selected LGU. CitiSent will notify you of progress updates and allow you to communicate directly with the officials handling your concern.',
       details: [
-        'Real-time encrypted citizen-to-admin chat',
-        'Official field crew progress photos',
-        'Clarification requests and notes'
-      ]
-    },
-    {
-      num: '05',
-      title: 'Impact',
-      subtitle: 'A Better Community',
-      icon: HeartHandshake,
-      tag: 'Step 5: Lasting Resolution',
-      desc: 'The issue is resolved with photographic proof. Your voice directly improves the neighborhood and contributes to municipal performance data.',
-      details: [
-        'Photographic proof of completed resolution',
-        'Citizen satisfaction rating & feedback',
-        'Contributes to civic neighborhood health index'
+        'Submit your report directly to the selected LGU',
+        'Receive real-time status updates and notifications',
+        'Communicate with assigned administrators in-app'
       ]
     }
   ];
@@ -88,12 +74,12 @@ export default function HowItWorks() {
     <section id="how-it-works" className="section section-dark how-section">
       <div className="container">
         <SectionHeading
-          badge="Simple 5-Step Pipeline"
+          badge="Reporting Made Simple"
           badgeIcon={Sparkles}
           badgeVariant="emerald"
           title="How CitiSent"
           highlight="Works in Action"
-          subtitle="From the moment you spot a community hazard in Sto. Tomas City to its verified resolution, CitiSent ensures speed, clarity, and accountability at every stage."
+          subtitle="From choosing the right LGU to submitting your concern, CitiSent makes it easy for residents of Sto. Tomas City to report community issues."
           dark
         />
 
@@ -120,7 +106,7 @@ export default function HowItWorks() {
           <div className="step-showcase__content">
             <div className="step-tag-row">
               <Badge variant="cyan">{steps[activeStep].tag}</Badge>
-              <span className="step-counter">Phase {steps[activeStep].num} of 05</span>
+              <span className="step-counter">Phase {steps[activeStep].num} of 04</span>
             </div>
 
             <h3 className="step-main-title">
