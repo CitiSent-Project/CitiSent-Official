@@ -88,7 +88,7 @@ export default function Hero({ onOpenDownload }) {
             </div>
             <div className="trust-item">
               <Smartphone size={18} className="trust-item__icon" />
-              <span>iOS & Android Ready</span>
+              <span>Android Ready</span>
             </div>
           </div>
         </div>

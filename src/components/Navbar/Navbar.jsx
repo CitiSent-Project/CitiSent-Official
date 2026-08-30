@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Download, Shield, ChevronRight, Activity } from 'lucide-react';
 import Button from '../common/Button';
+import logoLeft from '../../assets/logo-left.png';
 import './Navbar.css';
 
 export default function Navbar({ onOpenDownload }) {
@@ -49,24 +50,7 @@ export default function Navbar({ onOpenDownload }) {
       <div className="container citi-navbar__container">
         {/* Brand Logo */}
         <a href="#home" onClick={(e) => handleLinkClick(e, '#home')} className="citi-navbar__brand">
-          <div className="brand-logo-icon">
-            <svg viewBox="0 0 40 40" width="34" height="34" fill="none">
-              <rect width="40" height="40" rx="10" fill="#0B132B" />
-              <path d="M20 6L32 11V20C32 27.5 27 34 20 36.5C13 34 8 27.5 8 20V11L20 6Z" fill="url(#navGrad)" />
-              <circle cx="20" cy="18" r="5" fill="#FFFFFF" />
-              <path d="M20 15C18.34 15 17 16.34 17 18C17 21 20 25 20 25C20 25 23 21 23 18C23 16.34 21.66 15 20 15Z" fill="#2563EB" />
-              <defs>
-                <linearGradient id="navGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#2563EB" />
-                  <stop offset="100%" stopColor="#06B6D4" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-          <div className="brand-logo-text">
-            <span className="brand-name">Citi<span className="brand-accent">Sent</span></span>
-            <span className="brand-tag">Civic Tech</span>
-          </div>
+          <img src={logoLeft} alt="CitiSent Logo" className="brand-logo-img" style={{ height: '40px' }} />
         </a>
 
         {/* Desktop Navigation Links */}
@@ -112,8 +96,8 @@ export default function Navbar({ onOpenDownload }) {
         <div className="mobile-drawer__backdrop" onClick={() => setMobileMenuOpen(false)} />
         <div className="mobile-drawer__content">
           <div className="mobile-drawer__header">
-            <div className="brand-logo-text">
-              <span className="brand-name">Citi<span className="brand-accent">Sent</span></span>
+            <div className="citi-navbar__brand">
+              <img src={logoLeft} alt="CitiSent Logo" className="brand-logo-img" style={{ height: '32px' }} />
             </div>
             <button className="mobile-drawer__close" onClick={() => setMobileMenuOpen(false)}>
               <X size={22} />
