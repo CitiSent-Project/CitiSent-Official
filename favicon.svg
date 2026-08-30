@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="citiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="24" fill="#0B132B" />
+  <path d="M50 16L78 28V50C78 68 66 84 50 90C34 84 22 68 22 50V28L50 16Z" fill="url(#citiGrad)" opacity="0.9" />
+  <circle cx="50" cy="46" r="14" fill="#FFFFFF" />
+  <path d="M50 36C44.477 36 40 40.477 40 46C40 53.5 50 63 50 63C50 63 60 53.5 60 46C60 40.477 55.523 36 50 36ZM50 49C48.343 49 47 47.657 47 46C47 44.343 48.343 43 50 43C51.657 43 53 44.343 53 46C53 47.657 51.657 49 50 49Z" fill="#2563EB" />
+  <circle cx="68" cy="32" r="5" fill="#10B981" />
+</svg>
