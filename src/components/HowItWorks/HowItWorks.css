@@ -1,0 +1,241 @@
+.how-section {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(100% 60% at 50% 10%, #111D42 0%, #0B132B 100%);
+}
+
+.steps-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.step-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94A3B8;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.step-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+}
+
+.step-nav-btn--active {
+  background: var(--grad-primary);
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+}
+
+.step-nav-num {
+  font-size: 0.75rem;
+  font-weight: 800;
+  opacity: 0.8;
+}
+
+.step-nav-title {
+  font-size: 0.925rem;
+}
+
+/* Showcase Card */
+.step-showcase {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  padding: 3rem;
+  align-items: center;
+}
+
+.step-tag-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.step-counter {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #94A3B8;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.step-main-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.step-main-desc {
+  font-size: 1.05rem;
+  color: #94A3B8;
+  line-height: 1.65;
+  margin-bottom: 1.75rem;
+}
+
+.step-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2.25rem;
+}
+
+.step-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.95rem;
+  color: #E2E8F0;
+}
+
+.step-detail-icon {
+  color: var(--civic-emerald);
+  flex-shrink: 0;
+}
+
+.step-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.step-btn-prev {
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.08);
+  color: #CBD5E1;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.step-btn-prev:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+}
+
+.step-btn-prev:disabled,
+.step-btn-next:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.step-btn-next {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.5rem;
+  border-radius: var(--radius-full);
+  background: var(--civic-blue);
+  color: #FFFFFF;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.step-btn-next:hover:not(:disabled) {
+  background: var(--civic-blue-dark);
+  transform: translateX(2px);
+}
+
+/* Visual Box */
+.step-showcase__visual {
+  display: flex;
+  justify-content: center;
+}
+
+.step-visual-card {
+  background: rgba(11, 19, 43, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-2xl);
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.step-icon-large {
+  width: 88px;
+  height: 88px;
+  border-radius: 24px;
+  background: var(--grad-primary);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+}
+
+.step-visual-status {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #38BDF8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.75rem;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+}
+
+.step-visual-progress {
+  width: 100%;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--grad-primary);
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.progress-bar-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #64748B;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .step-showcase {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+}

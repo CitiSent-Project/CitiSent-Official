@@ -1,0 +1,126 @@
+.citi-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  white-space: nowrap;
+  user-select: none;
+  border: 1px solid transparent;
+}
+
+.citi-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Sizes */
+.citi-btn--sm {
+  padding: 0.45rem 1rem;
+  font-size: 0.875rem;
+}
+
+.citi-btn--md {
+  padding: 0.7rem 1.5rem;
+  font-size: 0.95rem;
+}
+
+.citi-btn--lg {
+  padding: 0.95rem 2rem;
+  font-size: 1.05rem;
+}
+
+.citi-btn--full {
+  width: 100%;
+}
+
+/* Variants */
+.citi-btn--primary {
+  background: var(--grad-primary);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.35);
+}
+
+.citi-btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px 0 rgba(37, 99, 235, 0.5);
+  color: #FFFFFF;
+}
+
+.citi-btn--secondary {
+  background: #1E293B;
+  color: #F8FAFC;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.citi-btn--secondary:hover {
+  background: #334155;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.citi-btn--outline {
+  background: transparent;
+  color: var(--civic-blue);
+  border-color: var(--civic-blue);
+}
+
+.citi-btn--outline:hover {
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--civic-blue-dark);
+}
+
+.citi-btn--ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.citi-btn--ghost:hover {
+  background: rgba(15, 23, 42, 0.05);
+  color: var(--text-primary);
+}
+
+.citi-btn--glass {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.citi-btn--glass:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.citi-btn--white {
+  background: #FFFFFF;
+  color: var(--civic-blue);
+  box-shadow: var(--shadow-md);
+}
+
+.citi-btn--white:hover {
+  background: #F8FAFC;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.citi-btn__icon {
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.citi-btn:hover .citi-btn__icon--right {
+  transform: translateX(3px);
+}
+
+.citi-btn:hover .citi-btn__icon--left {
+  transform: translateX(-3px);
+}

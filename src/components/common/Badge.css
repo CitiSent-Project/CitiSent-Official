@@ -1,0 +1,76 @@
+.citi-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.citi-badge__icon {
+  flex-shrink: 0;
+}
+
+.citi-badge__pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  position: relative;
+}
+
+.citi-badge__pulse::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  background: inherit;
+  opacity: 0.6;
+  animation: badgeGlow 2s infinite;
+}
+
+/* Variants */
+.citi-badge--primary {
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--civic-blue);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+}
+
+.citi-badge--emerald {
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.citi-badge--cyan {
+  background: rgba(6, 182, 212, 0.12);
+  color: #0891B2;
+  border: 1px solid rgba(6, 182, 212, 0.25);
+}
+
+.citi-badge--amber {
+  background: rgba(245, 158, 11, 0.12);
+  color: #D97706;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.citi-badge--neutral {
+  background: rgba(100, 116, 139, 0.1);
+  color: #475569;
+  border: 1px solid rgba(100, 116, 139, 0.2);
+}
+
+.citi-badge--dark {
+  background: rgba(255, 255, 255, 0.1);
+  color: #F8FAFC;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+}
