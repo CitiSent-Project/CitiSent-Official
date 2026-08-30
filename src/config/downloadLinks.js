@@ -24,8 +24,8 @@ export const APP_DOWNLOAD_LINKS = {
 };
 
 export const APP_STATS = {
-  activeCitizens: "15,000+",
-  resolvedReports: "94.2%",
+  activeCitizens: "1,000+",
+  resolvedReports: "99.9%",
   avgResponseTime: "< 24 hrs",
-  partnerMunicipalities: "12+"
+  partnerMunicipalities: "30+"
 };

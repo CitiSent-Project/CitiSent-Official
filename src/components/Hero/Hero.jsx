@@ -217,7 +217,7 @@ export default function Hero({ onOpenDownload }) {
           </div>
           <div className="hero-stat-card">
             <strong className="stat-number text-gradient-emerald">{APP_STATS.partnerMunicipalities}</strong>
-            <span className="stat-label">Connected City Districts</span>
+            <span className="stat-label">Connected Barangays</span>
           </div>
         </div>
       </div>
