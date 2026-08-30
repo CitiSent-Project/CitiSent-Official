@@ -1,7 +1,7 @@
 .how-section {
   position: relative;
   overflow: hidden;
-  background: radial-gradient(100% 60% at 50% 10%, #111D42 0%, #0B132B 100%);
+  background: radial-gradient(100% 60% at 50% 10%, #002D6E 0%, #001233 100%);
 }
 
 .steps-nav {
@@ -32,10 +32,10 @@
 }
 
 .step-nav-btn--active {
-  background: var(--grad-primary);
+  background: var(--civic-blue);
   color: #FFFFFF;
   border-color: transparent;
-  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 4px 20px rgba(26, 82, 181, 0.4);
 }
 
 .step-nav-num {

@@ -33,14 +33,14 @@
 }
 
 .preview-tab-btn--active {
-  background: #0B132B;
+  background: #001845;
   color: #FFFFFF;
-  border-color: #0B132B;
-  box-shadow: 0 4px 14px rgba(11, 19, 43, 0.25);
+  border-color: #001845;
+  box-shadow: 0 4px 14px rgba(0, 24, 69, 0.3);
 }
 
 .preview-tab-btn--active:hover {
-  background: #1C2541;
+  background: #002D6E;
   color: #FFFFFF;
 }
 
@@ -204,9 +204,9 @@
 }
 
 .cat-pill.active {
-  background: #EFF6FF;
-  border-color: #2563EB;
-  color: #2563EB;
+  background: #EBF0FB;
+  border-color: #1A52B5;
+  color: #1A52B5;
   font-weight: 700;
 }
 
@@ -257,7 +257,7 @@
 }
 
 .mockup-submit-btn {
-  background: var(--grad-primary);
+  background: var(--civic-blue);
   color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -336,7 +336,7 @@
 }
 
 .pipe-step.current .pipe-dot {
-  background: #2563EB;
+  background: #1A52B5;
 }
 
 .pulse-circle {
@@ -451,7 +451,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: #2563EB;
+  background: #1A52B5;
   color: #FFFFFF;
   font-size: 0.65rem;
   font-weight: 700;
@@ -529,7 +529,7 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: var(--civic-blue);
+  background: #1A52B5;
   color: #FFFFFF;
   display: flex;
   align-items: center;

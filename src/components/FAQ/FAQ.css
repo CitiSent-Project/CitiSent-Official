@@ -63,7 +63,7 @@
 }
 
 .faq-item--open .faq-chevron-wrap {
-  background: #EFF6FF;
+  background: #EBF0FB;
   color: var(--civic-blue);
   transform: rotate(180deg);
 }
