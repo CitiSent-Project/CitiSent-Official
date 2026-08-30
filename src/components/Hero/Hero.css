@@ -112,268 +112,26 @@
 .hero-phone-wrapper {
   position: relative;
   width: 100%;
+  max-width: 340px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-phone-img-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-phone-img {
+  width: 100%;
   max-width: 320px;
-}
-
-.hero-phone {
-  background: #001233;
-  border: 10px solid #002D6E;
-  border-radius: 42px;
-  padding: 0.75rem 0.5rem;
-  box-shadow: 0 25px 60px -15px rgba(0, 18, 51, 0.4), 0 0 0 1px rgba(184, 208, 245, 0.15);
-  position: relative;
-}
-
-.hero-phone__speaker {
-  width: 60px;
-  height: 4px;
-  background: #2A4475;
-  border-radius: 4px;
-  margin: 0.25rem auto 0.75rem;
-}
-
-.hero-phone__screen {
-  background: #F2F5FC;
-  border-radius: 30px;
-  padding: 1rem 0.85rem;
-  overflow: hidden;
-}
-
-.app-header {
-  margin-bottom: 1rem;
-}
-
-.app-header__status {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #0F172A;
-  margin-bottom: 0.75rem;
-}
-
-.app-signals {
-  display: flex;
-  gap: 3px;
-}
-
-.app-signals .dot {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #0F172A;
-}
-
-.app-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.app-user {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.app-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--grad-primary);
-  color: #FFFFFF;
-  font-size: 0.75rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.app-greeting {
+  height: auto;
   display: block;
-  font-size: 0.65rem;
-  color: #64748B;
-}
-
-.app-username {
-  display: block;
-  font-size: 0.85rem;
-  color: #0F172A;
-  line-height: 1;
-}
-
-.app-bell {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.app-bell__badge {
-  position: absolute;
-  top: -2px;
-  right: -2px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #EF4444;
-  color: #FFFFFF;
-  font-size: 0.6rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* App Report Card */
-.app-card {
-  background: #FFFFFF;
-  border-radius: 16px;
-  padding: 0.9rem;
-  border: 1px solid #E2E8F0;
-  box-shadow: var(--shadow-sm);
-  margin-bottom: 0.85rem;
-}
-
-.app-card__tag {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.45rem;
-}
-
-.tag-status {
-  font-size: 0.65rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 0.2rem 0.5rem;
-  border-radius: 10px;
-}
-
-.tag-status--progress {
-  background: #FEF3C7;
-  color: #D97706;
-}
-
-.tag-id {
-  font-size: 0.65rem;
-  color: #94A3B8;
-  font-weight: 600;
-}
-
-.app-card__title {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #0F172A;
-  margin-bottom: 0.35rem;
-  line-height: 1.25;
-}
-
-.app-card__meta {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-size: 0.7rem;
-  color: #64748B;
-  margin-bottom: 0.75rem;
-}
-
-/* Sentiment in Phone */
-.sentiment-meter {
-  background: #F8FAFC;
-  border: 1px solid #F1F5F9;
-  border-radius: 8px;
-  padding: 0.5rem;
-  margin-bottom: 0.75rem;
-}
-
-.sentiment-meter__info {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.65rem;
-  margin-bottom: 0.35rem;
-}
-
-.sentiment-label {
-  font-weight: 600;
-  color: #475569;
-}
-
-.text-amber {
-  color: #D97706;
-  font-weight: 700;
-}
-
-.sentiment-bar {
-  height: 5px;
-  background: #E2E8F0;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.sentiment-bar__fill {
-  height: 100%;
-  background: linear-gradient(90deg, #F59E0B, #EF4444);
-  border-radius: 4px;
-}
-
-/* Mini Timeline */
-.mini-timeline {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  padding-top: 0.25rem;
-}
-
-.mini-step {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.2rem;
-  font-size: 0.6rem;
-  color: #94A3B8;
-  font-weight: 600;
-}
-
-.mini-step .step-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #CBD5E1;
-}
-
-.mini-step--done {
-  color: #059669;
-}
-
-.mini-step--done .step-dot {
-  background: #10B981;
-}
-
-.mini-step--active {
-  color: #1A52B5;
-}
-
-.mini-step--active .step-dot {
-  background: #1A52B5;
-  box-shadow: 0 0 0 3px rgba(26, 82, 181, 0.2);
-}
-
-.app-quick-cta {
-  background: var(--civic-blue);
-  color: #FFFFFF;
-  text-align: center;
-  padding: 0.65rem;
-  border-radius: 12px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  cursor: pointer;
+  filter: drop-shadow(0 25px 40px rgba(0, 18, 51, 0.25));
+  transition: transform var(--transition-normal);
 }
 
 /* Floating Overlay Cards */
@@ -392,7 +150,7 @@
 }
 
 .floating-card--sentiment {
-  top: 18%;
+  top: 10%;
   left: -48px;
 }
 

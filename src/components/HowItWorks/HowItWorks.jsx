@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { 
-  Building2,
-  MessageSquare, 
-  MapPin,
-  Send,
-  ArrowRight,
   Sparkles,
-  CheckCircle2
+  CheckCircle2,
+  ArrowRight
 } from 'lucide-react';
 import SectionHeading from '../common/SectionHeading';
 import Badge from '../common/Badge';
+import lguImg from '../../assets/lgu-image.png';
+import homepageImg from '../../assets/homepage-image.png';
+import welcomeImg from '../../assets/welcome-image.png';
 import './HowItWorks.css';
 
 export default function HowItWorks() {
@@ -20,8 +19,9 @@ export default function HowItWorks() {
       num: '01',
       title: 'Choose Your LGU',
       subtitle: 'Select who to report to',
-      icon: Building2,
       tag: 'Step 1: Select Local Government',
+      image: lguImg,
+      imageAlt: 'Select a Department screen in CitiSent app',
       desc: 'Select the Local Government Unit responsible for the concern you want to report. Since CitiSent is designed for Sto. Tomas City, the available LGU will be your local city government.',
       details: [
         'Choose the appropriate local government unit',
@@ -33,8 +33,9 @@ export default function HowItWorks() {
       num: '02',
       title: 'Describe Your Concern',
       subtitle: 'Your words are what matter most',
-      icon: MessageSquare,
       tag: 'Step 2: Written Report Description',
+      image: homepageImg,
+      imageAlt: 'CitiSent app home screen with latest reports',
       desc: 'Tell your local government what is happening. Describe the issue clearly in your own words — what happened, what the problem is, and any other details that can help the LGU understand your concern.',
       details: [
         'Write your concern in your own words',
@@ -46,8 +47,9 @@ export default function HowItWorks() {
       num: '03',
       title: 'Add Location & Photo',
       subtitle: 'Where is the issue? (Photo is optional)',
-      icon: MapPin,
       tag: 'Step 3: Location & Supporting Evidence',
+      image: lguImg,
+      imageAlt: 'CitiSent app department selection for location',
       desc: 'Pinpoint where the issue is located so the appropriate local government personnel can identify where action is needed. You may also add an optional photo to provide additional visual context.',
       details: [
         'Set the exact location of the reported issue',
@@ -59,8 +61,9 @@ export default function HowItWorks() {
       num: '04',
       title: 'Submit Your Report',
       subtitle: 'Send and track your concern',
-      icon: Send,
       tag: 'Step 4: Submission & Tracking',
+      image: welcomeImg,
+      imageAlt: 'CitiSent app welcome and login screen',
       desc: 'Review your report and submit it to the selected LGU. CitiSent will notify you of progress updates and allow you to communicate directly with the officials handling your concern.',
       details: [
         'Submit your report directly to the selected LGU',
@@ -86,7 +89,6 @@ export default function HowItWorks() {
         {/* Step Navigation Pill Bar */}
         <div className="steps-nav">
           {steps.map((step, idx) => {
-            const Icon = step.icon;
             const isActive = activeStep === idx;
             return (
               <button
@@ -143,27 +145,25 @@ export default function HowItWorks() {
             </div>
           </div>
 
-          {/* Right Visual Graphic for the Step */}
+          {/* Right Visual: Phone Screenshot */}
           <div className="step-showcase__visual">
-            <div className="step-visual-card">
-              <div className="step-icon-large">
-                {React.createElement(steps[activeStep].icon, { size: 48 })}
-              </div>
-              <div className="step-visual-status">
-                <span className="live-dot" />
-                <span>Active Civic Workflow</span>
-              </div>
-              <div className="step-visual-progress">
-                <div className="progress-bar-bg">
-                  <div 
-                    className="progress-bar-fill"
-                    style={{ width: `${((activeStep + 1) / steps.length) * 100}%` }}
+            <div className="step-phone-frame">
+              <img
+                key={activeStep}
+                src={steps[activeStep].image}
+                alt={steps[activeStep].imageAlt}
+                className="step-phone-img"
+              />
+              {/* Carousel dot pagination */}
+              <div className="step-pagination">
+                {steps.map((_, idx) => (
+                  <button
+                    key={idx}
+                    className={`step-pagination__dot ${activeStep === idx ? 'step-pagination__dot--active' : ''}`}
+                    onClick={() => setActiveStep(idx)}
+                    aria-label={`Go to step ${idx + 1}`}
                   />
-                </div>
-                <div className="progress-bar-labels">
-                  <span>Start</span>
-                  <span>Impact</span>
-                </div>
+                ))}
               </div>
             </div>
           </div>

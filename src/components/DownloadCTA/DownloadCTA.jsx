@@ -35,24 +35,6 @@ export default function DownloadCTA({ onOpenDownload }) {
               >
                 Download CitiSent
               </Button>
-
-              <a
-                href={APP_DOWNLOAD_LINKS.android}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cta-store-badge"
-              >
-                <span>Google Play</span>
-              </a>
-
-              <a
-                href={APP_DOWNLOAD_LINKS.ios}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cta-store-badge"
-              >
-                <span>App Store</span>
-              </a>
             </div>
 
             <div className="cta-guarantees">

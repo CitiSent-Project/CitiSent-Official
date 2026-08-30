@@ -3,18 +3,15 @@ import {
   Download,
   ArrowRight,
   ShieldCheck,
-  Sparkles,
-  MapPin,
-  Clock,
-  TrendingUp,
   CheckCircle,
-  MessageSquare,
+  Smartphone,
   Activity,
-  Smartphone
+  TrendingUp
 } from 'lucide-react';
 import Button from '../common/Button';
 import Badge from '../common/Badge';
 import { APP_STATS } from '../../config/downloadLinks';
+import homepageImg from '../../assets/homepage-image.png';
 import './Hero.css';
 
 export default function Hero({ onOpenDownload }) {
@@ -91,83 +88,13 @@ export default function Hero({ onOpenDownload }) {
         {/* Right Column: Visual Mockup Showcase */}
         <div className="hero-visual">
           <div className="hero-phone-wrapper animate-float">
-            {/* Phone Frame */}
-            <div className="hero-phone">
-              <div className="hero-phone__speaker" />
-              <div className="hero-phone__screen">
-                {/* Phone Header */}
-                <div className="app-header">
-                  <div className="app-header__status">
-                    <span className="app-time">9:41</span>
-                    <div className="app-signals">
-                      <span className="dot" />
-                      <span className="dot" />
-                      <span className="dot" />
-                    </div>
-                  </div>
-                  <div className="app-nav">
-                    <div className="app-user">
-                      <div className="app-avatar">MD</div>
-                      <div>
-                        <span className="app-greeting">Welcome back,</span>
-                        <strong className="app-username">Citizen Alex</strong>
-                      </div>
-                    </div>
-                    <div className="app-bell">
-                      <span className="app-bell__badge">2</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Simulated Live Report Card */}
-                <div className="app-card app-card--highlight">
-                  <div className="app-card__tag">
-                    <span className="tag-status tag-status--progress">In Progress</span>
-                    <span className="tag-id">#REP-8821</span>
-                  </div>
-                  <h4 className="app-card__title">Damaged Streetlight & Exposed Wiring</h4>
-                  <div className="app-card__meta">
-                    <MapPin size={12} />
-                    <span>Maharlika Hwy, Sto. Tomas City</span>
-                  </div>
-
-                  {/* Sentiment Bar */}
-                  <div className="sentiment-meter">
-                    <div className="sentiment-meter__info">
-                      <span className="sentiment-label">AI Urgency Sentiment</span>
-                      <span className="sentiment-val text-amber">High Urgency (89%)</span>
-                    </div>
-                    <div className="sentiment-bar">
-                      <div className="sentiment-bar__fill" style={{ width: '89%' }} />
-                    </div>
-                  </div>
-
-                  {/* Progress Timeline */}
-                  <div className="mini-timeline">
-                    <div className="mini-step mini-step--done">
-                      <div className="step-dot" />
-                      <span>Submitted</span>
-                    </div>
-                    <div className="mini-step mini-step--done">
-                      <div className="step-dot" />
-                      <span>Analyzed</span>
-                    </div>
-                    <div className="mini-step mini-step--active">
-                      <div className="step-dot" />
-                      <span>Assigned</span>
-                    </div>
-                    <div className="mini-step">
-                      <div className="step-dot" />
-                      <span>Resolved</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Quick Action Button */}
-                <div className="app-quick-cta">
-                  <span>+ Submit New Report</span>
-                </div>
-              </div>
+            {/* Phone Mockup Image */}
+            <div className="hero-phone-img-container">
+              <img
+                src={homepageImg}
+                alt="CitiSent Sto. Tomas Mobile App Preview"
+                className="hero-phone-img"
+              />
             </div>
 
             {/* Floating Highlight Card 1: Sentiment AI */}
