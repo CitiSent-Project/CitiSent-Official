@@ -35,7 +35,7 @@ export default function FAQ({ onOpenDownload }) {
     },
     {
       q: "Where can I download CitiSent?",
-      a: "You can download CitiSent directly on the Google Play Store for Android and Apple App Store for iOS devices, or download the direct installation APK from our official releases."
+      a: "You can download CitiSent directly as an Android APK from our official releases page."
     }
   ];
 

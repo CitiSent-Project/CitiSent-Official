@@ -1,12 +1,12 @@
 import React from 'react';
-import { 
-  Download, 
-  ArrowRight, 
-  ShieldCheck, 
-  Sparkles, 
-  MapPin, 
-  Clock, 
-  TrendingUp, 
+import {
+  Download,
+  ArrowRight,
+  ShieldCheck,
+  Sparkles,
+  MapPin,
+  Clock,
+  TrendingUp,
   CheckCircle,
   MessageSquare,
   Activity,
@@ -39,11 +39,6 @@ export default function Hero({ onOpenDownload }) {
       <div className="container hero-container">
         {/* Left Column: Headline & Messaging */}
         <div className="hero-content">
-          <div className="hero-badge-wrap">
-            <Badge variant="primary" icon={Sparkles} pulsing>
-              Next-Gen Citizen Reporting Platform
-            </Badge>
-          </div>
 
           <h1 className="hero-title">
             Make <span className="text-gradient">Sto. Tomas City</span> Heard.
@@ -64,7 +59,7 @@ export default function Hero({ onOpenDownload }) {
             >
               Download CitiSent
             </Button>
-            
+
             <Button
               variant="outline"
               size="lg"

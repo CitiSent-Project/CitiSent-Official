@@ -56,10 +56,6 @@
   flex-direction: column;
 }
 
-.hero-badge-wrap {
-  margin-bottom: 1.25rem;
-}
-
 .hero-title {
   font-size: clamp(2.75rem, 5vw, 4.25rem);
   font-weight: 800;
@@ -486,23 +482,29 @@
     text-align: center;
     gap: 3rem;
   }
+
   .hero-content {
     align-items: center;
   }
+
   .hero-subtitle {
     margin-left: auto;
     margin-right: auto;
   }
+
   .hero-actions {
     justify-content: center;
   }
+
   .hero-trust {
     justify-content: center;
   }
+
   .hero-stats-container {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
+
   .hero-stat-card:not(:last-child) {
     border-right: none;
   }
@@ -512,9 +514,11 @@
   .hero-section {
     padding-top: calc(var(--navbar-height) + 2rem);
   }
+
   .floating-card {
     display: none;
   }
+
   .hero-stats-container {
     grid-template-columns: 1fr;
     padding: 1.5rem;

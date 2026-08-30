@@ -57,8 +57,6 @@ export default function Footer({ onOpenDownload }) {
             <h4 className="footer-heading">Resources</h4>
             <ul className="footer-links">
               <li><a href="#faq" onClick={(e) => handleLinkClick(e, '#faq')}>Frequently Asked Questions</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); onOpenDownload(); }}>Download for iOS</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); onOpenDownload(); }}>Download for Android</a></li>
               <li><a href={APP_DOWNLOAD_LINKS.directApk} download>Download APK Package</a></li>
               <li><a href={`mailto:${APP_DOWNLOAD_LINKS.partnershipEmail}`}>Municipal Partnerships</a></li>
               <li><a href={`mailto:${APP_DOWNLOAD_LINKS.supportEmail}`}>Citizen Support Desk</a></li>
