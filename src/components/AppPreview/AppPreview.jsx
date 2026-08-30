@@ -189,7 +189,7 @@ export default function AppPreview({ onOpenDownload }) {
                   <div className="screen-view screen-submit">
                     <div className="mockup-header-title">
                       <h4>New Citizen Report</h4>
-                      <span className="sub">District 4 — Central Sector</span>
+                      <span className="sub">Sto. Tomas City</span>
                     </div>
 
                     <div className="mockup-field">
@@ -239,7 +239,7 @@ export default function AppPreview({ onOpenDownload }) {
 
                     <div className="track-card">
                       <strong className="track-title">Damaged Streetlight & Exposed Wiring</strong>
-                      <span className="track-loc"><MapPin size={12} /> Corner 5th Ave & Pine St</span>
+                      <span className="track-loc"><MapPin size={12} /> Maharlika Hwy, Sto. Tomas City</span>
                     </div>
 
                     <div className="track-pipeline">
@@ -325,7 +325,7 @@ export default function AppPreview({ onOpenDownload }) {
 
                     <div className="chat-messages">
                       <div className="chat-bubble chat-bubble--admin">
-                        Hello! Our electrical repair team is en route to 5th Ave. Could you confirm if the light pole is near the school entrance?
+                        Hello! Our electrical repair team is en route to Maharlika Hwy. Could you confirm if the light pole is near the school entrance?
                         <span className="chat-time">10:20 AM</span>
                       </div>
                       <div className="chat-bubble chat-bubble--user">

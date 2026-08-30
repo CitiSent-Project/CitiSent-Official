@@ -55,7 +55,7 @@ export default function Footer({ onOpenDownload }) {
             </div>
 
             <p className="footer-about">
-              CitiSent makes citizen reporting easier by connecting communities with local administrators through simple reporting, real-time tracking, AI sentiment analysis, and community insights.
+              CitiSent makes citizen reporting easier by connecting residents of Sto. Tomas City with their local administrators through simple reporting, real-time tracking, AI sentiment analysis, and community insights.
             </p>
 
             {/* System Status Pill */}
@@ -125,7 +125,7 @@ export default function Footer({ onOpenDownload }) {
         {/* Bottom Bar */}
         <div className="footer-bottom">
           <div className="footer-copyright">
-            <span>© 2026 CitiSent. All rights reserved. Built with civic purpose.</span>
+            <span>© 2026 CitiSent. All rights reserved. Built with civic purpose for Sto. Tomas City, Batangas.</span>
           </div>
 
           <div className="footer-legal">

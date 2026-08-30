@@ -18,11 +18,11 @@ export default function DownloadCTA({ onOpenDownload }) {
             </div>
 
             <h2 className="cta-title">
-              Your Voice Can Make <span className="text-gradient-emerald">a Real Difference.</span>
+              Help Make <span className="text-gradient-emerald">Sto. Tomas City</span> Better.
             </h2>
 
             <p className="cta-subtitle">
-              Download the official CitiSent mobile application and help build a safer, cleaner, and more responsive community today.
+              Download CitiSent and make your voice heard in your community.
             </p>
 
             <div className="cta-actions">
@@ -33,7 +33,7 @@ export default function DownloadCTA({ onOpenDownload }) {
                 iconPosition="left"
                 onClick={onOpenDownload}
               >
-                Download CitiSent Free
+                Download CitiSent
               </Button>
 
               <a

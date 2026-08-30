@@ -44,22 +44,22 @@ export default function WhatIsCitiSent({ onOpenDownload }) {
     <section id="about" className="section what-section">
       <div className="container">
         <SectionHeading
-          badge="Civic Modernization"
+          badge="Built for Sto. Tomas City"
           badgeIcon={Sparkles}
           badgeVariant="primary"
-          title="Bridging the Gap Between"
-          highlight="Citizens & Local Government"
-          subtitle="Traditional municipal reporting is slow, disconnected, and opaque. CitiSent re-engineers civic engagement with an intelligent, transparent mobile ecosystem."
+          title="Making Sto. Tomas City"
+          highlight="More Responsive & Connected"
+          subtitle="CitiSent was designed with the community of Sto. Tomas City, Batangas in mind. It gives residents a convenient way to raise concerns, monitor their reports, communicate with administrators, and contribute to a more responsive community."
         />
 
         <div className="what-grid">
           {/* Left Column: Narrative & Value Pillars */}
           <div className="what-content">
             <h3 className="what-content__headline">
-              A modern digital bridge for everyday community problems.
+              A smarter way for residents of Sto. Tomas City to report, track, and communicate about community concerns.
             </h3>
             <p className="what-content__desc">
-              Whether it's an uncollected waste pile, an open manhole, a malfunctioning traffic signal, or public property damage, CitiSent gives every citizen a verified voice and every city administrator the clarity to act.
+              Whether it's an uncollected waste pile, an open manhole, a malfunctioning traffic signal, or public property damage within Sto. Tomas City, CitiSent gives every citizen a verified voice and every city administrator the clarity to act.
             </p>
 
             <div className="pillars-list">

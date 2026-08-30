@@ -25,8 +25,8 @@ export default function KeyFeatures() {
       icon: MapPin,
       iconColor: 'blue',
       badge: 'Core Feature',
-      title: 'Easy Citizen Reporting',
-      desc: 'Allow citizens to quickly submit reports about issues in their community with camera upload, category tagging, and automatic GPS geo-pinning in under 15 seconds.',
+      title: 'Report Issues in Your Community',
+      desc: 'See something that needs attention in Sto. Tomas City? CitiSent gives residents an easy way to submit concerns and keep track of what happens next.',
       highlights: ['Automatic GPS Location', 'Photo Evidence Upload', 'Smart Category Tags']
     },
     {
@@ -93,8 +93,8 @@ export default function KeyFeatures() {
           badgeIcon={Layers}
           badgeVariant="cyan"
           title="Everything You Need to"
-          highlight="Transform Civic Reporting"
-          subtitle="Engineered for both everyday citizens and local government administrators with intelligent, reliable, and user-centric features."
+          highlight="Transform Sto. Tomas City"
+          subtitle="Engineered for both everyday residents and local government administrators with intelligent, reliable, and user-centric features specifically for our city."
         />
 
         {/* Feature Filters */}

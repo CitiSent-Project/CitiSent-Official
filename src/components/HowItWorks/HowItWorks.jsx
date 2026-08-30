@@ -93,7 +93,7 @@ export default function HowItWorks() {
           badgeVariant="emerald"
           title="How CitiSent"
           highlight="Works in Action"
-          subtitle="From the moment you spot a community hazard to its verified resolution, CitiSent ensures speed, clarity, and accountability at every stage."
+          subtitle="From the moment you spot a community hazard in Sto. Tomas City to its verified resolution, CitiSent ensures speed, clarity, and accountability at every stage."
           dark
         />
 

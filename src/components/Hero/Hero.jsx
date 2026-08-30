@@ -46,11 +46,11 @@ export default function Hero({ onOpenDownload }) {
           </div>
 
           <h1 className="hero-title">
-            Make Your City <span className="text-gradient">Heard.</span>
+            Make <span className="text-gradient">Sto. Tomas City</span> Heard.
           </h1>
 
           <p className="hero-subtitle">
-            CitiSent makes it easier for citizens to report community concerns, track their reports in real-time, and stay directly connected with their local government.
+            CitiSent connects residents of Sto. Tomas City, Batangas with their local government through easier reporting, tracking, communication, and community insights.
           </p>
 
           {/* Action CTAs */}
@@ -72,7 +72,7 @@ export default function Hero({ onOpenDownload }) {
               iconPosition="right"
               onClick={scrollToFeatures}
             >
-              Learn More
+              Discover How It Works
             </Button>
           </div>
 
@@ -133,7 +133,7 @@ export default function Hero({ onOpenDownload }) {
                   <h4 className="app-card__title">Damaged Streetlight & Exposed Wiring</h4>
                   <div className="app-card__meta">
                     <MapPin size={12} />
-                    <span>Corner 5th Ave & Pine St</span>
+                    <span>Maharlika Hwy, Sto. Tomas City</span>
                   </div>
 
                   {/* Sentiment Bar */}
