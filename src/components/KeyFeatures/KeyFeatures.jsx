@@ -9,7 +9,8 @@ import {
   ArrowUpRight,
   Sparkles,
   Layers,
-  Check
+  Check,
+  Camera
 } from 'lucide-react';
 import SectionHeading from '../common/SectionHeading';
 import Badge from '../common/Badge';
@@ -20,34 +21,44 @@ export default function KeyFeatures() {
 
   const features = [
     {
+      id: 'lgu',
+      category: 'citizen',
+      icon: Building,
+      iconColor: 'blue',
+      badge: 'First Step',
+      title: 'Choose Your LGU',
+      desc: 'Select the Local Government Unit you want to send your report to. Your concern goes directly to the right officials in Sto. Tomas City.',
+      highlights: ['Direct LGU Routing', 'Sto. Tomas City Government', 'Correct Department Delivery']
+    },
+    {
       id: 'reporting',
       category: 'citizen',
-      icon: MapPin,
-      iconColor: 'blue',
+      icon: MessageSquare,
+      iconColor: 'emerald',
       badge: 'Core Feature',
-      title: 'Easy Citizen Reporting',
-      desc: 'Allow citizens to quickly submit reports about issues in their community with camera upload, category tagging, and automatic GPS geo-pinning in under 15 seconds.',
-      highlights: ['Automatic GPS Location', 'Photo Evidence Upload', 'Smart Category Tags']
+      title: 'Describe the Problem',
+      desc: 'Tell your LGU what is happening in your own words. Your written description is the primary information in the report and helps officials understand your concern.',
+      highlights: ['Write in your own words', 'Voice-to-Text Input', 'Primary Report Information']
+    },
+    {
+      id: 'photo',
+      category: 'citizen',
+      icon: Camera,
+      iconColor: 'emerald',
+      badge: 'Optional Context',
+      title: 'Optional Photo Evidence',
+      desc: 'Add a photo when it helps provide additional context. Photos are optional and simply support your written report.',
+      highlights: ['High-Resolution Uploads', 'Not Required to Submit', 'Helps Field Crews']
     },
     {
       id: 'tracking',
       category: 'citizen',
       icon: BarChart3,
-      iconColor: 'emerald',
+      iconColor: 'cyan',
       badge: 'Real-Time',
       title: 'Live Report Tracking',
-      desc: 'Citizens can monitor the exact progress and status of their submitted reports from initial review, to unit dispatch, through final photographic resolution.',
+      desc: 'Citizens can monitor the exact progress and status of their submitted reports from initial review, to unit dispatch, through final resolution.',
       highlights: ['Step-by-step Milestones', 'Timestamped Progress Logs', 'Resolution Verification']
-    },
-    {
-      id: 'communication',
-      category: 'citizen',
-      icon: MessageSquare,
-      iconColor: 'cyan',
-      badge: 'Two-Way Dialogue',
-      title: 'Administrator Communication',
-      desc: 'Direct in-app messaging channel between citizens and assigned municipal administrators to provide clarifications, updates, or follow-up feedback.',
-      highlights: ['In-App Chat Threads', 'Officer Assignment Notes', 'Encrypted & Official']
     },
     {
       id: 'sentiment',
@@ -55,8 +66,8 @@ export default function KeyFeatures() {
       icon: BrainCircuit,
       iconColor: 'purple',
       badge: 'AI Powered',
-      title: 'AI Sentiment & Urgency Analysis',
-      desc: 'Natural language sentiment models analyze citizen descriptions to detect urgency levels, hazards, and emotional weight for prioritized emergency dispatch.',
+      title: 'AI-Powered Text Analysis',
+      desc: 'CitiSent analyzes the words and sentiment in your report to help identify the nature, emotional tone, and urgency of community concerns.',
       highlights: ['Urgency Classification', 'Tone & Severity Scoring', 'Hazard Keyword Detection']
     },
     {
@@ -93,8 +104,8 @@ export default function KeyFeatures() {
           badgeIcon={Layers}
           badgeVariant="cyan"
           title="Everything You Need to"
-          highlight="Transform Civic Reporting"
-          subtitle="Engineered for both everyday citizens and local government administrators with intelligent, reliable, and user-centric features."
+          highlight="Transform Sto. Tomas City"
+          subtitle="Engineered for both everyday residents and local government administrators with intelligent, reliable, and user-centric features specifically for our city."
         />
 
         {/* Feature Filters */}

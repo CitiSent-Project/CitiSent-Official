@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { APP_DOWNLOAD_LINKS } from '../../config/downloadLinks';
 import './Footer.css';
+import logoLeft from '../../assets/logo-left.png';
 
 export default function Footer({ onOpenDownload }) {
   const scrollToTop = () => {
@@ -34,34 +35,7 @@ export default function Footer({ onOpenDownload }) {
           {/* Brand Col */}
           <div className="footer-col footer-col--brand">
             <div className="footer-brand">
-              <div className="brand-logo-icon">
-                <svg viewBox="0 0 40 40" width="34" height="34" fill="none">
-                  <rect width="40" height="40" rx="10" fill="#1E293B" />
-                  <path d="M20 6L32 11V20C32 27.5 27 34 20 36.5C13 34 8 27.5 8 20V11L20 6Z" fill="url(#footGrad)" />
-                  <circle cx="20" cy="18" r="5" fill="#FFFFFF" />
-                  <path d="M20 15C18.34 15 17 16.34 17 18C17 21 20 25 20 25C20 25 23 21 23 18C23 16.34 21.66 15 20 15Z" fill="#2563EB" />
-                  <defs>
-                    <linearGradient id="footGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#2563EB" />
-                      <stop offset="100%" stopColor="#06B6D4" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
-              <div className="brand-logo-text">
-                <span className="brand-name text-white">Citi<span className="brand-accent">Sent</span></span>
-                <span className="brand-tag">Civic Technology</span>
-              </div>
-            </div>
-
-            <p className="footer-about">
-              CitiSent makes citizen reporting easier by connecting communities with local administrators through simple reporting, real-time tracking, AI sentiment analysis, and community insights.
-            </p>
-
-            {/* System Status Pill */}
-            <div className="footer-status-pill">
-              <span className="status-ping" />
-              <span>All Systems Operational — 99.9% Uptime</span>
+              <img src={logoLeft} alt="CitiSent Logo" className="brand-logo-image" />
             </div>
           </div>
 
@@ -125,7 +99,7 @@ export default function Footer({ onOpenDownload }) {
         {/* Bottom Bar */}
         <div className="footer-bottom">
           <div className="footer-copyright">
-            <span>© 2026 CitiSent. All rights reserved. Built with civic purpose.</span>
+            <span>© 2026 CitiSent. All rights reserved. Built with civic purpose for Sto. Tomas City, Batangas.</span>
           </div>
 
           <div className="footer-legal">

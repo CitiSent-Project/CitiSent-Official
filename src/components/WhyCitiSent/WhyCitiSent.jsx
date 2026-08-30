@@ -74,8 +74,8 @@ export default function WhyCitiSent() {
           badgeIcon={Award}
           badgeVariant="primary"
           title="Why Choose CitiSent for"
-          highlight="Your Community?"
-          subtitle="Built to empower everyday citizens and elevate the efficiency of local municipal administration through smart technology."
+          highlight="Sto. Tomas City?"
+          subtitle="Built to empower residents of Sto. Tomas City and elevate the efficiency of our local municipal administration through smart technology."
         />
 
         {/* Audience Toggle */}
@@ -86,7 +86,7 @@ export default function WhyCitiSent() {
               onClick={() => setActiveAudience('citizens')}
             >
               <UserCheck size={18} />
-              <span>For Everyday Citizens</span>
+              <span>For Residents of Sto. Tomas City</span>
             </button>
             <button
               className={`audience-btn ${activeAudience === 'administrators' ? 'audience-btn--active' : ''}`}

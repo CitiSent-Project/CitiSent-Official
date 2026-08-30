@@ -21,7 +21,7 @@ export default function WhatIsCitiSent({ onOpenDownload }) {
     {
       icon: Zap,
       title: "Frictionless Citizen Reporting",
-      desc: "No confusing bureaucratic hotlines. Snap a photo, add GPS location, and submit in seconds from your pocket."
+      desc: "No confusing bureaucratic hotlines. Describe the issue in your own words, add GPS location, and submit in seconds from your pocket."
     },
     {
       icon: Eye,
@@ -44,22 +44,22 @@ export default function WhatIsCitiSent({ onOpenDownload }) {
     <section id="about" className="section what-section">
       <div className="container">
         <SectionHeading
-          badge="Civic Modernization"
+          badge="Built for Sto. Tomas City"
           badgeIcon={Sparkles}
           badgeVariant="primary"
-          title="Bridging the Gap Between"
-          highlight="Citizens & Local Government"
-          subtitle="Traditional municipal reporting is slow, disconnected, and opaque. CitiSent re-engineers civic engagement with an intelligent, transparent mobile ecosystem."
+          title="Making Sto. Tomas City"
+          highlight="More Responsive & Connected"
+          subtitle="CitiSent was designed with the community of Sto. Tomas City, Batangas in mind. It gives residents a convenient way to raise concerns, monitor their reports, communicate with administrators, and contribute to a more responsive community."
         />
 
         <div className="what-grid">
           {/* Left Column: Narrative & Value Pillars */}
           <div className="what-content">
             <h3 className="what-content__headline">
-              A modern digital bridge for everyday community problems.
+              A smarter way for residents of Sto. Tomas City to report, track, and communicate about community concerns.
             </h3>
             <p className="what-content__desc">
-              Whether it's an uncollected waste pile, an open manhole, a malfunctioning traffic signal, or public property damage, CitiSent gives every citizen a verified voice and every city administrator the clarity to act.
+              Whether it's an uncollected waste pile, an open manhole, a malfunctioning traffic signal, or public property damage within Sto. Tomas City, CitiSent gives every citizen a verified voice and every city administrator the clarity to act.
             </p>
 
             <div className="pillars-list">
@@ -129,7 +129,7 @@ export default function WhatIsCitiSent({ onOpenDownload }) {
                 <ul className="compare-list">
                   <li className="compare-list__item compare-list__item--good">
                     <span className="dot-bullet green" />
-                    <span><strong>10-Second Submissions:</strong> Photo, GPS, and auto-categorization</span>
+                    <span><strong>Text-First Reporting:</strong> Describe issues in your own words with optional photos</span>
                   </li>
                   <li className="compare-list__item compare-list__item--good">
                     <span className="dot-bullet green" />
