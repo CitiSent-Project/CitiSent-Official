@@ -54,7 +54,7 @@
   font-family: var(--font-heading);
   font-size: 1.35rem;
   font-weight: 800;
-  color: #0B132B;
+  color: #001233;
   letter-spacing: -0.03em;
   line-height: 1.1;
 }
@@ -82,7 +82,7 @@
   font-family: var(--font-heading);
   font-size: 0.925rem;
   font-weight: 600;
-  color: #334155;
+  color: #2A4475;
   transition: color var(--transition-fast);
   position: relative;
   padding: 0.35rem 0;
@@ -221,7 +221,7 @@
 }
 
 .mobile-drawer__link:hover {
-  background: #EFF6FF;
+  background: #EBF0FB;
   color: var(--civic-blue);
 }
 

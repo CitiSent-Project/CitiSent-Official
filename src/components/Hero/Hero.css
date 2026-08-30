@@ -2,7 +2,7 @@
   position: relative;
   padding-top: calc(var(--navbar-height) + 4rem);
   padding-bottom: 3.5rem;
-  background: radial-gradient(120% 80% at 50% 0%, #EEF2FF 0%, #FFFFFF 60%);
+  background: radial-gradient(120% 80% at 50% 0%, #EBF0FB 0%, #FFFFFF 65%);
   overflow: hidden;
 }
 
@@ -20,7 +20,7 @@
   height: 500px;
   top: -100px;
   left: 20%;
-  background: rgba(37, 99, 235, 0.12);
+  background: rgba(10, 61, 145, 0.15);
 }
 
 .hero-bg-glow--cyan {
@@ -28,13 +28,13 @@
   height: 450px;
   top: 150px;
   right: 5%;
-  background: rgba(6, 182, 212, 0.1);
+  background: rgba(46, 106, 201, 0.15);
 }
 
 .hero-bg-grid {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(148, 163, 184, 0.2) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(74, 100, 148, 0.22) 1px, transparent 1px);
   background-size: 32px 32px;
   pointer-events: none;
   opacity: 0.6;
@@ -61,14 +61,14 @@
   font-weight: 800;
   line-height: 1.08;
   letter-spacing: -0.04em;
-  color: #0B132B;
+  color: #001233;
   margin-bottom: 1.5rem;
 }
 
 .hero-subtitle {
   font-size: clamp(1.1rem, 1.8vw, 1.25rem);
   line-height: 1.6;
-  color: #475569;
+  color: #2A4475;
   margin-bottom: 2.25rem;
   max-width: 580px;
 }
@@ -95,7 +95,7 @@
   gap: 0.45rem;
   font-size: 0.875rem;
   font-weight: 600;
-  color: #334155;
+  color: #001845;
 }
 
 .trust-item__icon {
@@ -116,24 +116,24 @@
 }
 
 .hero-phone {
-  background: #0B132B;
-  border: 10px solid #1E293B;
+  background: #001233;
+  border: 10px solid #002D6E;
   border-radius: 42px;
   padding: 0.75rem 0.5rem;
-  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 60px -15px rgba(0, 18, 51, 0.4), 0 0 0 1px rgba(184, 208, 245, 0.15);
   position: relative;
 }
 
 .hero-phone__speaker {
   width: 60px;
   height: 4px;
-  background: #334155;
+  background: #2A4475;
   border-radius: 4px;
   margin: 0.25rem auto 0.75rem;
 }
 
 .hero-phone__screen {
-  background: #F8FAFC;
+  background: #F2F5FC;
   border-radius: 30px;
   padding: 1rem 0.85rem;
   overflow: hidden;
@@ -357,16 +357,16 @@
 }
 
 .mini-step--active {
-  color: #2563EB;
+  color: #1A52B5;
 }
 
 .mini-step--active .step-dot {
-  background: #2563EB;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  background: #1A52B5;
+  box-shadow: 0 0 0 3px rgba(26, 82, 181, 0.2);
 }
 
 .app-quick-cta {
-  background: var(--grad-primary);
+  background: var(--civic-blue);
   color: #FFFFFF;
   text-align: center;
   padding: 0.65rem;

@@ -39,33 +39,33 @@
 
 /* Variants */
 .citi-badge--primary {
-  background: rgba(37, 99, 235, 0.12);
+  background: rgba(26, 82, 181, 0.12);
   color: var(--civic-blue);
-  border: 1px solid rgba(37, 99, 235, 0.25);
+  border: 1px solid rgba(26, 82, 181, 0.3);
 }
 
 .citi-badge--emerald {
-  background: rgba(16, 185, 129, 0.12);
+  background: rgba(5, 150, 105, 0.12);
   color: #059669;
-  border: 1px solid rgba(16, 185, 129, 0.25);
+  border: 1px solid rgba(5, 150, 105, 0.25);
 }
 
 .citi-badge--cyan {
-  background: rgba(6, 182, 212, 0.12);
-  color: #0891B2;
-  border: 1px solid rgba(6, 182, 212, 0.25);
+  background: rgba(46, 106, 201, 0.14);
+  color: #1A52B5;
+  border: 1px solid rgba(46, 106, 201, 0.3);
 }
 
 .citi-badge--amber {
-  background: rgba(245, 158, 11, 0.12);
-  color: #D97706;
-  border: 1px solid rgba(245, 158, 11, 0.25);
+  background: rgba(217, 119, 6, 0.12);
+  color: #B45309;
+  border: 1px solid rgba(217, 119, 6, 0.25);
 }
 
 .citi-badge--neutral {
-  background: rgba(100, 116, 139, 0.1);
-  color: #475569;
-  border: 1px solid rgba(100, 116, 139, 0.2);
+  background: rgba(74, 100, 148, 0.12);
+  color: #2A4475;
+  border: 1px solid rgba(74, 100, 148, 0.22);
 }
 
 .citi-badge--dark {

@@ -42,7 +42,7 @@
   width: 42px;
   height: 42px;
   border-radius: var(--radius-md);
-  background: #EFF6FF;
+  background: #EBF0FB;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,8 +89,8 @@
 
 .compare-card--new {
   background: #FFFFFF;
-  border: 2px solid #2563EB;
-  box-shadow: 0 15px 35px -5px rgba(37, 99, 235, 0.18);
+  border: 2px solid #1A52B5;
+  box-shadow: 0 15px 35px -5px rgba(26, 82, 181, 0.2);
   position: relative;
 }
 

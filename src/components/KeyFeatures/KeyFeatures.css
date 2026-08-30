@@ -57,7 +57,7 @@
 .feature-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-xl);
-  border-color: rgba(37, 99, 235, 0.3);
+  border-color: rgba(26, 82, 181, 0.35);
 }
 
 .feature-card__header {
@@ -77,8 +77,8 @@
 }
 
 .feature-card__icon-box--blue {
-  background: #EFF6FF;
-  color: #2563EB;
+  background: #EBF0FB;
+  color: #1A52B5;
 }
 
 .feature-card__icon-box--emerald {

@@ -42,25 +42,26 @@
 
 /* Variants */
 .citi-btn--primary {
-  background: var(--grad-primary);
+  background: var(--civic-blue);
   color: #FFFFFF;
-  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.35);
+  box-shadow: 0 4px 14px 0 rgba(26, 82, 181, 0.4);
 }
 
 .citi-btn--primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px 0 rgba(37, 99, 235, 0.5);
+  background: var(--civic-blue-dark);
+  box-shadow: 0 6px 20px 0 rgba(0, 45, 110, 0.55);
   color: #FFFFFF;
 }
 
 .citi-btn--secondary {
-  background: #1E293B;
-  color: #F8FAFC;
-  border-color: rgba(255, 255, 255, 0.12);
+  background: #001845;
+  color: #F2F5FC;
+  border-color: rgba(184, 208, 245, 0.18);
 }
 
 .citi-btn--secondary:hover {
-  background: #334155;
+  background: #002D6E;
   color: #FFFFFF;
   transform: translateY(-2px);
 }
@@ -72,7 +73,7 @@
 }
 
 .citi-btn--outline:hover {
-  background: rgba(37, 99, 235, 0.08);
+  background: rgba(26, 82, 181, 0.1);
   color: var(--civic-blue-dark);
 }
 
@@ -82,7 +83,7 @@
 }
 
 .citi-btn--ghost:hover {
-  background: rgba(15, 23, 42, 0.05);
+  background: rgba(0, 18, 51, 0.05);
   color: var(--text-primary);
 }
 
