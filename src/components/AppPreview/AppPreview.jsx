@@ -54,9 +54,6 @@ export default function AppPreview({ onOpenDownload }) {
     <section id="preview" className="section section-alt preview-section">
       <div className="container">
         <SectionHeading
-          badge="Interactive App Showcase"
-          badgeIcon={Smartphone}
-          badgeVariant="emerald"
           title="Experience the"
           highlight="CitiSent Mobile Interface"
           subtitle="Designed with meticulous attention to detail for an intuitive, fast, and accessible citizen experience on iOS and Android."

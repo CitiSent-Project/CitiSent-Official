@@ -47,9 +47,6 @@ export default function FAQ({ onOpenDownload }) {
     <section id="faq" className="section faq-section">
       <div className="container container-narrow">
         <SectionHeading
-          badge="Frequently Asked Questions"
-          badgeIcon={HelpCircle}
-          badgeVariant="primary"
           title="Got Questions?"
           highlight="We Have Answers"
           subtitle="Everything you need to know about the CitiSent citizen platform and how it operates in your community."

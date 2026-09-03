@@ -100,8 +100,6 @@ export default function KeyFeatures() {
     <section id="features" className="section section-alt features-section">
       <div className="container">
         <SectionHeading
-          badge="Platform Capabilities"
-          badgeIcon={Layers}
           badgeVariant="cyan"
           title="Everything You Need to"
           highlight="Transform Sto. Tomas City"

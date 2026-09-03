@@ -44,8 +44,6 @@ export default function WhatIsCitiSent({ onOpenDownload }) {
     <section id="about" className="section what-section">
       <div className="container">
         <SectionHeading
-          badge="Built for Sto. Tomas City"
-          badgeIcon={Sparkles}
           badgeVariant="primary"
           title="Making Sto. Tomas City"
           highlight="More Responsive & Connected"
