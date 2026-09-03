@@ -70,8 +70,6 @@ export default function WhyCitiSent() {
     <section id="why-citisent" className="section why-section">
       <div className="container">
         <SectionHeading
-          badge="The Value of CitiSent"
-          badgeIcon={Award}
           badgeVariant="primary"
           title="Why Choose CitiSent for"
           highlight="Sto. Tomas City?"

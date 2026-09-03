@@ -77,8 +77,6 @@ export default function HowItWorks() {
     <section id="how-it-works" className="section section-dark how-section">
       <div className="container">
         <SectionHeading
-          badge="Reporting Made Simple"
-          badgeIcon={Sparkles}
           badgeVariant="emerald"
           title="How CitiSent"
           highlight="Works in Action"
