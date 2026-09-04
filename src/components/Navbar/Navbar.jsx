@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Download, Shield, ChevronRight, Activity } from 'lucide-react';
+import ReactDOM from 'react-dom';
+import { Menu, X, Download, ChevronRight } from 'lucide-react';
 import Button from '../common/Button';
 import logoLeft from '../../assets/logo-left.png';
 import './Navbar.css';
@@ -91,50 +92,54 @@ export default function Navbar({ onOpenDownload }) {
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
-      <div className={`mobile-drawer ${mobileMenuOpen ? 'mobile-drawer--open' : ''}`}>
-        <div className="mobile-drawer__backdrop" onClick={() => setMobileMenuOpen(false)} />
-        <div className="mobile-drawer__content">
-          <div className="mobile-drawer__header">
-            <div className="citi-navbar__brand">
-              <img src={logoLeft} alt="CitiSent Logo" className="brand-logo-img" style={{ height: '32px' }} />
+      {/* Mobile Drawer — rendered via portal to escape the navbar's backdrop-filter stacking context,
+          which would otherwise confine position:fixed children to the navbar's bounding box. */}
+      {ReactDOM.createPortal(
+        <div className={`mobile-drawer ${mobileMenuOpen ? 'mobile-drawer--open' : ''}`}>
+          <div className="mobile-drawer__backdrop" onClick={() => setMobileMenuOpen(false)} />
+          <div className="mobile-drawer__content">
+            <div className="mobile-drawer__header">
+              <div className="citi-navbar__brand">
+                <img src={logoLeft} alt="CitiSent Logo" className="brand-logo-img" style={{ height: '32px' }} />
+              </div>
+              <button className="mobile-drawer__close" onClick={() => setMobileMenuOpen(false)}>
+                <X size={22} />
+              </button>
             </div>
-            <button className="mobile-drawer__close" onClick={() => setMobileMenuOpen(false)}>
-              <X size={22} />
-            </button>
-          </div>
 
-          <div className="mobile-drawer__links">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="mobile-drawer__link"
-                onClick={(e) => handleLinkClick(e, link.href)}
+            <div className="mobile-drawer__links">
+              {navLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="mobile-drawer__link"
+                  onClick={(e) => handleLinkClick(e, link.href)}
+                >
+                  <span>{link.label}</span>
+                  <ChevronRight size={16} className="mobile-drawer__arrow" />
+                </a>
+              ))}
+            </div>
+
+            <div className="mobile-drawer__cta">
+              <Button
+                variant="primary"
+                size="lg"
+                fullWidth
+                icon={Download}
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenDownload();
+                }}
               >
-                <span>{link.label}</span>
-                <ChevronRight size={16} className="mobile-drawer__arrow" />
-              </a>
-            ))}
+                Download CitiSent App
+              </Button>
+              <p className="mobile-drawer__hint">Available only for Android</p>
+            </div>
           </div>
-
-          <div className="mobile-drawer__cta">
-            <Button
-              variant="primary"
-              size="lg"
-              fullWidth
-              icon={Download}
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenDownload();
-              }}
-            >
-              Download CitiSent App
-            </Button>
-            <p className="mobile-drawer__hint">Available free for iOS & Android</p>
-          </div>
-        </div>
-      </div>
+        </div>,
+        document.body
+      )}
     </header>
   );
 }
