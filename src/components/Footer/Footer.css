@@ -194,6 +194,9 @@
 }
 
 @media (max-width: 640px) {
+  .footer-section {
+    padding-top: 3.5rem;
+  }
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -201,5 +204,9 @@
   .footer-bottom {
     flex-direction: column;
     text-align: center;
+  }
+  .brand-logo-image {
+    width: 100%;
+    max-width: 200px;
   }
 }
