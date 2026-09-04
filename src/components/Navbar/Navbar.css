@@ -249,3 +249,12 @@
     display: flex;
   }
 }
+
+@media (max-width: 640px) {
+  .citi-navbar__actions .citi-btn {
+    display: none;
+  }
+  .citi-navbar__actions {
+    gap: 0;
+  }
+}

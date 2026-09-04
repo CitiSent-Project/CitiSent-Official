@@ -225,3 +225,23 @@
     padding: 2rem;
   }
 }
+
+@media (max-width: 640px) {
+  .step-showcase {
+    padding: 1.5rem;
+  }
+  .step-main-title {
+    font-size: 1.5rem;
+  }
+  .steps-nav {
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  .step-nav-btn {
+    padding: 0.55rem 1rem;
+    font-size: 0.875rem;
+  }
+  .step-controls {
+    flex-wrap: wrap;
+  }
+}
