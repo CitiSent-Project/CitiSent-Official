@@ -181,6 +181,25 @@ ul, ol {
 .section {
   padding: 5.5rem 0;
   position: relative;
+  overflow: hidden;
+}
+
+/* Global Dot Grid Overlay for all sections */
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(74, 100, 148, 0.2) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.65;
+}
+
+.container,
+.container-narrow {
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 768px) {
@@ -200,6 +219,11 @@ ul, ol {
 .section-dark {
   background-color: var(--bg-dark);
   color: var(--text-light);
+}
+
+.section-dark::before {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+  opacity: 0.45;
 }
 
 .section-dark h1,
