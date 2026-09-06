@@ -42,7 +42,7 @@ export default function Hero({ onOpenDownload }) {
           </h1>
 
           <p className="hero-subtitle">
-            CitiSent connects residents of Sto. Tomas City, Batangas with their local government through easier reporting, tracking, communication, and community insights.
+            <strong>CitiSent: An Emotion-Aware City-Based Reporting System with Sentiment Analysis</strong> connects Sto. Tomas residents with local government through smarter reporting, tracking, and communication.
           </p>
 
           {/* Action CTAs */}
