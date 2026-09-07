@@ -1,19 +1,14 @@
 import React, { useState } from 'react';
 import { 
-  MapPin, 
   BarChart3, 
   MessageSquare, 
   BrainCircuit, 
   BellRing, 
   Building, 
-  ArrowUpRight,
-  Sparkles,
-  Layers,
   Check,
   Camera
 } from 'lucide-react';
 import SectionHeading from '../common/SectionHeading';
-import Badge from '../common/Badge';
 import './KeyFeatures.css';
 
 export default function KeyFeatures() {
@@ -25,7 +20,6 @@ export default function KeyFeatures() {
       category: 'citizen',
       icon: Building,
       iconColor: 'blue',
-      badge: 'First Step',
       title: 'Choose Your LGU',
       desc: 'Select the Local Government Unit you want to send your report to. Your concern goes directly to the right officials in Sto. Tomas City.',
       highlights: ['Direct LGU Routing', 'Sto. Tomas City Government', 'Correct Department Delivery']
@@ -35,7 +29,6 @@ export default function KeyFeatures() {
       category: 'citizen',
       icon: MessageSquare,
       iconColor: 'emerald',
-      badge: 'Core Feature',
       title: 'Describe the Problem',
       desc: 'Tell your LGU what is happening in your own words. Your written description is the primary information in the report and helps officials understand your concern.',
       highlights: ['Write in your own words', 'Voice-to-Text Input', 'Primary Report Information']
@@ -45,7 +38,6 @@ export default function KeyFeatures() {
       category: 'citizen',
       icon: Camera,
       iconColor: 'emerald',
-      badge: 'Optional Context',
       title: 'Optional Photo Evidence',
       desc: 'Add a photo when it helps provide additional context. Photos are optional and simply support your written report.',
       highlights: ['High-Resolution Uploads', 'Not Required to Submit', 'Helps Field Crews']
@@ -55,7 +47,6 @@ export default function KeyFeatures() {
       category: 'citizen',
       icon: BarChart3,
       iconColor: 'cyan',
-      badge: 'Real-Time',
       title: 'Live Report Tracking',
       desc: 'Citizens can monitor the exact progress and status of their submitted reports from initial review, to unit dispatch, through final resolution.',
       highlights: ['Step-by-step Milestones', 'Timestamped Progress Logs', 'Resolution Verification']
@@ -65,7 +56,6 @@ export default function KeyFeatures() {
       category: 'ai',
       icon: BrainCircuit,
       iconColor: 'purple',
-      badge: 'AI Powered',
       title: 'AI-Powered Text Analysis',
       desc: 'CitiSent analyzes the words and sentiment in your report to help identify the nature, emotional tone, and urgency of community concerns.',
       highlights: ['Urgency Classification', 'Tone & Severity Scoring', 'Hazard Keyword Detection']
@@ -75,7 +65,6 @@ export default function KeyFeatures() {
       category: 'citizen',
       icon: BellRing,
       iconColor: 'amber',
-      badge: 'Instant Alerts',
       title: 'Real-Time Notifications',
       desc: 'Keep citizens proactively updated with push notifications and status badges whenever a municipal officer inspects, comments on, or resolves their report.',
       highlights: ['Instant Push Alerts', 'Status Milestone Triggers', 'Community Broadcasts']
@@ -85,7 +74,6 @@ export default function KeyFeatures() {
       category: 'admin',
       icon: Building,
       iconColor: 'rose',
-      badge: 'City Analytics',
       title: 'Community Insights & Heatmaps',
       desc: 'Help municipal leaders identify recurring infrastructure issues, view neighborhood hazard heatmaps, and optimize city budget and crew allocation.',
       highlights: ['Civic Issue Heatmaps', 'Trend & Pattern Discovery', 'District Resource Planning']
@@ -100,7 +88,6 @@ export default function KeyFeatures() {
     <section id="features" className="section section-alt features-section">
       <div className="container">
         <SectionHeading
-          badgeVariant="cyan"
           title="Everything You Need to"
           highlight="Transform Sto. Tomas City"
           subtitle="Engineered for both everyday residents and local government administrators with intelligent, reliable, and user-centric features specifically for our city."
@@ -144,7 +131,6 @@ export default function KeyFeatures() {
                   <div className={`feature-card__icon-box feature-card__icon-box--${feat.iconColor}`}>
                     <Icon size={24} />
                   </div>
-                  <span className="feature-card__badge">{feat.badge}</span>
                 </div>
 
                 <h3 className="feature-card__title">{feat.title}</h3>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { 
-  Sparkles,
-  CheckCircle2,
+  CheckCircle2, 
   ArrowRight
 } from 'lucide-react';
 import SectionHeading from '../common/SectionHeading';
@@ -77,7 +76,6 @@ export default function HowItWorks() {
     <section id="how-it-works" className="section section-dark how-section">
       <div className="container">
         <SectionHeading
-          badgeVariant="emerald"
           title="How CitiSent"
           highlight="Works in Action"
           subtitle="From choosing the right LGU to submitting your concern, CitiSent makes it easy for residents of Sto. Tomas City to report community issues."
