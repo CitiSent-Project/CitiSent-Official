@@ -4,12 +4,9 @@ import {
   ArrowRight,
   ShieldCheck,
   CheckCircle,
-  Smartphone,
-  Activity,
-  TrendingUp
+  Smartphone
 } from 'lucide-react';
 import Button from '../common/Button';
-import Badge from '../common/Badge';
 import { APP_STATS } from '../../config/downloadLinks';
 import homepageImg from '../../assets/homepage-image.png';
 import './Hero.css';
@@ -28,11 +25,6 @@ export default function Hero({ onOpenDownload }) {
 
   return (
     <section id="home" className="hero-section">
-      {/* Background Decorative Gradients & Mesh */}
-      <div className="hero-bg-glow hero-bg-glow--primary" />
-      <div className="hero-bg-glow hero-bg-glow--cyan" />
-      <div className="hero-bg-grid" />
-
       <div className="container hero-container">
         {/* Left Column: Headline & Messaging */}
         <div className="hero-content">
@@ -87,36 +79,13 @@ export default function Hero({ onOpenDownload }) {
 
         {/* Right Column: Visual Mockup Showcase */}
         <div className="hero-visual">
-          <div className="hero-phone-wrapper animate-float">
-            {/* Phone Mockup Image */}
+          <div className="hero-phone-wrapper">
             <div className="hero-phone-img-container">
               <img
                 src={homepageImg}
                 alt="CitiSent Sto. Tomas Mobile App Preview"
                 className="hero-phone-img"
               />
-            </div>
-
-            {/* Floating Highlight Card 1: Sentiment AI */}
-            <div className="floating-card floating-card--sentiment">
-              <div className="floating-card__icon bg-cyan">
-                <Activity size={18} color="#FFFFFF" />
-              </div>
-              <div>
-                <span className="floating-card__label">AI Sentiment Analysis</span>
-                <strong className="floating-card__value">Instant Prioritization</strong>
-              </div>
-            </div>
-
-            {/* Floating Highlight Card 2: Resolution Stat */}
-            <div className="floating-card floating-card--stats">
-              <div className="floating-card__icon bg-emerald">
-                <TrendingUp size={18} color="#FFFFFF" />
-              </div>
-              <div>
-                <span className="floating-card__label">Resolution Rate</span>
-                <strong className="floating-card__value">{APP_STATS.resolvedReports}</strong>
-              </div>
             </div>
           </div>
         </div>
