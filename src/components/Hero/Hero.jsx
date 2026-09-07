@@ -25,6 +25,8 @@ export default function Hero({ onOpenDownload }) {
 
   return (
     <section id="home" className="hero-section">
+      <div className="hero-bg-grid" />
+
       <div className="container hero-container">
         {/* Left Column: Headline & Messaging */}
         <div className="hero-content">
