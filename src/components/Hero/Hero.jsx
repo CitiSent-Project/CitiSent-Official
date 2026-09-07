@@ -7,7 +7,7 @@ import {
   Smartphone
 } from 'lucide-react';
 import Button from '../common/Button';
-import { APP_STATS } from '../../config/downloadLinks';
+import { CIVIC_FACTS } from '../../config/downloadLinks';
 import homepageImg from '../../assets/homepage-image.png';
 import './Hero.css';
 
@@ -93,24 +93,24 @@ export default function Hero({ onOpenDownload }) {
         </div>
       </div>
 
-      {/* Stats Bar */}
+      {/* Factual Platform Indicators Bar */}
       <div className="hero-stats-bar">
         <div className="container hero-stats-container">
           <div className="hero-stat-card">
-            <strong className="stat-number text-gradient">{APP_STATS.activeCitizens}</strong>
-            <span className="stat-label">Active Citizen Reporters</span>
+            <strong className="stat-number text-gradient">{CIVIC_FACTS.coverage}</strong>
+            <span className="stat-label">{CIVIC_FACTS.coverageLabel}</span>
           </div>
           <div className="hero-stat-card">
-            <strong className="stat-number text-gradient-emerald">{APP_STATS.resolvedReports}</strong>
-            <span className="stat-label">Report Resolution Rate</span>
+            <strong className="stat-number text-gradient-emerald">{CIVIC_FACTS.routing}</strong>
+            <span className="stat-label">{CIVIC_FACTS.routingLabel}</span>
           </div>
           <div className="hero-stat-card">
-            <strong className="stat-number text-gradient">{APP_STATS.avgResponseTime}</strong>
-            <span className="stat-label">Average Response Time</span>
+            <strong className="stat-number text-gradient">{CIVIC_FACTS.tracking}</strong>
+            <span className="stat-label">{CIVIC_FACTS.trackingLabel}</span>
           </div>
           <div className="hero-stat-card">
-            <strong className="stat-number text-gradient-emerald">{APP_STATS.partnerMunicipalities}</strong>
-            <span className="stat-label">Connected Barangays</span>
+            <strong className="stat-number text-gradient-emerald">{CIVIC_FACTS.access}</strong>
+            <span className="stat-label">{CIVIC_FACTS.accessLabel}</span>
           </div>
         </div>
       </div>

@@ -20,9 +20,13 @@ export const APP_DOWNLOAD_LINKS = {
 
 };
 
-export const APP_STATS = {
-  activeCitizens: "1,000+",
-  resolvedReports: "99.9%",
-  avgResponseTime: "< 24 hrs",
-  partnerMunicipalities: "30+"
+export const CIVIC_FACTS = {
+  coverage: "Sto. Tomas City",
+  coverageLabel: "Target Coverage (Batangas)",
+  routing: "Direct LGU",
+  routingLabel: "City Department Delivery",
+  tracking: "Real-Time",
+  trackingLabel: "Status & Lifecycle Tracking",
+  access: "Free Access",
+  accessLabel: "Available to All Residents"
 };
