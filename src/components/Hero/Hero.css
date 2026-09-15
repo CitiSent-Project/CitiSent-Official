@@ -82,6 +82,7 @@
   display: flex;
   justify-content: center;
   position: relative;
+  perspective: 1200px;
 }
 
 .hero-phone-wrapper {
@@ -90,6 +91,7 @@
   max-width: 440px;
   display: flex;
   justify-content: center;
+  perspective: 1000px;
 }
 
 .hero-phone-img-container {
@@ -98,6 +100,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transform-style: preserve-3d;
 }
 
 .hero-phone-img {
@@ -106,7 +109,8 @@
   height: auto;
   display: block;
   filter: drop-shadow(0 25px 45px rgba(0, 18, 51, 0.2));
-  transition: transform var(--transition-normal);
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 /* Responsive adjustments */
@@ -142,5 +146,13 @@
 
   .hero-phone-wrapper {
     max-width: 320px;
+  }
+}
+
+/* Disable 3D tilt on touch devices, small screens, and users requesting reduced motion */
+@media (hover: none), (pointer: coarse), (max-width: 1024px), (prefers-reduced-motion: reduce) {
+  .hero-phone-img {
+    transform: none !important;
+    will-change: auto;
   }
 }
