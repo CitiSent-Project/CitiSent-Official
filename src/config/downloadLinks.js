@@ -18,6 +18,12 @@ export const APP_DOWNLOAD_LINKS = {
   // Demo Video / Documentation
   demoVideo: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
 
+  // Developer / Direct Contact Email
+  contactEmail: "marcdarrenguev08@gmail.com",
+
+  // Developer Social Profiles
+  linkedin: "https://www.linkedin.com/in/darren-guevarra-21644b363/",
+  github: "https://github.com/DarrenGuev/"
 };
 
 export const CIVIC_FACTS = {
