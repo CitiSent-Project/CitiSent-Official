@@ -75,12 +75,13 @@
 .citi-navbar__links {
   display: flex;
   align-items: center;
-  gap: 1.75rem;
+  gap: 2rem;
+  margin-left: auto;
 }
 
 .citi-navbar__link {
   font-family: var(--font-heading);
-  font-size: 0.925rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: #2A4475;
   transition: color var(--transition-fast);
@@ -112,7 +113,12 @@
 .citi-navbar__actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
+}
+
+@media (min-width: 1025px) {
+  .citi-navbar__actions {
+    display: none;
+  }
 }
 
 .mobile-toggle {

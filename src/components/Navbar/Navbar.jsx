@@ -66,18 +66,8 @@ export default function Navbar({ onOpenDownload }) {
           ))}
         </nav>
 
-        {/* Desktop Actions */}
+        {/* Actions / Mobile Toggle */}
         <div className="citi-navbar__actions">
-          <Button
-            variant="primary"
-            size="md"
-            icon={Download}
-            iconPosition="left"
-            onClick={onOpenDownload}
-          >
-            Download App
-          </Button>
-
           {/* Mobile Hamburger Button */}
           <button
             className="mobile-toggle"
