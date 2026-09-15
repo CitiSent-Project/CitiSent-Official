@@ -40,6 +40,7 @@
   line-height: 1.2;
   margin-bottom: 1rem;
   letter-spacing: -0.03em;
+  color: var(--brand-primary);
 }
 
 .section-heading__subtitle {
@@ -48,8 +49,17 @@
   color: var(--text-secondary);
 }
 
+.section-heading__highlight {
+  color: var(--brand-primary);
+  display: inline-block;
+}
+
 .section-heading--dark .section-heading__title {
   color: #FFFFFF;
+}
+
+.section-heading--dark .section-heading__highlight {
+  color: var(--brand-soft-blue);
 }
 
 .section-heading--dark .section-heading__subtitle {

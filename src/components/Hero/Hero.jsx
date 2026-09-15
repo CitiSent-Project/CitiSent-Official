@@ -20,7 +20,7 @@ export default function Hero({ onOpenDownload }) {
 
   const scrollToFeatures = (e) => {
     e.preventDefault();
-    const target = document.querySelector('#about');
+    const target = document.querySelector('#why-citisent');
     if (target) {
       const navOffset = 70;
       const elementPosition = target.getBoundingClientRect().top;

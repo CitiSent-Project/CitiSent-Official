@@ -23,7 +23,7 @@ export default function SectionHeading({
         </div>
       )}
       <h2 className="section-heading__title">
-        {title} {highlight && <span className="text-gradient">{highlight}</span>}
+        {title} {highlight && <span className="section-heading__highlight">{highlight}</span>}
       </h2>
       {subtitle && <p className="section-heading__subtitle">{subtitle}</p>}
     </div>
