@@ -8,6 +8,7 @@ import step4FillReportImg from '../../assets/step4-fill-report.png';
 import step6SubmittedImg from '../../assets/step6-submitted.png';
 
 import SectionHeading from '../common/SectionHeading';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import './HowItWorks.css';
 
 export default function HowItWorks() {
@@ -92,6 +93,39 @@ export default function HowItWorks() {
                 <span className="hiw-caption-pill">
                   {steps[activeStep].caption}
                 </span>
+              </div>
+
+              {/* Navigation Indicator Dots & Arrows */}
+              <div className="hiw-preview-nav">
+                <button
+                  type="button"
+                  className="hiw-nav-arrow"
+                  onClick={() => setActiveStep(prev => (prev > 0 ? prev - 1 : steps.length - 1))}
+                  aria-label="Previous step"
+                >
+                  <ChevronLeft size={18} />
+                </button>
+
+                <div className="hiw-preview-dots">
+                  {steps.map((_, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      className={`hiw-dot ${activeStep === i ? 'hiw-dot--active' : ''}`}
+                      onClick={() => setActiveStep(i)}
+                      aria-label={`Go to step ${i + 1}`}
+                    />
+                  ))}
+                </div>
+
+                <button
+                  type="button"
+                  className="hiw-nav-arrow"
+                  onClick={() => setActiveStep(prev => (prev < steps.length - 1 ? prev + 1 : 0))}
+                  aria-label="Next step"
+                >
+                  <ChevronRight size={18} />
+                </button>
               </div>
             </div>
           </div>

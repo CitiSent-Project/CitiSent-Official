@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import WhatIsCitiSent from './components/WhatIsCitiSent/WhatIsCitiSent';
-import KeyFeatures from './components/KeyFeatures/KeyFeatures';
 import HowItWorks from './components/HowItWorks/HowItWorks';
+import AdminChat from './components/AdminChat/AdminChat';
 import DownloadCTA from './components/DownloadCTA/DownloadCTA';
 import FAQ from './components/FAQ/FAQ';
 import Footer from './components/Footer/Footer';
@@ -37,11 +37,11 @@ export default function App() {
         <WhatIsCitiSent onOpenDownload={handleOpenDownload} />
 
 
-        {/* Key Features */}
-        <KeyFeatures />
-
         {/* How It Works */}
         <HowItWorks />
+
+        {/* Admin Chat Showcase */}
+        <AdminChat />
 
         {/* FAQ Accordion */}
         <FAQ onOpenDownload={handleOpenDownload} />
