@@ -88,7 +88,7 @@
 .hero-phone-wrapper {
   position: relative;
   width: 100%;
-  max-width: 440px;
+  max-width: 480px;
   display: flex;
   justify-content: center;
   perspective: 1000px;
@@ -105,7 +105,7 @@
 
 .hero-phone-img {
   width: 100%;
-  max-width: 420px;
+  max-width: 465px;
   height: auto;
   display: block;
   filter: drop-shadow(0 25px 45px rgba(0, 18, 51, 0.2));
