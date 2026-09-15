@@ -24,8 +24,8 @@ export default function Navbar({ onOpenDownload }) {
   const navLinks = [
     { label: 'Home', href: '#home' },
     { label: 'What is CitiSent', href: '#about' },
-    { label: 'Features', href: '#features' },
     { label: 'How It Works', href: '#how-it-works' },
+    { label: 'Admin Chat', href: '#admin-chat' },
     { label: 'FAQ', href: '#faq' }
   ];
 
