@@ -87,7 +87,7 @@
 .hero-phone-wrapper {
   position: relative;
   width: 100%;
-  max-width: 340px;
+  max-width: 440px;
   display: flex;
   justify-content: center;
 }
@@ -102,10 +102,10 @@
 
 .hero-phone-img {
   width: 100%;
-  max-width: 320px;
+  max-width: 420px;
   height: auto;
   display: block;
-  filter: drop-shadow(0 20px 35px rgba(0, 18, 51, 0.18));
+  filter: drop-shadow(0 25px 45px rgba(0, 18, 51, 0.2));
   transition: transform var(--transition-normal);
 }
 
@@ -189,6 +189,10 @@
 @media (max-width: 640px) {
   .hero-section {
     padding-top: calc(var(--navbar-height) + 2rem);
+  }
+
+  .hero-phone-wrapper {
+    max-width: 320px;
   }
 
   .floating-card {
