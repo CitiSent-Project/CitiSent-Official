@@ -1,41 +1,206 @@
 /* ==========================================================================
-   CitiSent Scroll Reveal Animation System
-   Subtle fade-in + smooth upward glide
+   CitiSent Premium Scroll Reveal Animation System
+   Apple / Vercel-inspired subtle GPU-accelerated entrance animations
    ========================================================================== */
 
+:root {
+  --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-reveal-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* --------------------------------------------------------------------------
+   1. Base Section / Container Reveal
+   Starts slightly below final position with subtle scale & reduced opacity
+   -------------------------------------------------------------------------- */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(26px) scale(0.985);
+  transition: opacity 0.68s var(--ease-reveal),
+              transform 0.68s var(--ease-reveal);
   will-change: opacity, transform;
 }
 
-/* Revealed state when scrolled into view */
+/* Triggered State */
 .scroll-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* --------------------------------------------------------------------------
+   2. Section Heading Micro-Stagger
+   Heading title lifts first (+60ms), subtitle follows (+130ms)
+   -------------------------------------------------------------------------- */
+.scroll-reveal .section-heading__badge-wrapper {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.55s var(--ease-reveal),
+              transform 0.55s var(--ease-reveal);
+  transition-delay: 30ms;
+}
+
+.scroll-reveal .section-heading__title {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s var(--ease-reveal),
+              transform 0.6s var(--ease-reveal);
+  transition-delay: 70ms;
+}
+
+.scroll-reveal .section-heading__subtitle {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s var(--ease-reveal),
+              transform 0.6s var(--ease-reveal);
+  transition-delay: 140ms;
+}
+
+.scroll-reveal.is-revealed .section-heading__badge-wrapper,
+.scroll-reveal.is-revealed .section-heading__title,
+.scroll-reveal.is-revealed .section-heading__subtitle {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Optional delay classes for staggered sub-elements */
-.scroll-reveal--delay-100 {
-  transition-delay: 100ms;
+/* --------------------------------------------------------------------------
+   3. Directional & Component Variants
+   -------------------------------------------------------------------------- */
+
+/* Cards & Spotlight Panels: subtle upward elevation */
+.scroll-reveal .reveal-card,
+.scroll-reveal-card {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s var(--ease-reveal),
+              transform 0.65s var(--ease-reveal);
+  will-change: opacity, transform;
 }
 
-.scroll-reveal--delay-200 {
-  transition-delay: 200ms;
+.scroll-reveal.is-revealed .reveal-card,
+.scroll-reveal-card.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.scroll-reveal--delay-300 {
-  transition-delay: 300ms;
+/* Phone Mockups & Heroic Images: subtle scale + lift */
+.scroll-reveal .reveal-scale,
+.scroll-reveal .reveal-phone,
+.scroll-reveal-scale {
+  opacity: 0;
+  transform: translateY(18px) scale(0.95);
+  transition: opacity 0.72s var(--ease-reveal),
+              transform 0.72s var(--ease-reveal);
+  will-change: opacity, transform;
 }
 
-/* Respect user's accessibility preferences for reduced motion */
-@media (prefers-reduced-motion: reduce) {
+.scroll-reveal.is-revealed .reveal-scale,
+.scroll-reveal.is-revealed .reveal-phone,
+.scroll-reveal-scale.is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Feature Items, Stepper Rows & Sub-elements */
+.scroll-reveal .reveal-item,
+.scroll-reveal-item {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.58s var(--ease-reveal),
+              transform 0.58s var(--ease-reveal);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-revealed .reveal-item,
+.scroll-reveal-item.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   4. Staggered Sequence for Multi-Element Lists / Grids
+   Delays elements sequentially by 60ms-75ms for effortless, organic flow
+   -------------------------------------------------------------------------- */
+.scroll-reveal .reveal-stagger-list > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.58s var(--ease-reveal),
+              transform 0.58s var(--ease-reveal);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-revealed .reveal-stagger-list > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Automated nth-child delays (70ms intervals) */
+.scroll-reveal.is-revealed .reveal-stagger-list > :nth-child(1) { transition-delay: 80ms; }
+.scroll-reveal.is-revealed .reveal-stagger-list > :nth-child(2) { transition-delay: 150ms; }
+.scroll-reveal.is-revealed .reveal-stagger-list > :nth-child(3) { transition-delay: 220ms; }
+.scroll-reveal.is-revealed .reveal-stagger-list > :nth-child(4) { transition-delay: 290ms; }
+.scroll-reveal.is-revealed .reveal-stagger-list > :nth-child(5) { transition-delay: 360ms; }
+.scroll-reveal.is-revealed .reveal-stagger-list > :nth-child(6) { transition-delay: 430ms; }
+.scroll-reveal.is-revealed .reveal-stagger-list > :nth-child(7) { transition-delay: 500ms; }
+.scroll-reveal.is-revealed .reveal-stagger-list > :nth-child(8) { transition-delay: 570ms; }
+
+/* Explicit utility delay modifiers */
+.reveal-delay-50  { transition-delay: 50ms !important; }
+.reveal-delay-100 { transition-delay: 100ms !important; }
+.reveal-delay-150 { transition-delay: 150ms !important; }
+.reveal-delay-200 { transition-delay: 200ms !important; }
+.reveal-delay-250 { transition-delay: 250ms !important; }
+.reveal-delay-300 { transition-delay: 300ms !important; }
+.reveal-delay-350 { transition-delay: 350ms !important; }
+.reveal-delay-400 { transition-delay: 400ms !important; }
+
+/* --------------------------------------------------------------------------
+   5. Mobile & Touch Screen Optimizations
+   Keep transforms tighter on smaller viewports to prevent excess scrolling jitter
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
   .scroll-reveal {
+    transform: translateY(16px) scale(0.99);
+    transition-duration: 0.55s;
+  }
+
+  .scroll-reveal .reveal-scale,
+  .scroll-reveal .reveal-phone,
+  .scroll-reveal-scale {
+    transform: translateY(12px) scale(0.97);
+    transition-duration: 0.6s;
+  }
+
+  .scroll-reveal .reveal-card,
+  .scroll-reveal-card {
+    transform: translateY(14px);
+    transition-duration: 0.55s;
+  }
+
+  .scroll-reveal .reveal-item,
+  .scroll-reveal-item,
+  .scroll-reveal .reveal-stagger-list > * {
+    transform: translateY(12px);
+    transition-duration: 0.5s;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. Accessibility: prefers-reduced-motion
+   Instantly reveals all elements with zero motion for users requiring it
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .scroll-reveal *,
+  .reveal-card,
+  .reveal-scale,
+  .reveal-phone,
+  .reveal-item,
+  .scroll-reveal-card,
+  .scroll-reveal-scale,
+  .scroll-reveal-item {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+    animation: none !important;
     will-change: auto !important;
   }
 }

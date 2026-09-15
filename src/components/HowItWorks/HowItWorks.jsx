@@ -78,7 +78,7 @@ export default function HowItWorks() {
           
           {/* Left Column: Phone Mockup Frame */}
           <div className="hiw-preview-col">
-            <div className="hiw-phone-wrapper">
+            <div className="hiw-phone-wrapper reveal-scale reveal-delay-100">
               <div className="hiw-phone-container">
                 <img
                   key={activeStep}
@@ -89,14 +89,14 @@ export default function HowItWorks() {
               </div>
 
               {/* Clean Caption under Phone */}
-              <div className="hiw-phone-caption">
+              <div className="hiw-phone-caption reveal-item reveal-delay-200">
                 <span className="hiw-caption-pill">
                   {steps[activeStep].caption}
                 </span>
               </div>
 
               {/* Navigation Indicator Dots & Arrows */}
-              <div className="hiw-preview-nav">
+              <div className="hiw-preview-nav reveal-item reveal-delay-250">
                 <button
                   type="button"
                   className="hiw-nav-arrow"
@@ -132,7 +132,7 @@ export default function HowItWorks() {
 
           {/* Right Column: Vertical Numbered Timeline Stepper */}
           <div className="hiw-timeline-col">
-            <div className="hiw-stepper">
+            <div className="hiw-stepper reveal-stagger-list">
               {steps.map((step, idx) => {
                 const isActive = activeStep === idx;
 

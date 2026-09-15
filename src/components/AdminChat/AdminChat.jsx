@@ -50,10 +50,10 @@ export default function AdminChat() {
           subtitle="Once your report is submitted, stay in direct contact with the local city office handling your concern. Clarify details, provide extra information, and track resolution collaboratively in real time."
         />
 
-        <div className="admin-chat-showcase">
+        <div className="admin-chat-showcase reveal-card reveal-delay-100">
           <div className="chat-showcase__body">
             {/* Left Column: Interactive 3-Step Selection */}
-            <div className="chat-showcase__stepper">
+            <div className="chat-showcase__stepper reveal-stagger-list">
               {chatSteps.map((s, idx) => {
                 const isActive = activeChatStep === idx;
                 return (
@@ -76,7 +76,7 @@ export default function AdminChat() {
 
             {/* Right Column: Phone Mockup Display */}
             <div className="chat-showcase__preview">
-              <div className="chat-phone-frame">
+              <div className="chat-phone-frame reveal-scale reveal-delay-200">
                 <img
                   key={activeChatStep}
                   src={chatSteps[activeChatStep].image}
@@ -86,7 +86,7 @@ export default function AdminChat() {
               </div>
 
               {/* Step Navigation Indicator Dots & Arrows */}
-              <div className="chat-preview-nav">
+              <div className="chat-preview-nav reveal-item reveal-delay-250">
                 <button
                   type="button"
                   className="chat-nav-arrow"

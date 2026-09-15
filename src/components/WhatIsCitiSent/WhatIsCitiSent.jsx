@@ -49,14 +49,14 @@ export default function WhatIsCitiSent({ onOpenDownload }) {
         <div className="what-grid">
           {/* Left Column: Narrative & Value Pillars */}
           <div className="what-content">
-            <h3 className="what-content__headline">
+            <h3 className="what-content__headline reveal-item reveal-delay-100">
               A dedicated reporting channel for residents of Sto. Tomas City.
             </h3>
-            <p className="what-content__desc">
+            <p className="what-content__desc reveal-item reveal-delay-150">
               Whether it's an uncollected waste pile, an open manhole, a malfunctioning streetlight, or road damage within Sto. Tomas City, CitiSent ensures concerns reach the right local departments with clear tracking.
             </p>
 
-            <div className="pillars-list">
+            <div className="pillars-list reveal-stagger-list">
               {pillars.map((pillar, idx) => {
                 const Icon = pillar.icon;
                 return (
@@ -73,7 +73,7 @@ export default function WhatIsCitiSent({ onOpenDownload }) {
               })}
             </div>
 
-            <div className="what-cta-wrap">
+            <div className="what-cta-wrap reveal-item reveal-delay-350">
               <Button variant="primary" size="md" onClick={onOpenDownload}>
                 Join Your Community on CitiSent
               </Button>
@@ -82,7 +82,7 @@ export default function WhatIsCitiSent({ onOpenDownload }) {
 
           {/* Right Column: Civic Overview Spotlight Card */}
           <div className="what-visual">
-            <div className="civic-spotlight-card">
+            <div className="civic-spotlight-card reveal-card reveal-delay-150">
               <div className="spotlight-header">
                 <div className="spotlight-badge">
                   <Building size={16} />
@@ -97,7 +97,7 @@ export default function WhatIsCitiSent({ onOpenDownload }) {
                   CitiSent connects residents directly with city administrators to ensure community concerns are documented, tracked, and addressed systematically.
                 </p>
 
-                <div className="spotlight-features">
+                <div className="spotlight-features reveal-stagger-list">
                   <div className="spotlight-feature-item">
                     <CheckCircle2 size={18} className="spotlight-icon-check" />
                     <div>
