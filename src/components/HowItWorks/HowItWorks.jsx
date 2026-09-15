@@ -77,21 +77,13 @@ export default function HowItWorks() {
           {/* Left Column: Phone Mockup Frame */}
           <div className="hiw-preview-col">
             <div className="hiw-phone-wrapper">
-              <div className="hiw-phone-frame">
-                {/* Minimalist Phone Speaker / Camera Notch */}
-                <div className="hiw-phone-notch">
-                  <div className="hiw-notch-speaker" />
-                </div>
-
-                {/* Screenshot Display */}
-                <div className="hiw-screen-container">
-                  <img
-                    key={activeStep}
-                    src={steps[activeStep].image}
-                    alt={steps[activeStep].imageAlt}
-                    className="hiw-screen-img"
-                  />
-                </div>
+              <div className="hiw-phone-container">
+                <img
+                  key={activeStep}
+                  src={steps[activeStep].image}
+                  alt={steps[activeStep].imageAlt}
+                  className="hiw-screen-img"
+                />
               </div>
 
               {/* Clean Caption under Phone */}

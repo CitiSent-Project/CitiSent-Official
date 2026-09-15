@@ -62,47 +62,12 @@
   max-width: 320px;
 }
 
-.hiw-phone-frame {
-  position: relative;
+.hiw-phone-container {
   width: 100%;
-  background: #0F172A;
-  border: 8px solid #1E293B;
-  border-radius: 38px;
-  box-shadow: 
-    0 16px 40px -8px rgba(0, 24, 69, 0.16),
-    0 4px 12px rgba(0, 24, 69, 0.08);
-  overflow: hidden;
-}
-
-.hiw-phone-notch {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 64px;
-  height: 14px;
-  background: #020617;
-  border-radius: 10px;
-  z-index: 5;
   display: flex;
-  align-items: center;
   justify-content: center;
-}
-
-.hiw-notch-speaker {
-  width: 24px;
-  height: 3px;
-  border-radius: 2px;
-  background: #1E293B;
-}
-
-.hiw-screen-container {
-  width: 100%;
-  background: #F8FAFC;
-  overflow: hidden;
-  display: flex;
   align-items: center;
-  justify-content: center;
+  filter: drop-shadow(0 14px 28px rgba(0, 24, 69, 0.12));
 }
 
 .hiw-screen-img {
