@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
-import WhatIsCitiSent from './components/WhatIsCitiSent/WhatIsCitiSent';
+import WhyCitiSent from './components/WhyCitiSent/WhyCitiSent';
 import HowItWorks from './components/HowItWorks/HowItWorks';
 import AdminChat from './components/AdminChat/AdminChat';
 import DownloadCTA from './components/DownloadCTA/DownloadCTA';
@@ -33,8 +33,8 @@ export default function App() {
         {/* Hero Section */}
         <Hero onOpenDownload={handleOpenDownload} />
 
-        {/* What is CitiSent */}
-        <WhatIsCitiSent onOpenDownload={handleOpenDownload} />
+        {/* Why CitiSent */}
+        <WhyCitiSent />
 
 
         {/* How It Works */}
