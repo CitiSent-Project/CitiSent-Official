@@ -74,36 +74,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.feature-card__icon-box--blue {
   background: #EBF0FB;
-  color: #1A52B5;
+  color: var(--civic-blue, #1A52B5);
+  transition: all var(--transition-fast);
 }
 
-.feature-card__icon-box--emerald {
-  background: #ECFDF5;
-  color: #10B981;
+.feature-card:hover .feature-card__icon-box {
+  background: #DCE6F8;
+  color: var(--brand-dark-blue, #002D6E);
+  transform: translateY(-2px);
 }
 
-.feature-card__icon-box--cyan {
-  background: #ECFEFF;
-  color: #06B6D4;
-}
-
-.feature-card__icon-box--purple {
-  background: #F5F3FF;
-  color: #8B5CF6;
-}
-
-.feature-card__icon-box--amber {
-  background: #FFFBEB;
-  color: #F59E0B;
-}
-
+.feature-card__icon-box--blue,
+.feature-card__icon-box--emerald,
+.feature-card__icon-box--cyan,
+.feature-card__icon-box--purple,
+.feature-card__icon-box--amber,
 .feature-card__icon-box--rose {
-  background: #FFF1F2;
-  color: #F43F5E;
+  background: #EBF0FB;
+  color: var(--civic-blue, #1A52B5);
 }
 
 .feature-card__badge {

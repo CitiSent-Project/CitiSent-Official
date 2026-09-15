@@ -1,0 +1,41 @@
+/* ==========================================================================
+   CitiSent Scroll Reveal Animation System
+   Subtle fade-in + smooth upward glide
+   ========================================================================== */
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+/* Revealed state when scrolled into view */
+.scroll-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional delay classes for staggered sub-elements */
+.scroll-reveal--delay-100 {
+  transition-delay: 100ms;
+}
+
+.scroll-reveal--delay-200 {
+  transition-delay: 200ms;
+}
+
+.scroll-reveal--delay-300 {
+  transition-delay: 300ms;
+}
+
+/* Respect user's accessibility preferences for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+}

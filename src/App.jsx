@@ -4,14 +4,17 @@ import Hero from './components/Hero/Hero';
 import WhatIsCitiSent from './components/WhatIsCitiSent/WhatIsCitiSent';
 import KeyFeatures from './components/KeyFeatures/KeyFeatures';
 import HowItWorks from './components/HowItWorks/HowItWorks';
-import AppPreview from './components/AppPreview/AppPreview';
 import DownloadCTA from './components/DownloadCTA/DownloadCTA';
 import FAQ from './components/FAQ/FAQ';
 import Footer from './components/Footer/Footer';
 import DownloadModal from './components/DownloadModal/DownloadModal';
+import useScrollReveal from './hooks/useScrollReveal';
 
 export default function App() {
   const [downloadModalOpen, setDownloadModalOpen] = useState(false);
+
+  // Automatically observe all .scroll-reveal sections across the page
+  useScrollReveal();
 
   const handleOpenDownload = () => {
     setDownloadModalOpen(true);
@@ -33,14 +36,12 @@ export default function App() {
         {/* What is CitiSent */}
         <WhatIsCitiSent onOpenDownload={handleOpenDownload} />
 
+
         {/* Key Features */}
         <KeyFeatures />
 
         {/* How It Works */}
         <HowItWorks />
-
-        {/* Interactive App Preview */}
-        <AppPreview onOpenDownload={handleOpenDownload} />
 
         {/* FAQ Accordion */}
         <FAQ onOpenDownload={handleOpenDownload} />

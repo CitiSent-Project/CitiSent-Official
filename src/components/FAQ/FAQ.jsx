@@ -45,7 +45,7 @@ export default function FAQ({ onOpenDownload }) {
 
   return (
     <section id="faq" className="section faq-section">
-      <div className="container container-narrow">
+      <div className="container container-narrow scroll-reveal">
         <SectionHeading
           title="Got Questions?"
           highlight="We Have Answers"
