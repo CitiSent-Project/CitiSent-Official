@@ -4,7 +4,6 @@ import Hero from './components/Hero/Hero';
 import WhatIsCitiSent from './components/WhatIsCitiSent/WhatIsCitiSent';
 import KeyFeatures from './components/KeyFeatures/KeyFeatures';
 import HowItWorks from './components/HowItWorks/HowItWorks';
-import AppPreview from './components/AppPreview/AppPreview';
 import DownloadCTA from './components/DownloadCTA/DownloadCTA';
 import FAQ from './components/FAQ/FAQ';
 import Footer from './components/Footer/Footer';
@@ -39,9 +38,6 @@ export default function App() {
 
         {/* How It Works */}
         <HowItWorks />
-
-        {/* Interactive App Preview */}
-        <AppPreview onOpenDownload={handleOpenDownload} />
 
         {/* FAQ Accordion */}
         <FAQ onOpenDownload={handleOpenDownload} />
