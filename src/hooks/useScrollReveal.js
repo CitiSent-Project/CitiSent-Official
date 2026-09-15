@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 /**
- * Custom hook to trigger scroll-reveal animations via IntersectionObserver.
+ * Custom hook to trigger premium scroll-reveal animations via IntersectionObserver.
  *
  * Usage options:
  * 1. Global observer (e.g. in App.jsx):
@@ -9,15 +9,15 @@ import { useEffect, useRef } from 'react';
  *    Automatically observes all elements in the DOM with the `.scroll-reveal` class.
  *
  * 2. Component Ref:
- *    const revealRef = useScrollReveal();
+ *    const revealRef = useScrollReveal({ threshold: 0.18 });
  *    <div ref={revealRef} className="scroll-reveal">...</div>
  *
- * Features:
- * - Independent triggering per element as it scrolls into view
- * - Runs once per element (unobserves on intersection so it never re-animates or flickers)
- * - Hardware accelerated with 0 layout thrashing
- * - Respects prefers-reduced-motion accessibility preferences
- * - Zero external dependencies
+ * Requirements met:
+ * - Viewport trigger: 15–25% visible (default threshold 0.18, rootMargin -8%)
+ * - Triggers once: unobserves on entrance so it never replays or flickers
+ * - Hardware accelerated: purely transform and opacity
+ * - Accessibility: respects prefers-reduced-motion
+ * - Zero layout shifts, lightweight and zero external dependencies
  */
 export default function useScrollReveal(options = {}) {
   const elementRef = useRef(null);
@@ -43,15 +43,16 @@ export default function useScrollReveal(options = {}) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-revealed');
-          // Disconnect observer for this element so it never repeats
+          // Disconnect observer for this element so it remains revealed and never replays
           observer.unobserve(entry.target);
         }
       });
     };
 
     const observerOptions = {
-      threshold: options.threshold ?? 0.1,
-      rootMargin: options.rootMargin ?? '0px 0px -60px 0px',
+      // Trigger when ~18% visible (within 15-25% requirement)
+      threshold: options.threshold ?? 0.18,
+      rootMargin: options.rootMargin ?? '0px 0px -8% 0px',
       ...options
     };
 

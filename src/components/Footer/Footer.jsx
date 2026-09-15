@@ -31,7 +31,7 @@ export default function Footer({ onOpenDownload }) {
     <footer className="footer-section">
       <div className="container scroll-reveal">
         {/* Top Grid */}
-        <div className="footer-grid">
+        <div className="footer-grid reveal-stagger-list">
           {/* Brand Col */}
           <div className="footer-col footer-col--brand">
             <div className="footer-brand">

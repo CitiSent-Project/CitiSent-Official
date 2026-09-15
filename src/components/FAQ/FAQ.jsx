@@ -52,7 +52,7 @@ export default function FAQ({ onOpenDownload }) {
           subtitle="Everything you need to know about the CitiSent citizen platform and how it operates in your community."
         />
 
-        <div className="faq-accordion">
+        <div className="faq-accordion reveal-stagger-list">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
