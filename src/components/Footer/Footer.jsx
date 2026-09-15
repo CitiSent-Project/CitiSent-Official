@@ -46,6 +46,7 @@ export default function Footer({ onOpenDownload }) {
               <li><a href="#home" onClick={(e) => handleLinkClick(e, '#home')}>Home</a></li>
               <li><a href="#about" onClick={(e) => handleLinkClick(e, '#about')}>What is CitiSent</a></li>
               <li><a href="#features" onClick={(e) => handleLinkClick(e, '#features')}>Key Features</a></li>
+              <li><a href="#how-it-works" onClick={(e) => handleLinkClick(e, '#how-it-works')}>How It Works</a></li>
               <li><a href="#preview" onClick={(e) => handleLinkClick(e, '#preview')}>Mobile App Preview</a></li>
             </ul>
           </div>

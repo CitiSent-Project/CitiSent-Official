@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import { 
   CheckCircle2, 
-  ArrowRight
+  ChevronRight,
+  Sparkles,
+  Camera,
+  MapPin,
+  FileText
 } from 'lucide-react';
-import SectionHeading from '../common/SectionHeading';
-import Badge from '../common/Badge';
-import lguImg from '../../assets/lgu-image.png';
-import homepageImg from '../../assets/homepage-image.png';
-import welcomeImg from '../../assets/welcome-image.png';
+
+// Actual User Screenshots
+import step1HomeImg from '../../assets/step1-home.png';
+import step3LguImg from '../../assets/step3-select-lgu.png';
+import step4FillReportImg from '../../assets/step4-fill-report.png';
+import step6SubmittedImg from '../../assets/step6-submitted.png';
+
 import './HowItWorks.css';
 
 export default function HowItWorks() {
@@ -15,155 +21,207 @@ export default function HowItWorks() {
 
   const steps = [
     {
-      num: '01',
-      title: 'Choose Your LGU',
-      subtitle: 'Select who to report to',
-      tag: 'Step 1: Select Local Government',
-      image: lguImg,
-      imageAlt: 'Select a Department screen in CitiSent app',
-      desc: 'Select the Local Government Unit responsible for the concern you want to report. Since CitiSent is designed for Sto. Tomas City, the available LGU will be your local city government.',
-      details: [
-        'Choose the appropriate local government unit',
-        'Reports are routed directly to the selected LGU',
-        'Ensures your concern reaches the right officials'
-      ]
+      id: 1,
+      num: 1,
+      title: 'Login & Start',
+      caption: 'Step 1: Citizen Home Page',
+      image: step1HomeImg,
+      imageAlt: 'CitiSent Home Page after logging in',
+      desc: 'Log in to your CitiSent account and start directly from the Home page. Here, you can view city emergency hotlines and see your latest submitted reports.'
     },
     {
-      num: '02',
-      title: 'Describe Your Concern',
-      subtitle: 'Your words are what matter most',
-      tag: 'Step 2: Written Report Description',
-      image: homepageImg,
-      imageAlt: 'CitiSent app home screen with latest reports',
-      desc: 'Tell your local government what is happening. Describe the issue clearly in your own words — what happened, what the problem is, and any other details that can help the LGU understand your concern.',
-      details: [
-        'Write your concern in your own words',
-        'Include relevant details: what, when, and why',
-        'Your written description is the most important part of the report'
-      ]
+      id: 2,
+      num: 2,
+      title: 'Create a Report',
+      caption: 'Step 2: Bottom Navigation Bar',
+      image: step1HomeImg,
+      imageAlt: 'Tap Create Report in the bottom navigation bar',
+      desc: 'From the Home page, click “Create Report” in the bottom navigation bar. This opens the report creation page where you begin drafting your concern.'
     },
     {
-      num: '03',
-      title: 'Add Location & Photo',
-      subtitle: 'Where is the issue? (Photo is optional)',
-      tag: 'Step 3: Location & Supporting Evidence',
-      image: lguImg,
-      imageAlt: 'CitiSent app department selection for location',
-      desc: 'Pinpoint where the issue is located so the appropriate local government personnel can identify where action is needed. You may also add an optional photo to provide additional visual context.',
-      details: [
-        'Set the exact location of the reported issue',
-        'Add a photo if available — photos are completely optional',
-        'You can submit your report without uploading an image'
-      ]
+      id: 3,
+      num: 3,
+      title: 'Choose an LGU Office',
+      caption: 'Step 3: Select Department / LGU Office',
+      image: step3LguImg,
+      imageAlt: 'Select your Local Government Unit department',
+      desc: 'On the Create Report page, select the specific LGU office you want to submit your concern to. The selected office is the department responsible for handling and resolving the report.'
     },
     {
-      num: '04',
+      id: 4,
+      num: 4,
+      title: 'Complete Your Report',
+      caption: 'Step 4: Fill Out Report Details',
+      image: step4FillReportImg,
+      imageAlt: 'Fill out report details form',
+      desc: 'Fill out the required information for your concern. Providing accurate information helps city administrators review the situation quickly.',
+      isStep4: true
+    },
+    {
+      id: 5,
+      num: 5,
       title: 'Submit Your Report',
-      subtitle: 'Send and track your concern',
-      tag: 'Step 4: Submission & Tracking',
-      image: welcomeImg,
-      imageAlt: 'CitiSent app welcome and login screen',
-      desc: 'Review your report and submit it to the selected LGU. CitiSent will notify you of progress updates and allow you to communicate directly with the officials handling your concern.',
-      details: [
-        'Submit your report directly to the selected LGU',
-        'Receive real-time status updates and notifications',
-        'Communicate with assigned administrators in-app'
-      ]
+      caption: 'Step 5: Submission & Confirmation',
+      image: step6SubmittedImg,
+      imageAlt: 'Report submitted confirmation modal with green checkmark',
+      desc: 'Once all details are completed, click “Submit”. The system processes your submission and displays the confirmation message “Report submitted”, confirming your report has been successfully recorded.',
+      isStep5: true
     }
   ];
 
   return (
-    <section id="how-it-works" className="section section-dark how-section">
+    <section id="how-it-works" className="section hiw-section">
       <div className="container">
-        <SectionHeading
-          title="How CitiSent"
-          highlight="Works in Action"
-          subtitle="From choosing the right LGU to submitting your concern, CitiSent makes it easy for residents of Sto. Tomas City to report community issues."
-          dark
-        />
-
-        {/* Step Navigation Pill Bar */}
-        <div className="steps-nav">
-          {steps.map((step, idx) => {
-            const isActive = activeStep === idx;
-            return (
-              <button
-                key={step.num}
-                className={`step-nav-btn ${isActive ? 'step-nav-btn--active' : ''}`}
-                onClick={() => setActiveStep(idx)}
-              >
-                <span className="step-nav-num">{step.num}</span>
-                <span className="step-nav-title">{step.title}</span>
-              </button>
-            );
-          })}
+        
+        {/* Section Heading matching reference */}
+        <div className="hiw-header">
+          <h2 className="hiw-title">How It Works</h2>
+          <p className="hiw-subtitle">
+            A clear step-by-step walkthrough of how citizens submit concerns directly to their Local Government Unit.
+          </p>
         </div>
 
-        {/* Interactive Step Display Showcase */}
-        <div className="step-showcase glass-card-dark">
-          <div className="step-showcase__content">
-            <div className="step-tag-row">
-              <Badge variant="cyan">{steps[activeStep].tag}</Badge>
-              <span className="step-counter">Phase {steps[activeStep].num} of 04</span>
-            </div>
-
-            <h3 className="step-main-title">
-              {steps[activeStep].num}. {steps[activeStep].title} — <span className="text-gradient">{steps[activeStep].subtitle}</span>
-            </h3>
-
-            <p className="step-main-desc">{steps[activeStep].desc}</p>
-
-            <div className="step-details-list">
-              {steps[activeStep].details.map((detail, i) => (
-                <div key={i} className="step-detail-item">
-                  <CheckCircle2 size={16} className="step-detail-icon" />
-                  <span>{detail}</span>
+        {/* Two-Column Showcase (Left: Phone Screen, Right: Vertical Stepper) */}
+        <div className="hiw-grid">
+          
+          {/* Left Column: Phone Mockup Frame */}
+          <div className="hiw-preview-col">
+            <div className="hiw-phone-wrapper">
+              <div className="hiw-phone-frame">
+                {/* Minimalist Phone Speaker / Camera Notch */}
+                <div className="hiw-phone-notch">
+                  <div className="hiw-notch-speaker" />
                 </div>
-              ))}
-            </div>
 
-            <div className="step-controls">
-              <button
-                className="step-btn-prev"
-                disabled={activeStep === 0}
-                onClick={() => setActiveStep(prev => Math.max(0, prev - 1))}
-              >
-                Previous Step
-              </button>
-              <button
-                className="step-btn-next"
-                disabled={activeStep === steps.length - 1}
-                onClick={() => setActiveStep(prev => Math.min(steps.length - 1, prev + 1))}
-              >
-                <span>Next Step</span>
-                <ArrowRight size={16} />
-              </button>
-            </div>
-          </div>
-
-          {/* Right Visual: Phone Screenshot */}
-          <div className="step-showcase__visual">
-            <div className="step-phone-frame">
-              <img
-                key={activeStep}
-                src={steps[activeStep].image}
-                alt={steps[activeStep].imageAlt}
-                className="step-phone-img"
-              />
-              {/* Carousel dot pagination */}
-              <div className="step-pagination">
-                {steps.map((_, idx) => (
-                  <button
-                    key={idx}
-                    className={`step-pagination__dot ${activeStep === idx ? 'step-pagination__dot--active' : ''}`}
-                    onClick={() => setActiveStep(idx)}
-                    aria-label={`Go to step ${idx + 1}`}
+                {/* Screenshot Display */}
+                <div className="hiw-screen-container">
+                  <img
+                    key={activeStep}
+                    src={steps[activeStep].image}
+                    alt={steps[activeStep].imageAlt}
+                    className="hiw-screen-img"
                   />
-                ))}
+                </div>
+              </div>
+
+              {/* Clean Caption under Phone */}
+              <div className="hiw-phone-caption">
+                <span className="hiw-caption-pill">
+                  {steps[activeStep].caption}
+                </span>
               </div>
             </div>
           </div>
+
+          {/* Right Column: Vertical Numbered Timeline Stepper */}
+          <div className="hiw-timeline-col">
+            <div className="hiw-stepper">
+              {steps.map((step, idx) => {
+                const isActive = activeStep === idx;
+
+                return (
+                  <div
+                    key={step.id}
+                    className={`hiw-step-item ${isActive ? 'hiw-step-item--active' : ''}`}
+                    onClick={() => setActiveStep(idx)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        setActiveStep(idx);
+                      }
+                    }}
+                  >
+                    {/* Vertical Connector Line & Number Circle */}
+                    <div className="hiw-step-marker">
+                      <div className="hiw-circle">
+                        {step.num}
+                      </div>
+                      {idx < steps.length - 1 && <div className="hiw-line" />}
+                    </div>
+
+                    {/* Step Information Block */}
+                    <div className="hiw-step-body">
+                      <div className="hiw-step-title-row">
+                        <h3 className="hiw-step-title">{step.title}</h3>
+                        {isActive && (
+                          <span className="hiw-active-indicator">Viewing</span>
+                        )}
+                      </div>
+
+                      <p className="hiw-step-desc">{step.desc}</p>
+
+                      {/* Step 4 Special Highlight: Description as Main Priority */}
+                      {step.isStep4 && (
+                        <div className="hiw-report-breakdown">
+                          
+                          {/* 1. Description - Main Priority */}
+                          <div className="hiw-breakdown-card hiw-breakdown-card--priority">
+                            <div className="hiw-breakdown-header">
+                              <div className="hiw-breakdown-title-wrap">
+                                <FileText size={16} className="hiw-icon-priority" />
+                                <strong className="hiw-breakdown-title">Description</strong>
+                              </div>
+                              <span className="hiw-priority-pill">
+                                Most Important
+                              </span>
+                            </div>
+                            <p className="hiw-breakdown-text">
+                              This is the main information the admin will read and use to understand the concern and determine the appropriate action. Please provide a clear and accurate description of what happened.
+                            </p>
+                          </div>
+
+                          {/* 2. Attach Picture - Optional */}
+                          <div className="hiw-breakdown-card">
+                            <div className="hiw-breakdown-header">
+                              <div className="hiw-breakdown-title-wrap">
+                                <Camera size={15} className="hiw-icon-sub" />
+                                <strong className="hiw-breakdown-title">Attach Picture</strong>
+                              </div>
+                              <span className="hiw-optional-pill">Optional</span>
+                            </div>
+                            <p className="hiw-breakdown-text">
+                              You may attach a photo to provide additional evidence or visual context. Attaching a picture is completely optional.
+                            </p>
+                          </div>
+
+                          {/* 3. Location - Actual Location */}
+                          <div className="hiw-breakdown-card">
+                            <div className="hiw-breakdown-header">
+                              <div className="hiw-breakdown-title-wrap">
+                                <MapPin size={15} className="hiw-icon-sub" />
+                                <strong className="hiw-breakdown-title">Location</strong>
+                              </div>
+                              <span className="hiw-required-pill">Actual Location</span>
+                            </div>
+                            <p className="hiw-breakdown-text">
+                              Provide the actual location where the incident or reported concern happened so the responding unit knows exactly where to inspect.
+                            </p>
+                          </div>
+
+                        </div>
+                      )}
+
+                      {/* Step 5 Special Callout: Confirmation Message */}
+                      {step.isStep5 && (
+                        <div className="hiw-confirmation-callout">
+                          <CheckCircle2 size={18} className="hiw-confirm-icon" />
+                          <div className="hiw-confirm-text">
+                            <strong>Official Confirmation: “Report submitted”</strong>
+                            <span>Appears on screen to confirm your report has been successfully transmitted and logged.</span>
+                          </div>
+                        </div>
+                      )}
+
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
         </div>
+
       </div>
     </section>
   );

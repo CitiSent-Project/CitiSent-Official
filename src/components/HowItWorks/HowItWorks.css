@@ -1,247 +1,438 @@
-.how-section {
+/* ==========================================================================
+   CitiSent "How It Works" Section
+   Clean Reference Layout (Light Theme, 2-Column: Phone & Vertical Stepper)
+   ========================================================================== */
+
+.hiw-section {
+  background-color: #FFFFFF;
+  padding: 5.5rem 0;
   position: relative;
-  overflow: hidden;
-  background: radial-gradient(100% 60% at 50% 10%, #002D6E 0%, #001233 100%);
 }
 
-.steps-nav {
+/* Header matching the reference */
+.hiw-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.hiw-title {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--civic-blue, #1A52B5);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 0.65rem;
+}
+
+.hiw-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: #64748B;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 2-Column Layout */
+.hiw-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 4.5rem;
+  align-items: start;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   Left Column: Clean Phone Preview
+   -------------------------------------------------------------------------- */
+.hiw-preview-col {
   display: flex;
   justify-content: center;
-  gap: 0.75rem;
-  margin-bottom: 2.5rem;
-  flex-wrap: wrap;
+  position: sticky;
+  top: 100px;
 }
 
-.step-nav-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.65rem 1.25rem;
-  border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #94A3B8;
-  font-family: var(--font-heading);
-  font-weight: 600;
-  transition: all var(--transition-fast);
-}
-
-.step-nav-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
-  color: #FFFFFF;
-}
-
-.step-nav-btn--active {
-  background: var(--civic-blue);
-  color: #FFFFFF;
-  border-color: transparent;
-  box-shadow: 0 4px 20px rgba(26, 82, 181, 0.4);
-}
-
-.step-nav-num {
-  font-size: 0.75rem;
-  font-weight: 800;
-  opacity: 0.8;
-}
-
-.step-nav-title {
-  font-size: 0.925rem;
-}
-
-/* Showcase Card */
-.step-showcase {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 3rem;
-  padding: 3rem;
-  align-items: center;
-}
-
-.step-tag-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.25rem;
-}
-
-.step-counter {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: #94A3B8;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.step-main-title {
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: #FFFFFF;
-  line-height: 1.3;
-  margin-bottom: 1rem;
-}
-
-.step-main-desc {
-  font-size: 1.05rem;
-  color: #94A3B8;
-  line-height: 1.65;
-  margin-bottom: 1.75rem;
-}
-
-.step-details-list {
+.hiw-phone-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 2.25rem;
-}
-
-.step-detail-item {
-  display: flex;
   align-items: center;
-  gap: 0.65rem;
-  font-size: 0.95rem;
-  color: #E2E8F0;
+  width: 100%;
+  max-width: 320px;
 }
 
-.step-detail-icon {
-  color: var(--civic-emerald);
-  flex-shrink: 0;
-}
-
-.step-controls {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-.step-btn-prev {
-  padding: 0.65rem 1.25rem;
-  border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.08);
-  color: #CBD5E1;
-  font-size: 0.875rem;
-  font-weight: 600;
-  transition: all var(--transition-fast);
-}
-
-.step-btn-prev:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.15);
-  color: #FFFFFF;
-}
-
-.step-btn-prev:disabled,
-.step-btn-next:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-.step-btn-next {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.65rem 1.5rem;
-  border-radius: var(--radius-full);
-  background: var(--civic-blue);
-  color: #FFFFFF;
-  font-size: 0.875rem;
-  font-weight: 600;
-  transition: all var(--transition-fast);
-}
-
-.step-btn-next:hover:not(:disabled) {
-  background: var(--civic-blue-dark);
-  transform: translateX(2px);
-}
-
-/* Visual Box */
-.step-showcase__visual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.step-phone-frame {
+.hiw-phone-frame {
   position: relative;
   width: 100%;
-  max-width: 280px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+  background: #0F172A;
+  border: 8px solid #1E293B;
+  border-radius: 38px;
+  box-shadow: 
+    0 16px 40px -8px rgba(0, 24, 69, 0.16),
+    0 4px 12px rgba(0, 24, 69, 0.08);
+  overflow: hidden;
 }
 
-.step-phone-img {
+.hiw-phone-notch {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 14px;
+  background: #020617;
+  border-radius: 10px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hiw-notch-speaker {
+  width: 24px;
+  height: 3px;
+  border-radius: 2px;
+  background: #1E293B;
+}
+
+.hiw-screen-container {
+  width: 100%;
+  background: #F8FAFC;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hiw-screen-img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 24px;
-  mix-blend-mode: screen;
-  animation: stepFadeIn 0.35s ease forwards;
+  animation: hiwFadeIn 0.3s ease forwards;
 }
 
-@keyframes stepFadeIn {
+@keyframes hiwFadeIn {
   from {
-    opacity: 0;
-    transform: translateY(12px) scale(0.97);
+    opacity: 0.4;
+    transform: scale(0.98);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: scale(1);
   }
 }
 
-.step-pagination {
+.hiw-phone-caption {
+  margin-top: 1.15rem;
+}
+
+.hiw-caption-pill {
+  display: inline-block;
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-full, 9999px);
+  background: #F1F5F9;
+  color: #475569;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid #E2E8F0;
+}
+
+/* --------------------------------------------------------------------------
+   Right Column: Vertical Stepper & Connected Line
+   -------------------------------------------------------------------------- */
+.hiw-timeline-col {
+  width: 100%;
+}
+
+.hiw-stepper {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
+  flex-direction: column;
 }
 
-.step-pagination__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.25);
-  border: none;
+.hiw-step-item {
+  display: flex;
+  gap: 1.4rem;
+  position: relative;
+  padding: 1rem 1.15rem;
+  border-radius: 16px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 0;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  outline: none;
+}
+
+.hiw-step-item:hover {
+  background-color: #F8FAFC;
+}
+
+.hiw-step-item--active {
+  background-color: #F0F5FC;
+}
+
+/* Marker (Circle + Connector Line) */
+.hiw-step-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
   flex-shrink: 0;
+  width: 38px;
 }
 
-.step-pagination__dot:hover {
-  background: rgba(255, 255, 255, 0.5);
+.hiw-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--civic-blue, #1A52B5);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(26, 82, 181, 0.25);
+  transition: all 0.25s ease;
 }
 
-.step-pagination__dot--active {
-  width: 28px;
-  background: var(--civic-blue);
-  box-shadow: 0 0 10px rgba(26, 82, 181, 0.6);
+.hiw-step-item--active .hiw-circle {
+  background: var(--brand-dark-blue, #002D6E);
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(0, 45, 110, 0.35);
 }
 
+.hiw-line {
+  position: absolute;
+  top: 38px;
+  bottom: -24px;
+  width: 2px;
+  background: #CBD5E1;
+  z-index: 1;
+}
+
+/* Step Body */
+.hiw-step-body {
+  flex: 1;
+  padding-bottom: 1.25rem;
+}
+
+.hiw-step-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.hiw-step-title {
+  font-family: var(--font-heading);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--brand-dark-blue, #002D6E);
+  line-height: 1.3;
+  margin: 0;
+  transition: color 0.2s ease;
+}
+
+.hiw-step-item--active .hiw-step-title {
+  color: var(--civic-blue, #1A52B5);
+}
+
+.hiw-active-indicator {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: #DBEAFE;
+  color: #1D4ED8;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}
+
+.hiw-step-desc {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Step 4 Specific Layout: Emphasizing Description
+   -------------------------------------------------------------------------- */
+.hiw-report-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0.95rem;
+}
+
+.hiw-breakdown-card {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+}
+
+.hiw-breakdown-card--priority {
+  background: #FFFBEB;
+  border: 1.5px solid #FCD34D;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.12);
+}
+
+.hiw-breakdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+
+.hiw-breakdown-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.hiw-breakdown-title {
+  font-size: 0.95rem;
+  color: #0F172A;
+  font-weight: 700;
+}
+
+.hiw-icon-priority {
+  color: #D97706;
+}
+
+.hiw-icon-sub {
+  color: #64748B;
+}
+
+.hiw-priority-pill {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: #F59E0B;
+  color: #FFFFFF;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+}
+
+.hiw-optional-pill {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  background: #E2E8F0;
+  color: #64748B;
+  padding: 0.12rem 0.5rem;
+  border-radius: 999px;
+}
+
+.hiw-required-pill {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  background: #E0E7FF;
+  color: #4338CA;
+  padding: 0.12rem 0.5rem;
+  border-radius: 999px;
+}
+
+.hiw-breakdown-text {
+  font-size: 0.875rem;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.hiw-breakdown-card--priority .hiw-breakdown-text {
+  color: #78350F;
+}
+
+/* --------------------------------------------------------------------------
+   Step 5 Confirmation Callout
+   -------------------------------------------------------------------------- */
+.hiw-confirmation-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 0.95rem;
+  background: #ECFDF5;
+  border: 1px solid #A7F3D0;
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+}
+
+.hiw-confirm-icon {
+  color: #059669;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.hiw-confirm-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.hiw-confirm-text strong {
+  font-size: 0.9rem;
+  color: #065F46;
+}
+
+.hiw-confirm-text span {
+  font-size: 0.825rem;
+  color: #047857;
+  line-height: 1.45;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Layout (Tablet & Mobile)
+   -------------------------------------------------------------------------- */
 @media (max-width: 900px) {
-  .step-showcase {
+  .hiw-grid {
     grid-template-columns: 1fr;
-    padding: 2rem;
+    gap: 3rem;
+  }
+
+  .hiw-preview-col {
+    position: static;
+    margin-bottom: 1rem;
+  }
+
+  .hiw-phone-wrapper {
+    max-width: 280px;
   }
 }
 
 @media (max-width: 640px) {
-  .step-showcase {
-    padding: 1.5rem;
+  .hiw-section {
+    padding: 3.75rem 0;
   }
-  .step-main-title {
-    font-size: 1.5rem;
+
+  .hiw-title {
+    font-size: 1.85rem;
   }
-  .steps-nav {
-    gap: 0.5rem;
-    margin-bottom: 2rem;
+
+  .hiw-step-item {
+    gap: 1rem;
+    padding: 0.75rem 0.5rem;
   }
-  .step-nav-btn {
-    padding: 0.55rem 1rem;
-    font-size: 0.875rem;
+
+  .hiw-circle {
+    width: 34px;
+    height: 34px;
+    font-size: 0.9rem;
   }
-  .step-controls {
-    flex-wrap: wrap;
+
+  .hiw-line {
+    top: 34px;
+  }
+
+  .hiw-step-title {
+    font-size: 1.05rem;
+  }
+
+  .hiw-phone-wrapper {
+    max-width: 240px;
   }
 }
