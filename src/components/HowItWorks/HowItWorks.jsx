@@ -88,6 +88,13 @@ export default function HowItWorks() {
                 />
               </div>
 
+              {/* Clean Caption under Phone */}
+              <div className="hiw-phone-caption">
+                <span className="hiw-caption-pill">
+                  {steps[activeStep].caption}
+                </span>
+              </div>
+
               {/* Navigation Indicator Dots & Arrows */}
               <div className="hiw-preview-nav">
                 <button
@@ -119,13 +126,6 @@ export default function HowItWorks() {
                 >
                   <ChevronRight size={18} />
                 </button>
-              </div>
-
-              {/* Clean Caption under Phone */}
-              <div className="hiw-phone-caption">
-                <span className="hiw-caption-pill">
-                  {steps[activeStep].caption}
-                </span>
               </div>
             </div>
           </div>
