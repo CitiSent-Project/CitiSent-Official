@@ -40,7 +40,6 @@ export default function WhyCitiSent() {
     <section id="why-citisent" className="section why-section">
       <div className="container scroll-reveal">
         <SectionHeading
-          badge="Why CitiSent"
           title="Why"
           highlight="CitiSent?"
           subtitle="A streamlined civic platform built to make reporting fast, transparent, and actionable for every resident."
