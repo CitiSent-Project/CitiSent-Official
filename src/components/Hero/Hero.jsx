@@ -58,7 +58,7 @@ export default function Hero({ onOpenDownload }) {
               iconPosition="right"
               onClick={scrollToFeatures}
             >
-              Discover How It Works
+              Learn More
             </Button>
           </div>
 

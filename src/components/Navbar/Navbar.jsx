@@ -25,7 +25,6 @@ export default function Navbar({ onOpenDownload }) {
     { label: 'Home', href: '#home' },
     { label: 'What is CitiSent', href: '#about' },
     { label: 'Features', href: '#features' },
-    { label: 'How It Works', href: '#how-it-works' },
     { label: 'App Preview', href: '#preview' },
     { label: 'FAQ', href: '#faq' }
   ];

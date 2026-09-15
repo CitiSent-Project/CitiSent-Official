@@ -3,7 +3,6 @@ import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import WhatIsCitiSent from './components/WhatIsCitiSent/WhatIsCitiSent';
 import KeyFeatures from './components/KeyFeatures/KeyFeatures';
-import HowItWorks from './components/HowItWorks/HowItWorks';
 import AppPreview from './components/AppPreview/AppPreview';
 import DownloadCTA from './components/DownloadCTA/DownloadCTA';
 import FAQ from './components/FAQ/FAQ';
@@ -33,11 +32,9 @@ export default function App() {
         {/* What is CitiSent */}
         <WhatIsCitiSent onOpenDownload={handleOpenDownload} />
 
+
         {/* Key Features */}
         <KeyFeatures />
-
-        {/* How It Works */}
-        <HowItWorks />
 
         {/* Interactive App Preview */}
         <AppPreview onOpenDownload={handleOpenDownload} />
