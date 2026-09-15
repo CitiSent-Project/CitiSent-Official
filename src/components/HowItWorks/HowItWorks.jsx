@@ -1,12 +1,4 @@
 import React, { useState } from 'react';
-import { 
-  CheckCircle2, 
-  ChevronRight,
-  Sparkles,
-  Camera,
-  MapPin,
-  FileText
-} from 'lucide-react';
 
 // Actual User Screenshots
 import step1HomeImg from '../../assets/step1-home.png';
@@ -54,8 +46,7 @@ export default function HowItWorks() {
       caption: 'Step 4: Fill Out Report Details',
       image: step4FillReportImg,
       imageAlt: 'Fill out report details form',
-      desc: 'Fill out the required information for your concern. Providing accurate information helps city administrators review the situation quickly.',
-      isStep4: true
+      desc: 'Fill out the required information for your concern. The description is the most important part because this is what the admin will read and use to understand the concern and determine the appropriate action. You can also specify the actual location of the incident and optionally attach a picture for visual context.'
     },
     {
       id: 5,
@@ -64,8 +55,7 @@ export default function HowItWorks() {
       caption: 'Step 5: Submission & Confirmation',
       image: step6SubmittedImg,
       imageAlt: 'Report submitted confirmation modal with green checkmark',
-      desc: 'Once all details are completed, click “Submit”. The system processes your submission and displays the confirmation message “Report submitted”, confirming your report has been successfully recorded.',
-      isStep5: true
+      desc: 'Once all the necessary information has been completed, click “Submit”. Wait for the submission process to finish until the confirmation message “Report submitted” appears, confirming that the report has been successfully submitted.'
     }
   ];
 
@@ -150,69 +140,6 @@ export default function HowItWorks() {
                       </div>
 
                       <p className="hiw-step-desc">{step.desc}</p>
-
-                      {/* Step 4 Special Highlight: Description as Main Priority */}
-                      {step.isStep4 && (
-                        <div className="hiw-report-breakdown">
-                          
-                          {/* 1. Description - Main Priority */}
-                          <div className="hiw-breakdown-card hiw-breakdown-card--priority">
-                            <div className="hiw-breakdown-header">
-                              <div className="hiw-breakdown-title-wrap">
-                                <FileText size={16} className="hiw-icon-priority" />
-                                <strong className="hiw-breakdown-title">Description</strong>
-                              </div>
-                              <span className="hiw-priority-pill">
-                                Most Important
-                              </span>
-                            </div>
-                            <p className="hiw-breakdown-text">
-                              This is the main information the admin will read and use to understand the concern and determine the appropriate action. Please provide a clear and accurate description of what happened.
-                            </p>
-                          </div>
-
-                          {/* 2. Attach Picture - Optional */}
-                          <div className="hiw-breakdown-card">
-                            <div className="hiw-breakdown-header">
-                              <div className="hiw-breakdown-title-wrap">
-                                <Camera size={15} className="hiw-icon-sub" />
-                                <strong className="hiw-breakdown-title">Attach Picture</strong>
-                              </div>
-                              <span className="hiw-optional-pill">Optional</span>
-                            </div>
-                            <p className="hiw-breakdown-text">
-                              You may attach a photo to provide additional evidence or visual context. Attaching a picture is completely optional.
-                            </p>
-                          </div>
-
-                          {/* 3. Location - Actual Location */}
-                          <div className="hiw-breakdown-card">
-                            <div className="hiw-breakdown-header">
-                              <div className="hiw-breakdown-title-wrap">
-                                <MapPin size={15} className="hiw-icon-sub" />
-                                <strong className="hiw-breakdown-title">Location</strong>
-                              </div>
-                              <span className="hiw-required-pill">Actual Location</span>
-                            </div>
-                            <p className="hiw-breakdown-text">
-                              Provide the actual location where the incident or reported concern happened so the responding unit knows exactly where to inspect.
-                            </p>
-                          </div>
-
-                        </div>
-                      )}
-
-                      {/* Step 5 Special Callout: Confirmation Message */}
-                      {step.isStep5 && (
-                        <div className="hiw-confirmation-callout">
-                          <CheckCircle2 size={18} className="hiw-confirm-icon" />
-                          <div className="hiw-confirm-text">
-                            <strong>Official Confirmation: “Report submitted”</strong>
-                            <span>Appears on screen to confirm your report has been successfully transmitted and logged.</span>
-                          </div>
-                        </div>
-                      )}
-
                     </div>
                   </div>
                 );
