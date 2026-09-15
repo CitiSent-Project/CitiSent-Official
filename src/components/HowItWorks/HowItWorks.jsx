@@ -63,7 +63,7 @@ export default function HowItWorks() {
 
   return (
     <section id="how-it-works" className="section hiw-section">
-      <div className="container">
+      <div className="container scroll-reveal">
         
         {/* Section Heading matching other sections */}
         <SectionHeading

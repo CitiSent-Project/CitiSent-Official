@@ -8,9 +8,13 @@ import DownloadCTA from './components/DownloadCTA/DownloadCTA';
 import FAQ from './components/FAQ/FAQ';
 import Footer from './components/Footer/Footer';
 import DownloadModal from './components/DownloadModal/DownloadModal';
+import useScrollReveal from './hooks/useScrollReveal';
 
 export default function App() {
   const [downloadModalOpen, setDownloadModalOpen] = useState(false);
+
+  // Automatically observe all .scroll-reveal sections across the page
+  useScrollReveal();
 
   const handleOpenDownload = () => {
     setDownloadModalOpen(true);

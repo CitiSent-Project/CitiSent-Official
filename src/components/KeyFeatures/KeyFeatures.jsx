@@ -86,7 +86,7 @@ export default function KeyFeatures() {
 
   return (
     <section id="features" className="section section-alt features-section">
-      <div className="container">
+      <div className="container scroll-reveal">
         <SectionHeading
           title="Everything You Need to"
           highlight="Transform Sto. Tomas City"

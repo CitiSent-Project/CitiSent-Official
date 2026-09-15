@@ -39,7 +39,7 @@ export default function WhatIsCitiSent({ onOpenDownload }) {
 
   return (
     <section id="about" className="section what-section">
-      <div className="container">
+      <div className="container scroll-reveal">
         <SectionHeading
           title="Making Sto. Tomas City"
           highlight="More Responsive & Connected"
