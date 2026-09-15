@@ -1,6 +1,6 @@
 /* ==========================================================================
    CitiSent "Admin Chat" Section
-   Clean Two-Column Layout with Smooth Crossfade Carousel
+   Clean Two-Column Layout (Heading + Interactive Stepper Left, Phone Carousel Right)
    ========================================================================== */
 
 .admin-chat-section {
@@ -17,97 +17,111 @@
 }
 
 /* --------------------------------------------------------------------------
-   Left Column: Text & Benefits
+   Left Column: Heading & Interactive Stepper
    -------------------------------------------------------------------------- */
 .admin-chat-text-col {
   display: flex;
   flex-direction: column;
 }
 
-.admin-chat-eyebrow {
-  display: inline-block;
-  font-size: 0.825rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--brand-primary);
-  margin-bottom: 0.75rem;
-}
-
 .admin-chat-heading {
-  font-size: clamp(2rem, 3.2vw, 2.65rem);
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.03em;
   color: var(--brand-primary);
-  margin-bottom: 1.25rem;
-}
-
-.admin-chat-desc {
-  font-size: 1.05rem;
-  line-height: 1.65;
-  color: var(--text-secondary);
   margin-bottom: 2rem;
   max-width: 540px;
 }
 
-.admin-chat-benefits {
+.admin-chat-stepper {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-  margin-bottom: 2.25rem;
+  gap: 1rem;
+  max-width: 520px;
 }
 
-.admin-chat-benefit-item {
+.admin-step-item {
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
+  gap: 1.25rem;
+  padding: 1.125rem 1.35rem;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid #E8EEF8;
+  background: #FFFFFF;
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  width: 100%;
 }
 
-.admin-chat-benefit-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-md);
+.admin-step-item:hover {
+  border-color: #CBD5E1;
+  background: #F8FAFC;
+  transform: translateX(4px);
+}
+
+.admin-step-item--active {
   background: #EBF0FB;
+  border-color: var(--civic-blue, #1A52B5);
+  box-shadow: 0 4px 18px rgba(26, 82, 181, 0.1);
+  transform: translateX(6px);
+}
+
+.admin-step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #E2E8F0;
+  color: #475569;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--brand-primary);
   flex-shrink: 0;
-  margin-top: 0.15rem;
-  transition: background-color var(--transition-fast), color var(--transition-fast);
+  margin-top: 0.1rem;
+  transition: all var(--transition-fast);
 }
 
-.admin-chat-benefit-item:hover .admin-chat-benefit-icon {
+.admin-step-item--active .admin-step-circle {
   background: var(--brand-primary);
   color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(10, 61, 145, 0.3);
 }
 
-.admin-chat-benefit-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
+.admin-step-content {
+  flex: 1;
 }
 
-.admin-chat-benefit-title {
-  font-size: 1rem;
+.admin-step-title {
+  font-size: 1.05rem;
   font-weight: 700;
   color: #001233;
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+  transition: color var(--transition-fast);
 }
 
-.admin-chat-benefit-desc {
-  font-size: 0.9rem;
+.admin-step-item--active .admin-step-title {
+  color: var(--brand-navy, #001845);
+}
+
+.admin-step-desc {
+  font-size: 0.8875rem;
   color: var(--text-secondary);
   line-height: 1.5;
+  margin: 0;
+  transition: color var(--transition-fast);
 }
 
-.admin-chat-cta {
-  display: flex;
-  align-items: center;
+.admin-step-item--active .admin-step-desc {
+  color: #2A4475;
 }
 
 /* --------------------------------------------------------------------------
-   Right Column: Crossfade Image Card
+   Right Column: Crossfade Image Carousel
    -------------------------------------------------------------------------- */
 .admin-chat-image-col {
   display: flex;
@@ -115,33 +129,22 @@
   width: 100%;
 }
 
-.admin-chat-card {
-  background: #F8FAFC;
-  border: 1px solid #E8EEF8;
-  border-radius: var(--radius-2xl);
-  padding: 2.25rem 2rem 1.75rem;
+.admin-chat-showcase {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 380px;
-  box-shadow: 0 10px 30px -8px rgba(0, 24, 69, 0.08);
-  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
-}
-
-.admin-chat-card:hover {
-  border-color: #CBD5E1;
-  box-shadow: 0 16px 36px -10px rgba(0, 24, 69, 0.12);
+  max-width: 320px;
 }
 
 /* Phone Frame with Crossfade Stack */
 .admin-chat-phone-frame {
   position: relative;
   width: 100%;
-  max-width: 270px;
+  max-width: 290px;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  filter: drop-shadow(0 16px 28px rgba(0, 24, 69, 0.14));
+  filter: drop-shadow(0 20px 35px rgba(0, 24, 69, 0.16));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -172,36 +175,13 @@
   pointer-events: auto;
 }
 
-/* Controls & Indicators */
 .admin-chat-controls {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   margin-top: 1.5rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid #E8EEF8;
-  gap: 0.75rem;
-}
-
-.admin-chat-indicator-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0.5rem;
-  flex: 1;
-  min-width: 0;
-}
-
-.admin-chat-caption {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: #2A4475;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 200px;
+  gap: 1.25rem;
 }
 
 .admin-chat-dots {
@@ -232,8 +212,8 @@
 }
 
 .admin-chat-nav-btn {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
@@ -242,6 +222,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  box-shadow: var(--shadow-xs);
   transition: all var(--transition-fast);
   flex-shrink: 0;
 }
@@ -271,20 +252,18 @@
     text-align: center;
   }
 
-  .admin-chat-desc {
+  .admin-chat-heading {
     max-width: 600px;
+    text-align: center;
   }
 
-  .admin-chat-benefits {
-    align-items: flex-start;
-    text-align: left;
+  .admin-chat-stepper {
     max-width: 480px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
   }
 
-  .admin-chat-cta {
-    justify-content: center;
+  .admin-step-item {
+    text-align: left;
   }
 }
 
@@ -293,21 +272,26 @@
     padding: 3.5rem 0;
   }
 
-  .admin-chat-card {
-    padding: 1.5rem 1.25rem 1.25rem;
-    max-width: 320px;
-  }
-
-  .admin-chat-phone-frame {
-    max-width: 240px;
-  }
-
-  .admin-chat-benefits {
+  .admin-step-item {
+    padding: 1rem;
     gap: 1rem;
   }
 
-  .admin-chat-caption {
-    max-width: 160px;
-    font-size: 0.75rem;
+  .admin-step-circle {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+
+  .admin-step-title {
+    font-size: 0.95rem;
+  }
+
+  .admin-step-desc {
+    font-size: 0.825rem;
+  }
+
+  .admin-chat-phone-frame {
+    max-width: 250px;
   }
 }

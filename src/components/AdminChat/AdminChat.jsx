@@ -1,19 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
-  MessageSquare, 
-  Clock, 
-  ShieldCheck, 
   ChevronLeft, 
-  ChevronRight,
-  ArrowRight
+  ChevronRight 
 } from 'lucide-react';
-import Button from '../common/Button';
 import adminChat1 from '../../assets/admin-chat-1.png';
 import adminChat2 from '../../assets/admin-chat-2.png';
 import adminChat3 from '../../assets/admin-chat-3.png';
 import './AdminChat.css';
 
-export default function AdminChat({ onOpenDownload }) {
+export default function AdminChat() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const timerRef = useRef(null);
@@ -21,22 +16,28 @@ export default function AdminChat({ onOpenDownload }) {
   const slides = [
     {
       id: 1,
+      step: 1,
       image: adminChat1,
-      title: 'Manage Reports Screen',
+      title: 'Locate Report & Tap Chat',
+      desc: 'Find your active concern in Manage Reports and tap Chat with Admin.',
       caption: 'Step 1: Open chat from your report',
       alt: 'CitiSent Manage Reports screen with Chat with Admin button'
     },
     {
       id: 2,
+      step: 2,
       image: adminChat2,
-      title: 'Admin Discussion Modal',
+      title: 'Connect with Assigned Department',
+      desc: 'View your report summary and connect to the assigned LGU office.',
       caption: 'Step 2: Connect with assigned department',
       alt: 'CitiSent Admin Discussion screen showing report summary'
     },
     {
       id: 3,
+      step: 3,
       image: adminChat3,
-      title: 'Direct Dialogue Screen',
+      title: 'Message Officers in Real Time',
+      desc: 'Direct two-way dialogue to clarify details, and track progress.',
       caption: 'Step 3: Message city officers in real time',
       alt: 'Active two-way messaging between citizen and LGU administrator'
     }
@@ -71,63 +72,38 @@ export default function AdminChat({ onOpenDownload }) {
       <div className="container scroll-reveal">
         <div className="admin-chat-grid">
           
-          {/* Left Column: Text Content */}
-          <div className="admin-chat-text-col reveal-item">
-            <span className="admin-chat-eyebrow">Direct Civic Communication</span>
-            
+          {/* Left Column: Heading + Interactive Steps */}
+          <div 
+            className="admin-chat-text-col reveal-item"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
             <h2 className="admin-chat-heading">
               Chat Directly with Your Assigned LGU Department
             </h2>
-            
-            <p className="admin-chat-desc">
-              Once your report is submitted, communicate directly with the local city office handling your concern. Clarify details, send updates, and track resolution collaboratively in real time.
-            </p>
 
-            <div className="admin-chat-benefits">
-              <div className="admin-chat-benefit-item">
-                <div className="admin-chat-benefit-icon">
-                  <MessageSquare size={18} />
-                </div>
-                <div className="admin-chat-benefit-content">
-                  <strong className="admin-chat-benefit-title">Dedicated Case Channel</strong>
-                  <span className="admin-chat-benefit-desc">Direct line to the exact department in charge of your report.</span>
-                </div>
-              </div>
-
-              <div className="admin-chat-benefit-item">
-                <div className="admin-chat-benefit-icon">
-                  <Clock size={18} />
-                </div>
-                <div className="admin-chat-benefit-content">
-                  <strong className="admin-chat-benefit-title">Real-Time Milestone Updates</strong>
-                  <span className="admin-chat-benefit-desc">Stay informed as officials inspect, assign crews, and complete repairs.</span>
-                </div>
-              </div>
-
-              <div className="admin-chat-benefit-item">
-                <div className="admin-chat-benefit-icon">
-                  <ShieldCheck size={18} />
-                </div>
-                <div className="admin-chat-benefit-content">
-                  <strong className="admin-chat-benefit-title">Verified City Personnel</strong>
-                  <span className="admin-chat-benefit-desc">All conversations are conducted with authorized Sto. Tomas City staff.</span>
-                </div>
-              </div>
+            <div className="admin-chat-stepper">
+              {slides.map((s, index) => {
+                const isActive = activeSlide === index;
+                return (
+                  <button
+                    key={s.id}
+                    type="button"
+                    className={`admin-step-item ${isActive ? 'admin-step-item--active' : ''}`}
+                    onClick={() => setActiveSlide(index)}
+                    aria-selected={isActive}
+                  >
+                    <div className="admin-step-circle">
+                      {s.step}
+                    </div>
+                    <div className="admin-step-content">
+                      <h3 className="admin-step-title">{s.title}</h3>
+                      <p className="admin-step-desc">{s.desc}</p>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
-
-            {onOpenDownload && (
-              <div className="admin-chat-cta">
-                <Button 
-                  variant="primary" 
-                  size="md" 
-                  icon={ArrowRight} 
-                  iconPosition="right"
-                  onClick={onOpenDownload}
-                >
-                  Download Mobile App
-                </Button>
-              </div>
-            )}
           </div>
 
           {/* Right Column: Crossfade Image Carousel */}
@@ -138,7 +114,7 @@ export default function AdminChat({ onOpenDownload }) {
             aria-roledescription="carousel"
             aria-label="Admin Chat Screenshots"
           >
-            <div className="admin-chat-card">
+            <div className="admin-chat-showcase">
               
               {/* Phone Frame with Crossfade Stack */}
               <div className="admin-chat-phone-frame">
@@ -172,24 +148,18 @@ export default function AdminChat({ onOpenDownload }) {
                   <ChevronLeft size={18} />
                 </button>
 
-                <div className="admin-chat-indicator-wrap">
-                  <span className="admin-chat-caption">
-                    {slides[activeSlide].caption}
-                  </span>
-                  
-                  <div className="admin-chat-dots" role="tablist">
-                    {slides.map((slide, index) => (
-                      <button
-                        key={slide.id}
-                        type="button"
-                        role="tab"
-                        aria-selected={activeSlide === index}
-                        className={`admin-chat-dot ${activeSlide === index ? 'is-active' : ''}`}
-                        onClick={() => setActiveSlide(index)}
-                        aria-label={`Show ${slide.title}`}
-                      />
-                    ))}
-                  </div>
+                <div className="admin-chat-dots" role="tablist">
+                  {slides.map((slide, index) => (
+                    <button
+                      key={slide.id}
+                      type="button"
+                      role="tab"
+                      aria-selected={activeSlide === index}
+                      className={`admin-chat-dot ${activeSlide === index ? 'is-active' : ''}`}
+                      onClick={() => setActiveSlide(index)}
+                      aria-label={`Show ${slide.title}`}
+                    />
+                  ))}
                 </div>
 
                 <button
