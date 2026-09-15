@@ -48,8 +48,17 @@
   color: var(--text-secondary);
 }
 
+.section-heading__highlight {
+  color: var(--brand-primary);
+  display: inline-block;
+}
+
 .section-heading--dark .section-heading__title {
   color: #FFFFFF;
+}
+
+.section-heading--dark .section-heading__highlight {
+  color: var(--brand-soft-blue);
 }
 
 .section-heading--dark .section-heading__subtitle {
