@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 // Actual User Screenshots
 import step1HomeImg from '../../assets/step1-home.png';
+import step2CreateReportImg from '../../assets/step2-create-report.png';
 import step3LguImg from '../../assets/step3-select-lgu.png';
 import step4FillReportImg from '../../assets/step4-fill-report.png';
 import step6SubmittedImg from '../../assets/step6-submitted.png';
@@ -26,7 +27,7 @@ export default function HowItWorks() {
       num: 2,
       title: 'Create a Report',
       caption: 'Step 2: Bottom Navigation Bar',
-      image: step1HomeImg,
+      image: step2CreateReportImg,
       imageAlt: 'Tap Create Report in the bottom navigation bar',
       desc: 'From the Home page, click “Create Report” in the bottom navigation bar. This opens the report creation page where you begin drafting your concern.'
     },
