@@ -99,13 +99,6 @@ export default function HowItWorks() {
                 ))}
               </div>
 
-              {/* Clean Caption under Phone */}
-              <div className="hiw-phone-caption reveal-item reveal-delay-200">
-                <span className="hiw-caption-pill">
-                  {steps[activeStep].caption}
-                </span>
-              </div>
-
               {/* Navigation Indicator Dots & Arrows */}
               <div className="hiw-preview-nav reveal-item reveal-delay-250">
                 <button
