@@ -79,13 +79,24 @@ export default function HowItWorks() {
           {/* Left Column: Phone Mockup Frame */}
           <div className="hiw-preview-col">
             <div className="hiw-phone-wrapper reveal-scale reveal-delay-100">
-              <div className="hiw-phone-container">
+              <div className="hiw-phone-frame">
+                {/* Invisible spacer image to maintain exact responsive height */}
                 <img
-                  key={activeStep}
-                  src={steps[activeStep].image}
-                  alt={steps[activeStep].imageAlt}
-                  className="hiw-screen-img"
+                  src={steps[0].image}
+                  alt=""
+                  aria-hidden="true"
+                  className="hiw-spacer-img"
                 />
+
+                {/* Layered Crossfade Images */}
+                {steps.map((step, index) => (
+                  <img
+                    key={step.id}
+                    src={step.image}
+                    alt={step.imageAlt}
+                    className={`hiw-fade-img ${activeStep === index ? 'is-active' : ''}`}
+                  />
+                ))}
               </div>
 
               {/* Clean Caption under Phone */}
