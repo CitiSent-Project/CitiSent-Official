@@ -74,36 +74,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background: var(--brand-navy, #001845);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(0, 24, 69, 0.18);
+  transition: all var(--transition-fast);
 }
 
-.feature-card__icon-box--blue {
-  background: #EBF0FB;
-  color: #1A52B5;
+.feature-card:hover .feature-card__icon-box {
+  background: var(--brand-primary, #0A3D91);
+  box-shadow: 0 6px 18px rgba(10, 61, 145, 0.28);
+  transform: translateY(-2px);
 }
 
-.feature-card__icon-box--emerald {
-  background: #ECFDF5;
-  color: #10B981;
-}
-
-.feature-card__icon-box--cyan {
-  background: #ECFEFF;
-  color: #06B6D4;
-}
-
-.feature-card__icon-box--purple {
-  background: #F5F3FF;
-  color: #8B5CF6;
-}
-
-.feature-card__icon-box--amber {
-  background: #FFFBEB;
-  color: #F59E0B;
-}
-
+.feature-card__icon-box--blue,
+.feature-card__icon-box--emerald,
+.feature-card__icon-box--cyan,
+.feature-card__icon-box--purple,
+.feature-card__icon-box--amber,
 .feature-card__icon-box--rose {
-  background: #FFF1F2;
-  color: #F43F5E;
+  background: var(--brand-navy, #001845);
+  color: #FFFFFF;
 }
 
 .feature-card__badge {

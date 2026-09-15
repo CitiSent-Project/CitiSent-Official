@@ -7,7 +7,6 @@ import {
   Smartphone
 } from 'lucide-react';
 import Button from '../common/Button';
-import { CIVIC_FACTS } from '../../config/downloadLinks';
 import homepageImg from '../../assets/homepage-image.png';
 import './Hero.css';
 
@@ -89,28 +88,6 @@ export default function Hero({ onOpenDownload }) {
                 className="hero-phone-img"
               />
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Factual Platform Indicators Bar */}
-      <div className="hero-stats-bar">
-        <div className="container hero-stats-container">
-          <div className="hero-stat-card">
-            <strong className="stat-number text-gradient">{CIVIC_FACTS.coverage}</strong>
-            <span className="stat-label">{CIVIC_FACTS.coverageLabel}</span>
-          </div>
-          <div className="hero-stat-card">
-            <strong className="stat-number text-gradient-emerald">{CIVIC_FACTS.routing}</strong>
-            <span className="stat-label">{CIVIC_FACTS.routingLabel}</span>
-          </div>
-          <div className="hero-stat-card">
-            <strong className="stat-number text-gradient">{CIVIC_FACTS.tracking}</strong>
-            <span className="stat-label">{CIVIC_FACTS.trackingLabel}</span>
-          </div>
-          <div className="hero-stat-card">
-            <strong className="stat-number text-gradient-emerald">{CIVIC_FACTS.access}</strong>
-            <span className="stat-label">{CIVIC_FACTS.accessLabel}</span>
           </div>
         </div>
       </div>

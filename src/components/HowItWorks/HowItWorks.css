@@ -9,30 +9,6 @@
   position: relative;
 }
 
-/* Header matching the reference */
-.hiw-header {
-  text-align: center;
-  max-width: 680px;
-  margin: 0 auto 3.5rem auto;
-}
-
-.hiw-title {
-  font-family: var(--font-heading);
-  font-size: 2.25rem;
-  font-weight: 800;
-  color: var(--civic-blue, #1A52B5);
-  letter-spacing: -0.02em;
-  line-height: 1.25;
-  margin-bottom: 0.65rem;
-}
-
-.hiw-subtitle {
-  font-family: var(--font-body);
-  font-size: 1.05rem;
-  color: #64748B;
-  line-height: 1.6;
-  margin: 0;
-}
 
 /* 2-Column Layout */
 .hiw-grid {

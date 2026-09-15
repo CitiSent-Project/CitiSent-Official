@@ -128,7 +128,7 @@ export default function KeyFeatures() {
             return (
               <div key={feat.id} className="feature-card glass-card">
                 <div className="feature-card__header">
-                  <div className={`feature-card__icon-box feature-card__icon-box--${feat.iconColor}`}>
+                  <div className="feature-card__icon-box">
                     <Icon size={24} />
                   </div>
                 </div>

@@ -7,6 +7,7 @@ import step3LguImg from '../../assets/step3-select-lgu.png';
 import step4FillReportImg from '../../assets/step4-fill-report.png';
 import step6SubmittedImg from '../../assets/step6-submitted.png';
 
+import SectionHeading from '../common/SectionHeading';
 import './HowItWorks.css';
 
 export default function HowItWorks() {
@@ -64,13 +65,12 @@ export default function HowItWorks() {
     <section id="how-it-works" className="section hiw-section">
       <div className="container">
         
-        {/* Section Heading matching reference */}
-        <div className="hiw-header">
-          <h2 className="hiw-title">How It Works</h2>
-          <p className="hiw-subtitle">
-            A clear step-by-step walkthrough of how citizens submit concerns directly to their Local Government Unit.
-          </p>
-        </div>
+        {/* Section Heading matching other sections */}
+        <SectionHeading
+          title="How It"
+          highlight="Works"
+          subtitle="A clear step-by-step walkthrough of how citizens submit concerns directly to their Local Government Unit."
+        />
 
         {/* Two-Column Showcase (Left: Phone Screen, Right: Vertical Stepper) */}
         <div className="hiw-grid">
