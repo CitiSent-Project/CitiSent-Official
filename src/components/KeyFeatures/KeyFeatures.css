@@ -74,15 +74,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--brand-navy, #001845);
-  color: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(0, 24, 69, 0.18);
+  background: #EBF0FB;
+  color: var(--civic-blue, #1A52B5);
   transition: all var(--transition-fast);
 }
 
 .feature-card:hover .feature-card__icon-box {
-  background: var(--brand-primary, #0A3D91);
-  box-shadow: 0 6px 18px rgba(10, 61, 145, 0.28);
+  background: #DCE6F8;
+  color: var(--brand-dark-blue, #002D6E);
   transform: translateY(-2px);
 }
 
@@ -92,8 +91,8 @@
 .feature-card__icon-box--purple,
 .feature-card__icon-box--amber,
 .feature-card__icon-box--rose {
-  background: var(--brand-navy, #001845);
-  color: #FFFFFF;
+  background: #EBF0FB;
+  color: var(--civic-blue, #1A52B5);
 }
 
 .feature-card__badge {
