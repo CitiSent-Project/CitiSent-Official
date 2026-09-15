@@ -41,7 +41,7 @@ export default function App() {
         <HowItWorks />
 
         {/* Admin Chat Showcase */}
-        <AdminChat />
+        <AdminChat onOpenDownload={handleOpenDownload} />
 
         {/* FAQ Accordion */}
         <FAQ onOpenDownload={handleOpenDownload} />

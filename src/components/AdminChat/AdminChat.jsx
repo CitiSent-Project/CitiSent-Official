@@ -1,124 +1,210 @@
-import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import SectionHeading from '../common/SectionHeading';
+import React, { useState, useEffect, useRef } from 'react';
+import { 
+  MessageSquare, 
+  Clock, 
+  ShieldCheck, 
+  ChevronLeft, 
+  ChevronRight,
+  ArrowRight
+} from 'lucide-react';
+import Button from '../common/Button';
 import adminChat1 from '../../assets/admin-chat-1.png';
 import adminChat2 from '../../assets/admin-chat-2.png';
 import adminChat3 from '../../assets/admin-chat-3.png';
 import './AdminChat.css';
 
-export default function AdminChat() {
-  const [activeChatStep, setActiveChatStep] = useState(0);
+export default function AdminChat({ onOpenDownload }) {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const timerRef = useRef(null);
 
-  const chatSteps = [
+  const slides = [
     {
-      step: 1,
-      badge: 'Step 1',
-      title: 'Locate Report & Tap Chat',
-      subtitle: 'Manage Reports Screen',
-      desc: 'In the “Manage Reports” screen, review your submitted concerns. Every active report features a direct “Chat with Admin” button linked to the department handling it.',
+      id: 1,
       image: adminChat1,
+      title: 'Manage Reports Screen',
+      caption: 'Step 1: Open chat from your report',
       alt: 'CitiSent Manage Reports screen with Chat with Admin button'
     },
     {
-      step: 2,
-      badge: 'Step 2',
-      title: 'Department Discussion Opens',
-      subtitle: 'Admin Discussion Modal',
-      desc: 'Tapping the chat button opens an official Admin Discussion panel, displaying your unique Report Reference ID and the assigned municipal office.',
+      id: 2,
       image: adminChat2,
+      title: 'Admin Discussion Modal',
+      caption: 'Step 2: Connect with assigned department',
       alt: 'CitiSent Admin Discussion screen showing report summary'
     },
     {
-      step: 3,
-      badge: 'Step 3',
-      title: 'Real-Time Two-Way Messaging',
-      subtitle: 'Direct Citizen-Officer Dialogue',
-      desc: 'Chat directly with assigned local city administrators. Ask questions, clarify landmarks, provide extra details, and get live answers straight from the officers.',
+      id: 3,
       image: adminChat3,
+      title: 'Direct Dialogue Screen',
+      caption: 'Step 3: Message city officers in real time',
       alt: 'Active two-way messaging between citizen and LGU administrator'
     }
   ];
+
+  // Automatic slide rotation every 4 seconds, paused on hover
+  useEffect(() => {
+    if (isPaused) return;
+
+    timerRef.current = setInterval(() => {
+      setActiveSlide(prev => (prev + 1) % slides.length);
+    }, 4000);
+
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [isPaused, slides.length]);
+
+  const handlePrev = () => {
+    setActiveSlide(prev => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const handleNext = () => {
+    setActiveSlide(prev => (prev + 1) % slides.length);
+  };
 
   return (
     <section id="admin-chat" className="section admin-chat-section">
       {/* Anchor alias for backwards compatibility */}
       <span id="features" style={{ position: 'absolute', top: 0, pointerEvents: 'none' }} />
+
       <div className="container scroll-reveal">
-        <SectionHeading
-          title="Chat Directly with Your"
-          highlight="Assigned LGU Department"
-          subtitle="Once your report is submitted, stay in direct contact with the local city office handling your concern. Clarify details, provide extra information, and track resolution collaboratively in real time."
-        />
+        <div className="admin-chat-grid">
+          
+          {/* Left Column: Text Content */}
+          <div className="admin-chat-text-col reveal-item">
+            <span className="admin-chat-eyebrow">Direct Civic Communication</span>
+            
+            <h2 className="admin-chat-heading">
+              Chat Directly with Your Assigned LGU Department
+            </h2>
+            
+            <p className="admin-chat-desc">
+              Once your report is submitted, communicate directly with the local city office handling your concern. Clarify details, send updates, and track resolution collaboratively in real time.
+            </p>
 
-        <div className="admin-chat-showcase reveal-card reveal-delay-100">
-          <div className="chat-showcase__body">
-            {/* Left Column: Interactive 3-Step Selection */}
-            <div className="chat-showcase__stepper reveal-stagger-list">
-              {chatSteps.map((s, idx) => {
-                const isActive = activeChatStep === idx;
-                return (
-                  <button
-                    key={s.step}
-                    type="button"
-                    className={`chat-step-btn ${isActive ? 'chat-step-btn--active' : ''}`}
-                    onClick={() => setActiveChatStep(idx)}
-                    aria-selected={isActive}
-                  >
-                    <div className="chat-step-badge">{s.badge}</div>
-                    <div className="chat-step-info">
-                      <h4 className="chat-step-title">{s.title}</h4>
-                      <p className="chat-step-desc">{s.desc}</p>
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Right Column: Phone Mockup Display */}
-            <div className="chat-showcase__preview">
-              <div className="chat-phone-frame reveal-scale reveal-delay-200">
-                <img
-                  key={activeChatStep}
-                  src={chatSteps[activeChatStep].image}
-                  alt={chatSteps[activeChatStep].alt}
-                  className="chat-phone-img"
-                />
+            <div className="admin-chat-benefits">
+              <div className="admin-chat-benefit-item">
+                <div className="admin-chat-benefit-icon">
+                  <MessageSquare size={18} />
+                </div>
+                <div className="admin-chat-benefit-content">
+                  <strong className="admin-chat-benefit-title">Dedicated Case Channel</strong>
+                  <span className="admin-chat-benefit-desc">Direct line to the exact department in charge of your report.</span>
+                </div>
               </div>
 
-              {/* Step Navigation Indicator Dots & Arrows */}
-              <div className="chat-preview-nav reveal-item reveal-delay-250">
+              <div className="admin-chat-benefit-item">
+                <div className="admin-chat-benefit-icon">
+                  <Clock size={18} />
+                </div>
+                <div className="admin-chat-benefit-content">
+                  <strong className="admin-chat-benefit-title">Real-Time Milestone Updates</strong>
+                  <span className="admin-chat-benefit-desc">Stay informed as officials inspect, assign crews, and complete repairs.</span>
+                </div>
+              </div>
+
+              <div className="admin-chat-benefit-item">
+                <div className="admin-chat-benefit-icon">
+                  <ShieldCheck size={18} />
+                </div>
+                <div className="admin-chat-benefit-content">
+                  <strong className="admin-chat-benefit-title">Verified City Personnel</strong>
+                  <span className="admin-chat-benefit-desc">All conversations are conducted with authorized Sto. Tomas City staff.</span>
+                </div>
+              </div>
+            </div>
+
+            {onOpenDownload && (
+              <div className="admin-chat-cta">
+                <Button 
+                  variant="primary" 
+                  size="md" 
+                  icon={ArrowRight} 
+                  iconPosition="right"
+                  onClick={onOpenDownload}
+                >
+                  Download Mobile App
+                </Button>
+              </div>
+            )}
+          </div>
+
+          {/* Right Column: Crossfade Image Carousel */}
+          <div 
+            className="admin-chat-image-col reveal-card reveal-delay-150"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            aria-roledescription="carousel"
+            aria-label="Admin Chat Screenshots"
+          >
+            <div className="admin-chat-card">
+              
+              {/* Phone Frame with Crossfade Stack */}
+              <div className="admin-chat-phone-frame">
+                {/* Invisible spacer image to maintain exact responsive height */}
+                <img 
+                  src={slides[0].image} 
+                  alt="" 
+                  aria-hidden="true" 
+                  className="admin-chat-spacer-img" 
+                />
+
+                {/* Layered Crossfade Images */}
+                {slides.map((slide, index) => (
+                  <img
+                    key={slide.id}
+                    src={slide.image}
+                    alt={slide.alt}
+                    className={`admin-chat-fade-img ${activeSlide === index ? 'is-active' : ''}`}
+                  />
+                ))}
+              </div>
+
+              {/* Caption & Indicator Controls */}
+              <div className="admin-chat-controls">
                 <button
                   type="button"
-                  className="chat-nav-arrow"
-                  onClick={() => setActiveChatStep(prev => (prev > 0 ? prev - 1 : chatSteps.length - 1))}
-                  aria-label="Previous step"
+                  className="admin-chat-nav-btn"
+                  onClick={handlePrev}
+                  aria-label="Previous screenshot"
                 >
                   <ChevronLeft size={18} />
                 </button>
 
-                <div className="chat-preview-dots">
-                  {chatSteps.map((_, i) => (
-                    <button
-                      key={i}
-                      type="button"
-                      className={`chat-dot ${activeChatStep === i ? 'chat-dot--active' : ''}`}
-                      onClick={() => setActiveChatStep(i)}
-                      aria-label={`Go to step ${i + 1}`}
-                    />
-                  ))}
+                <div className="admin-chat-indicator-wrap">
+                  <span className="admin-chat-caption">
+                    {slides[activeSlide].caption}
+                  </span>
+                  
+                  <div className="admin-chat-dots" role="tablist">
+                    {slides.map((slide, index) => (
+                      <button
+                        key={slide.id}
+                        type="button"
+                        role="tab"
+                        aria-selected={activeSlide === index}
+                        className={`admin-chat-dot ${activeSlide === index ? 'is-active' : ''}`}
+                        onClick={() => setActiveSlide(index)}
+                        aria-label={`Show ${slide.title}`}
+                      />
+                    ))}
+                  </div>
                 </div>
 
                 <button
                   type="button"
-                  className="chat-nav-arrow"
-                  onClick={() => setActiveChatStep(prev => (prev < chatSteps.length - 1 ? prev + 1 : 0))}
-                  aria-label="Next step"
+                  className="admin-chat-nav-btn"
+                  onClick={handleNext}
+                  aria-label="Next screenshot"
                 >
                   <ChevronRight size={18} />
                 </button>
               </div>
+
             </div>
           </div>
+
         </div>
       </div>
     </section>
