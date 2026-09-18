@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, ShieldCheck, HeartHandshake, AlertTriangle } from 'lucide-react';
-import Badge from '../common/Badge';
+import { X, HeartHandshake, AlertTriangle } from 'lucide-react';
 import './CommunityGuidelinesModal.css';
 
 export default function CommunityGuidelinesModal({ isOpen, onClose }) {
@@ -30,9 +29,6 @@ export default function CommunityGuidelinesModal({ isOpen, onClose }) {
         </button>
 
         <div className="guidelines-header">
-          <div className="guidelines-header__badge-row">
-            <Badge variant="cyan" icon={ShieldCheck}>Civic Community Standards</Badge>
-          </div>
           <h2 className="guidelines-title">Community Guidelines</h2>
           <p className="guidelines-updated">Last Updated: September 2026 • Sto. Tomas City, Batangas</p>
         </div>

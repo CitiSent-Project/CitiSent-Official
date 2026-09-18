@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, ShieldCheck, Lock } from 'lucide-react';
-import Badge from '../common/Badge';
+import { X, Lock } from 'lucide-react';
 import './PrivacyModal.css';
 
 export default function PrivacyModal({ isOpen, onClose }) {
@@ -30,9 +29,6 @@ export default function PrivacyModal({ isOpen, onClose }) {
         </button>
 
         <div className="privacy-header">
-          <div className="privacy-header__badge-row">
-            <Badge variant="emerald" icon={ShieldCheck}>Official Civic Documentation</Badge>
-          </div>
           <h2 className="privacy-title">Privacy Notice</h2>
           <p className="privacy-updated">Last Updated: September 2026 • Sto. Tomas City, Batangas</p>
         </div>

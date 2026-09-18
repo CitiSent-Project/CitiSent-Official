@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, ShieldCheck, FileText } from 'lucide-react';
-import Badge from '../common/Badge';
+import { X, FileText } from 'lucide-react';
 import './TermsModal.css';
 
 export default function TermsModal({ isOpen, onClose }) {
@@ -30,9 +29,6 @@ export default function TermsModal({ isOpen, onClose }) {
         </button>
 
         <div className="terms-header">
-          <div className="terms-header__badge-row">
-            <Badge variant="blue" icon={ShieldCheck}>Official Civic Documentation</Badge>
-          </div>
           <h2 className="terms-title">Terms of Service</h2>
           <p className="terms-updated">Last Updated: September 2026 • Sto. Tomas City, Batangas</p>
         </div>
