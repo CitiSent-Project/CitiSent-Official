@@ -11,7 +11,7 @@ import { APP_DOWNLOAD_LINKS } from '../../config/downloadLinks';
 import './Footer.css';
 import logoLeft from '../../assets/logo-left.png';
 
-export default function Footer({ onOpenDownload, onOpenLegal }) {
+export default function Footer({ onOpenDownload, onOpenPrivacy, onOpenTerms }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -60,7 +60,7 @@ export default function Footer({ onOpenDownload, onOpenLegal }) {
                 <button
                   type="button"
                   className="footer-link-btn"
-                  onClick={() => onOpenLegal && onOpenLegal('terms')}
+                  onClick={() => onOpenTerms && onOpenTerms()}
                 >
                   Terms of Service
                 </button>
@@ -69,7 +69,7 @@ export default function Footer({ onOpenDownload, onOpenLegal }) {
                 <button
                   type="button"
                   className="footer-link-btn"
-                  onClick={() => onOpenLegal && onOpenLegal('privacy')}
+                  onClick={() => onOpenPrivacy && onOpenPrivacy()}
                 >
                   Privacy Notice
                 </button>
@@ -113,7 +113,7 @@ export default function Footer({ onOpenDownload, onOpenLegal }) {
             <button
               type="button"
               className="footer-legal-link"
-              onClick={() => onOpenLegal && onOpenLegal('privacy')}
+              onClick={() => onOpenPrivacy && onOpenPrivacy()}
             >
               Privacy Policy
             </button>
@@ -121,7 +121,7 @@ export default function Footer({ onOpenDownload, onOpenLegal }) {
             <button
               type="button"
               className="footer-legal-link"
-              onClick={() => onOpenLegal && onOpenLegal('terms')}
+              onClick={() => onOpenTerms && onOpenTerms()}
             >
               Terms of Service
             </button>
@@ -129,7 +129,7 @@ export default function Footer({ onOpenDownload, onOpenLegal }) {
             <button
               type="button"
               className="footer-legal-link"
-              onClick={() => onOpenLegal && onOpenLegal('privacy')}
+              onClick={() => onOpenPrivacy && onOpenPrivacy()}
             >
               Security &amp; Encryption
             </button>

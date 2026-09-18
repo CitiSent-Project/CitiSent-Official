@@ -8,13 +8,14 @@ import DownloadCTA from './components/DownloadCTA/DownloadCTA';
 import FAQ from './components/FAQ/FAQ';
 import Footer from './components/Footer/Footer';
 import DownloadModal from './components/DownloadModal/DownloadModal';
-import LegalModal from './components/LegalModal/LegalModal';
+import PrivacyModal from './components/PrivacyModal/PrivacyModal';
+import TermsModal from './components/TermsModal/TermsModal';
 import useScrollReveal from './hooks/useScrollReveal';
 
 export default function App() {
   const [downloadModalOpen, setDownloadModalOpen] = useState(false);
-  const [legalModalOpen, setLegalModalOpen] = useState(false);
-  const [legalModalTab, setLegalModalTab] = useState('terms');
+  const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
+  const [termsModalOpen, setTermsModalOpen] = useState(false);
 
   // Automatically observe all .scroll-reveal sections across the page
   useScrollReveal();
@@ -27,13 +28,20 @@ export default function App() {
     setDownloadModalOpen(false);
   };
 
-  const handleOpenLegal = (tab = 'terms') => {
-    setLegalModalTab(tab);
-    setLegalModalOpen(true);
+  const handleOpenPrivacy = () => {
+    setPrivacyModalOpen(true);
   };
 
-  const handleCloseLegal = () => {
-    setLegalModalOpen(false);
+  const handleClosePrivacy = () => {
+    setPrivacyModalOpen(false);
+  };
+
+  const handleOpenTerms = () => {
+    setTermsModalOpen(true);
+  };
+
+  const handleCloseTerms = () => {
+    setTermsModalOpen(false);
   };
 
   return (
@@ -65,7 +73,8 @@ export default function App() {
       {/* Footer */}
       <Footer
         onOpenDownload={handleOpenDownload}
-        onOpenLegal={handleOpenLegal}
+        onOpenPrivacy={handleOpenPrivacy}
+        onOpenTerms={handleOpenTerms}
       />
 
       {/* Download Modal Popup */}
@@ -74,11 +83,16 @@ export default function App() {
         onClose={handleCloseDownload}
       />
 
-      {/* Legal Documents Modal (Terms of Service & Privacy Notice) */}
-      <LegalModal
-        isOpen={legalModalOpen}
-        onClose={handleCloseLegal}
-        initialTab={legalModalTab}
+      {/* Privacy Notice Modal */}
+      <PrivacyModal
+        isOpen={privacyModalOpen}
+        onClose={handleClosePrivacy}
+      />
+
+      {/* Terms of Service Modal */}
+      <TermsModal
+        isOpen={termsModalOpen}
+        onClose={handleCloseTerms}
       />
     </div>
   );
