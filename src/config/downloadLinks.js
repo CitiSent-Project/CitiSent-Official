@@ -9,8 +9,14 @@ export const APP_DOWNLOAD_LINKS = {
   // Apple App Store URL
   ios: "https://apps.apple.com/app/citisent/id1234567890",
 
-  // Direct Android APK Download URL (for testing or beta distribution)
-  directApk: "https://github.com/DarrenGuev/CitiSent-Official/releases/latest/download/citisent-release.apk",
+  // Direct Android APK File URL (triggers immediate download on Android / QR scan)
+  directApkFile: "https://github.com/CitiSent-Project/CitiSent/releases/download/v1.0.0/CitiSent-Mobile.apk",
+
+  // GitHub Release Page (view changelog, source, and assets)
+  githubRelease: "https://github.com/CitiSent-Project/CitiSent/releases/tag/v1.0.0",
+
+  // Primary APK download URL (points to direct file for instant download)
+  directApk: "https://github.com/CitiSent-Project/CitiSent/releases/download/v1.0.0/CitiSent-Mobile.apk",
 
   // Web PWA / Citizen Web Portal (if applicable)
   webPortal: "#",

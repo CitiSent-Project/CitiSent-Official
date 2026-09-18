@@ -35,7 +35,7 @@ export default function FAQ({ onOpenDownload }) {
     },
     {
       q: "Where can I download CitiSent?",
-      a: "You can download CitiSent directly as an Android APK from our official releases page."
+      a: "You can download CitiSent directly as an Android APK from our official GitHub Releases page."
     }
   ];
 

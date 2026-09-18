@@ -55,7 +55,7 @@ export default function Footer({ onOpenDownload }) {
             <h4 className="footer-heading">Resources</h4>
             <ul className="footer-links">
               <li><a href="#faq" onClick={(e) => handleLinkClick(e, '#faq')}>Frequently Asked Questions</a></li>
-              <li><a href={APP_DOWNLOAD_LINKS.directApk} download>Download APK Package</a></li>
+              <li><a href={APP_DOWNLOAD_LINKS.directApk} target="_blank" rel="noopener noreferrer">Download APK (GitHub Releases)</a></li>
             </ul>
           </div>
 
