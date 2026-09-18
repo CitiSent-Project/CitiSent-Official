@@ -11,7 +11,7 @@ import { APP_DOWNLOAD_LINKS } from '../../config/downloadLinks';
 import './Footer.css';
 import logoLeft from '../../assets/logo-left.png';
 
-export default function Footer({ onOpenDownload }) {
+export default function Footer({ onOpenDownload, onOpenLegal }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -56,6 +56,24 @@ export default function Footer({ onOpenDownload }) {
             <ul className="footer-links">
               <li><a href="#faq" onClick={(e) => handleLinkClick(e, '#faq')}>Frequently Asked Questions</a></li>
               <li><a href={APP_DOWNLOAD_LINKS.directApk} target="_blank" rel="noopener noreferrer">Download APK (GitHub Releases)</a></li>
+              <li>
+                <button
+                  type="button"
+                  className="footer-link-btn"
+                  onClick={() => onOpenLegal && onOpenLegal('terms')}
+                >
+                  Terms of Service
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  className="footer-link-btn"
+                  onClick={() => onOpenLegal && onOpenLegal('privacy')}
+                >
+                  Privacy Notice
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -92,11 +110,29 @@ export default function Footer({ onOpenDownload }) {
           </div>
 
           <div className="footer-legal">
-            <a href="#" onClick={(e) => e.preventDefault()}>Privacy Policy</a>
+            <button
+              type="button"
+              className="footer-legal-link"
+              onClick={() => onOpenLegal && onOpenLegal('privacy')}
+            >
+              Privacy Policy
+            </button>
             <span className="dot-divider">•</span>
-            <a href="#" onClick={(e) => e.preventDefault()}>Terms of Service</a>
+            <button
+              type="button"
+              className="footer-legal-link"
+              onClick={() => onOpenLegal && onOpenLegal('terms')}
+            >
+              Terms of Service
+            </button>
             <span className="dot-divider">•</span>
-            <a href="#" onClick={(e) => e.preventDefault()}>Security & Encryption</a>
+            <button
+              type="button"
+              className="footer-legal-link"
+              onClick={() => onOpenLegal && onOpenLegal('privacy')}
+            >
+              Security &amp; Encryption
+            </button>
           </div>
 
           <button className="footer-scroll-top" onClick={scrollToTop} aria-label="Scroll to top">

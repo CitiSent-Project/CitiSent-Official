@@ -8,10 +8,13 @@ import DownloadCTA from './components/DownloadCTA/DownloadCTA';
 import FAQ from './components/FAQ/FAQ';
 import Footer from './components/Footer/Footer';
 import DownloadModal from './components/DownloadModal/DownloadModal';
+import LegalModal from './components/LegalModal/LegalModal';
 import useScrollReveal from './hooks/useScrollReveal';
 
 export default function App() {
   const [downloadModalOpen, setDownloadModalOpen] = useState(false);
+  const [legalModalOpen, setLegalModalOpen] = useState(false);
+  const [legalModalTab, setLegalModalTab] = useState('terms');
 
   // Automatically observe all .scroll-reveal sections across the page
   useScrollReveal();
@@ -22,6 +25,15 @@ export default function App() {
 
   const handleCloseDownload = () => {
     setDownloadModalOpen(false);
+  };
+
+  const handleOpenLegal = (tab = 'terms') => {
+    setLegalModalTab(tab);
+    setLegalModalOpen(true);
+  };
+
+  const handleCloseLegal = () => {
+    setLegalModalOpen(false);
   };
 
   return (
@@ -51,12 +63,22 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer onOpenDownload={handleOpenDownload} />
+      <Footer
+        onOpenDownload={handleOpenDownload}
+        onOpenLegal={handleOpenLegal}
+      />
 
       {/* Download Modal Popup */}
       <DownloadModal
         isOpen={downloadModalOpen}
         onClose={handleCloseDownload}
+      />
+
+      {/* Legal Documents Modal (Terms of Service & Privacy Notice) */}
+      <LegalModal
+        isOpen={legalModalOpen}
+        onClose={handleCloseLegal}
+        initialTab={legalModalTab}
       />
     </div>
   );
