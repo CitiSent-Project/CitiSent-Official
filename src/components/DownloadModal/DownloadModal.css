@@ -135,8 +135,19 @@
   color: #059669;
 }
 
+.store-card--github .store-card__icon-box {
+  background: #0F172A;
+  color: #FFFFFF;
+}
+
 .store-card__content {
   flex: 1;
+}
+
+.store-card__badge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .store-card__subtitle {
@@ -147,11 +158,35 @@
   color: #64748B;
 }
 
+.store-card__pill {
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: #059669;
+  background: #D1FAE5;
+  padding: 0.1rem 0.4rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
 .store-card__name {
   display: block;
   font-size: 1.05rem;
   font-weight: 700;
   color: #0F172A;
+}
+
+.store-card__redirect-note {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #64748B;
+  margin-top: 0.2rem;
+  font-weight: 500;
+}
+
+.store-card:hover .store-card__redirect-note {
+  color: var(--civic-blue);
 }
 
 .store-card__arrow {
@@ -173,15 +208,33 @@
   background: linear-gradient(135deg, #0B132B 0%, #1C2541 100%);
   border-radius: var(--radius-lg);
   color: #FFFFFF;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .qr-box__visual {
   background: #FFFFFF;
-  padding: 0.5rem;
+  padding: 0.35rem;
   border-radius: var(--radius-md);
   flex-shrink: 0;
   box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+}
+
+.qr-box__img {
+  display: block;
+  width: 92px;
+  height: 92px;
+  border-radius: 4px;
+}
+
+.qr-box__loading {
+  font-size: 0.75rem;
+  color: #64748B;
+  text-align: center;
 }
 
 .qr-box__tag {
@@ -200,6 +253,57 @@
   font-size: 0.85rem;
   color: #CBD5E1;
   line-height: 1.45;
+}
+
+/* Install Helper */
+.install-helper {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.install-helper__toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: none;
+  color: #334155;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
+.install-helper__toggle:hover {
+  color: var(--civic-blue);
+}
+
+.install-helper__action {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--civic-blue);
+  font-weight: 500;
+}
+
+.install-steps {
+  margin: 0.65rem 0 0 0;
+  padding-left: 1.15rem;
+  font-size: 0.78125rem;
+  color: #475569;
+  line-height: 1.55;
+}
+
+.install-steps li {
+  margin-bottom: 0.35rem;
+}
+
+.install-steps li strong {
+  color: #0F172A;
 }
 
 .modal-footer {

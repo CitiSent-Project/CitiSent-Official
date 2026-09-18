@@ -11,11 +11,11 @@ export default function FAQ({ onOpenDownload }) {
   const faqs = [
     {
       q: "What is CitiSent?",
-      a: "CitiSent is a modern civic-technology mobile application that connects citizens directly with their local city administrators and field crews. It empowers community members to report local hazards, track work orders in real-time, and leverage AI sentiment analysis to ensure critical community issues are resolved swiftly."
+      a: "CitiSent is a civic reporting mobile application that helps citizens report community concerns directly to the appropriate local government department. It allows users to submit reports with descriptions, photos, and locations, while providing updates on the status of their concerns. CitiSent also uses sentiment analysis to help identify the urgency and emotional context of citizen reports."
     },
     {
       q: "Who can use CitiSent?",
-      a: "CitiSent is designed for all community residents, local business owners, students, and neighborhood leaders. City administrators, municipal engineers, and public works personnel also utilize the integrated dispatch system to manage and resolve reported concerns."
+      a: "CitiSent is designed for everyone living in Sto. Tomas City, Batangas—including all community residents, local business owners, students, and neighborhood leaders across all barangays. City administrators, municipal engineers, and public works personnel also utilize the integrated dispatch system to manage and resolve reported concerns."
     },
     {
       q: "What types of issues can I report?",
@@ -35,7 +35,7 @@ export default function FAQ({ onOpenDownload }) {
     },
     {
       q: "Where can I download CitiSent?",
-      a: "You can download CitiSent directly as an Android APK from our official releases page."
+      a: "You can download CitiSent directly as an Android APK from our official GitHub Releases page."
     }
   ];
 
