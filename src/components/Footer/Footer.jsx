@@ -11,7 +11,7 @@ import { APP_DOWNLOAD_LINKS } from '../../config/downloadLinks';
 import './Footer.css';
 import logoLeft from '../../assets/logo-left.png';
 
-export default function Footer({ onOpenDownload, onOpenPrivacy, onOpenTerms }) {
+export default function Footer({ onOpenDownload, onOpenPrivacy, onOpenTerms, onOpenCommunityGuidelines }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -74,6 +74,15 @@ export default function Footer({ onOpenDownload, onOpenPrivacy, onOpenTerms }) {
                   Privacy Notice
                 </button>
               </li>
+              <li>
+                <button
+                  type="button"
+                  className="footer-link-btn"
+                  onClick={() => onOpenCommunityGuidelines && onOpenCommunityGuidelines()}
+                >
+                  Community Guidelines
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -129,9 +138,9 @@ export default function Footer({ onOpenDownload, onOpenPrivacy, onOpenTerms }) {
             <button
               type="button"
               className="footer-legal-link"
-              onClick={() => onOpenPrivacy && onOpenPrivacy()}
+              onClick={() => onOpenCommunityGuidelines && onOpenCommunityGuidelines()}
             >
-              Security &amp; Encryption
+              Community Guidelines
             </button>
           </div>
 

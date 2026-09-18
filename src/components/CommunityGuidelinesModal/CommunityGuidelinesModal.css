@@ -1,0 +1,249 @@
+.guidelines-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 19, 43, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  padding: 1.25rem;
+  animation: guidelinesFadeIn 0.2s ease-out;
+}
+
+@keyframes guidelinesFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.guidelines-container {
+  background: #FFFFFF;
+  border-radius: var(--radius-2xl, 16px);
+  max-width: 760px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(11, 19, 43, 0.25), 0 0 50px rgba(56, 189, 248, 0.15);
+  animation: guidelinesSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  overflow: hidden;
+}
+
+@keyframes guidelinesSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.guidelines-header {
+  padding: 1.75rem 2rem 1.25rem 2rem;
+  border-bottom: 1px solid #E2E8F0;
+  background: #FFFFFF;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.guidelines-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #F1F5F9;
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.guidelines-close:hover {
+  background: #E2E8F0;
+  color: #0F172A;
+  transform: rotate(90deg);
+}
+
+.guidelines-header__badge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.guidelines-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.25rem 0;
+}
+
+.guidelines-updated {
+  font-size: 0.8125rem;
+  color: #64748B;
+  margin: 0;
+}
+
+/* Scrollable Document Body */
+.guidelines-body {
+  padding: 1.75rem 2rem;
+  overflow-y: auto;
+  color: #334155;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+.guidelines-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.guidelines-body::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+
+.guidelines-body::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+
+.guidelines-body::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Notice Box */
+.guidelines-notice-box {
+  padding: 1.15rem 1.35rem;
+  border-radius: var(--radius-lg, 10px);
+  margin-bottom: 1.75rem;
+}
+
+.guidelines-notice-box--info {
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  color: #1E40AF;
+}
+
+.guidelines-notice-box--warning {
+  background: #FFFBEB;
+  border: 1px solid #FDE68A;
+  color: #92400E;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+
+.guidelines-notice-box__header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  margin-bottom: 0.4rem;
+}
+
+.guidelines-notice-box p {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+/* Document Typography */
+.guidelines-section-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 1.75rem 0 0.65rem 0;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.guidelines-section-title:first-of-type {
+  margin-top: 0;
+}
+
+.guidelines-paragraph {
+  margin: 0 0 0.75rem 0;
+  color: #334155;
+}
+
+.guidelines-bullet-list {
+  margin: 0 0 1rem 0;
+  padding-left: 1.35rem;
+  list-style-type: disc;
+}
+
+.guidelines-bullet-item {
+  margin-bottom: 0.5rem;
+  color: #334155;
+}
+
+.guidelines-bullet-item strong {
+  color: #0F172A;
+}
+
+/* Modal Footer */
+.guidelines-footer {
+  padding: 1rem 2rem;
+  border-top: 1px solid #E2E8F0;
+  background: #F8FAFC;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.guidelines-footer__note {
+  font-size: 0.8125rem;
+  color: #64748B;
+}
+
+.guidelines-footer__btn {
+  padding: 0.55rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: #0B132B;
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-md, 8px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.guidelines-footer__btn:hover {
+  background: var(--civic-blue, #2563EB);
+}
+
+@media (max-width: 640px) {
+  .guidelines-container {
+    max-height: 95vh;
+  }
+  .guidelines-header {
+    padding: 1.25rem;
+  }
+  .guidelines-body {
+    padding: 1.25rem;
+  }
+  .guidelines-footer {
+    padding: 0.85rem 1.25rem;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+  .guidelines-footer__btn {
+    width: 100%;
+  }
+}

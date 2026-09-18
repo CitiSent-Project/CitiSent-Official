@@ -10,12 +10,14 @@ import Footer from './components/Footer/Footer';
 import DownloadModal from './components/DownloadModal/DownloadModal';
 import PrivacyModal from './components/PrivacyModal/PrivacyModal';
 import TermsModal from './components/TermsModal/TermsModal';
+import CommunityGuidelinesModal from './components/CommunityGuidelinesModal/CommunityGuidelinesModal';
 import useScrollReveal from './hooks/useScrollReveal';
 
 export default function App() {
   const [downloadModalOpen, setDownloadModalOpen] = useState(false);
   const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
   const [termsModalOpen, setTermsModalOpen] = useState(false);
+  const [communityGuidelinesModalOpen, setCommunityGuidelinesModalOpen] = useState(false);
 
   // Automatically observe all .scroll-reveal sections across the page
   useScrollReveal();
@@ -42,6 +44,14 @@ export default function App() {
 
   const handleCloseTerms = () => {
     setTermsModalOpen(false);
+  };
+
+  const handleOpenCommunityGuidelines = () => {
+    setCommunityGuidelinesModalOpen(true);
+  };
+
+  const handleCloseCommunityGuidelines = () => {
+    setCommunityGuidelinesModalOpen(false);
   };
 
   return (
@@ -75,6 +85,7 @@ export default function App() {
         onOpenDownload={handleOpenDownload}
         onOpenPrivacy={handleOpenPrivacy}
         onOpenTerms={handleOpenTerms}
+        onOpenCommunityGuidelines={handleOpenCommunityGuidelines}
       />
 
       {/* Download Modal Popup */}
@@ -93,6 +104,12 @@ export default function App() {
       <TermsModal
         isOpen={termsModalOpen}
         onClose={handleCloseTerms}
+      />
+
+      {/* Community Guidelines Modal */}
+      <CommunityGuidelinesModal
+        isOpen={communityGuidelinesModalOpen}
+        onClose={handleCloseCommunityGuidelines}
       />
     </div>
   );
