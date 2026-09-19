@@ -11,7 +11,7 @@ export default function ResearchSurvey() {
 
   useEffect(() => {
     QRCode.toDataURL(APP_DOWNLOAD_LINKS.researchSurvey, {
-      width: 200,
+      width: 280,
       margin: 1,
       color: {
         dark: '#001845',
@@ -35,7 +35,9 @@ export default function ResearchSurvey() {
           {/* Main Context & Actions */}
           <div className="survey-content">
             <span className="survey-badge">Academic Research</span>
-            <h2 className="survey-title">Help Us Evaluate CitiSent</h2>
+            <h2 className="survey-title">
+              Help Us Evaluate <span className="survey-title__brand">CitiSent</span>
+            </h2>
             <p className="survey-description">
               We are conducting an academic study on{' '}
               <strong>&ldquo;CitiSent: An Emotion-Aware City-Based Reporting System with Sentiment Analysis&rdquo;</strong>.
@@ -88,8 +90,8 @@ export default function ResearchSurvey() {
                     src={qrCodeUrl}
                     alt="QR Code for CitiSent Research Survey"
                     className="survey-qr-image"
-                    width="140"
-                    height="140"
+                    width="180"
+                    height="180"
                   />
                 ) : (
                   <div className="survey-qr-placeholder">Loading QR...</div>
