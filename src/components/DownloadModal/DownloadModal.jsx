@@ -4,14 +4,12 @@ import {
   ArrowRight,
   Download,
   CheckCircle2,
-  ShieldCheck,
   QrCode,
   ExternalLink,
   Info
 } from 'lucide-react';
 import QRCode from 'qrcode';
 import { APP_DOWNLOAD_LINKS } from '../../config/downloadLinks';
-import Badge from '../common/Badge';
 import './DownloadModal.css';
 
 export default function DownloadModal({ isOpen, onClose }) {
@@ -57,7 +55,6 @@ export default function DownloadModal({ isOpen, onClose }) {
         </button>
 
         <div className="modal-header">
-          <Badge variant="emerald" icon={ShieldCheck}>Official Mobile App</Badge>
           <h3 className="modal-title">Get CitiSent for Android</h3>
           <p className="modal-desc">
             Download the APK package now to report concerns and track community improvements in real-time.

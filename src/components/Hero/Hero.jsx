@@ -29,6 +29,17 @@ export default function Hero({ onOpenDownload }) {
     }
   };
 
+  const scrollToSurvey = (e) => {
+    e.preventDefault();
+    const target = document.querySelector('#research-survey');
+    if (target) {
+      const navOffset = 80;
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    }
+  };
+
   // Linear interpolation helper
   const lerp = (start, end, factor) => start + (end - start) * factor;
 
@@ -137,6 +148,12 @@ export default function Hero({ onOpenDownload }) {
       <div className="container hero-container">
         {/* Left Column: Headline & Messaging */}
         <div className="hero-content">
+          {/* Research Study Announcement Pill */}
+          <a href="#research-survey" onClick={scrollToSurvey} className="hero-survey-pill">
+            <span className="hero-survey-pill__badge">Research Study</span>
+            <span className="hero-survey-pill__text">Participate in our CitiSent evaluation questionnaire</span>
+            <ArrowRight size={14} className="hero-survey-pill__arrow" />
+          </a>
 
           <h1 className="hero-title">
             Make <span className="text-gradient">Sto. Tomas City</span> Heard.

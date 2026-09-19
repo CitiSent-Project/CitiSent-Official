@@ -88,8 +88,8 @@
 .modal-title {
   font-size: 1.65rem;
   font-weight: 800;
-  color: #0F172A;
-  margin-top: 0.75rem;
+  color: var(--civic-blue, #1A52B5);
+  margin-top: 0;
   margin-bottom: 0.5rem;
   letter-spacing: -0.02em;
 }
@@ -416,7 +416,7 @@
 
   .modal-title {
     font-size: 1.35rem;
-    margin-top: 0.5rem;
+    margin-top: 0;
     margin-bottom: 0.35rem;
   }
 
@@ -562,7 +562,7 @@
 
   .modal-title {
     font-size: 1.15rem;
-    margin-top: 0.25rem;
+    margin-top: 0;
     margin-bottom: 0.25rem;
   }
 
