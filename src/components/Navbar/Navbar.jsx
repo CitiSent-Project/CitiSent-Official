@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { Menu, X, Download, ChevronRight } from 'lucide-react';
 import Button from '../common/Button';
@@ -7,19 +7,59 @@ import './Navbar.css';
 
 export default function Navbar({ onOpenDownload }) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const lastScrollYRef = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
+      const currentScrollY = Math.max(0, window.scrollY);
+      const maxScrollY = document.documentElement.scrollHeight - window.innerHeight;
+
+      // Style change threshold for background blur / shadow
+      setIsScrolled(currentScrollY > 20);
+
+      // Keep navbar visible if mobile drawer is currently open
+      if (mobileMenuOpen) {
+        setIsVisible(true);
+        lastScrollYRef.current = currentScrollY;
+        return;
       }
+
+      // Ignore overscroll / rubber-banding at the bottom of the page
+      if (maxScrollY > 0 && currentScrollY >= maxScrollY - 10) {
+        lastScrollYRef.current = currentScrollY;
+        return;
+      }
+
+      // Always keep navbar visible near the top of the page
+      if (currentScrollY < 60) {
+        setIsVisible(true);
+        lastScrollYRef.current = currentScrollY;
+        return;
+      }
+
+      const diff = currentScrollY - lastScrollYRef.current;
+
+      // Small threshold to avoid flicker from minor touch/trackpad oscillations
+      if (Math.abs(diff) < 6) {
+        return;
+      }
+
+      if (diff > 0) {
+        // Scrolling down -> hide navbar smoothly
+        setIsVisible(false);
+      } else {
+        // Scrolling up -> show navbar smoothly
+        setIsVisible(true);
+      }
+
+      lastScrollYRef.current = currentScrollY;
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [mobileMenuOpen]);
 
   const navLinks = [
     { label: 'Home', href: '#home' },
@@ -45,7 +85,7 @@ export default function Navbar({ onOpenDownload }) {
   };
 
   return (
-    <header className={`citi-navbar ${isScrolled ? 'citi-navbar--scrolled' : ''}`}>
+    <header className={`citi-navbar ${isScrolled ? 'citi-navbar--scrolled' : ''} ${!isVisible ? 'citi-navbar--hidden' : ''}`}>
       <div className="container citi-navbar__container">
         {/* Brand Logo */}
         <a href="#home" onClick={(e) => handleLinkClick(e, '#home')} className="citi-navbar__brand">
