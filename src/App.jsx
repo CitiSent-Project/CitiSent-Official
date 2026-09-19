@@ -4,6 +4,7 @@ import Hero from './components/Hero/Hero';
 import WhyCitiSent from './components/WhyCitiSent/WhyCitiSent';
 import HowItWorks from './components/HowItWorks/HowItWorks';
 import AdminChat from './components/AdminChat/AdminChat';
+import ResearchSurvey from './components/ResearchSurvey/ResearchSurvey';
 import DownloadCTA from './components/DownloadCTA/DownloadCTA';
 import FAQ from './components/FAQ/FAQ';
 import Footer from './components/Footer/Footer';
@@ -72,6 +73,9 @@ export default function App() {
 
         {/* Admin Chat Showcase */}
         <AdminChat onOpenDownload={handleOpenDownload} />
+
+        {/* Academic Research Survey */}
+        <ResearchSurvey />
 
         {/* FAQ Accordion */}
         <FAQ onOpenDownload={handleOpenDownload} />

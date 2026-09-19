@@ -21,6 +21,9 @@ export const APP_DOWNLOAD_LINKS = {
   // Web PWA / Citizen Web Portal (if applicable)
   webPortal: "#",
 
+  // Academic Research Survey Questionnaire
+  researchSurvey: "https://docs.google.com/forms/d/e/1FAIpQLScv9vd1zIfWRABqG_BXUkiOJ8btiR5gPUQSZsuQ8KnL9cZkag/viewform",
+
   // Demo Video / Documentation
   demoVideo: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
 

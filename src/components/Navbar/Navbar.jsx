@@ -66,7 +66,8 @@ export default function Navbar({ onOpenDownload }) {
     { label: 'Why CitiSent', href: '#why-citisent' },
     { label: 'How It Works', href: '#how-it-works' },
     { label: 'Admin Chat', href: '#admin-chat' },
-    { label: 'FAQ', href: '#faq' }
+    { label: 'FAQ', href: '#faq' },
+    { label: 'Research Survey', href: '#research-survey' }
   ];
 
   const handleLinkClick = (e, href) => {

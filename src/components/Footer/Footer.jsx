@@ -47,6 +47,7 @@ export default function Footer({ onOpenDownload, onOpenPrivacy, onOpenTerms, onO
               <li><a href="#why-citisent" onClick={(e) => handleLinkClick(e, '#why-citisent')}>Why CitiSent</a></li>
               <li><a href="#how-it-works" onClick={(e) => handleLinkClick(e, '#how-it-works')}>How It Works</a></li>
               <li><a href="#admin-chat" onClick={(e) => handleLinkClick(e, '#admin-chat')}>Admin Chat</a></li>
+              <li><a href="#research-survey" onClick={(e) => handleLinkClick(e, '#research-survey')}>Research Survey</a></li>
             </ul>
           </div>
 
@@ -54,6 +55,7 @@ export default function Footer({ onOpenDownload, onOpenPrivacy, onOpenTerms, onO
           <div className="footer-col">
             <h4 className="footer-heading">Resources</h4>
             <ul className="footer-links">
+              <li><a href={APP_DOWNLOAD_LINKS.researchSurvey} target="_blank" rel="noopener noreferrer">Research Questionnaire (Google Form)</a></li>
               <li><a href="#faq" onClick={(e) => handleLinkClick(e, '#faq')}>Frequently Asked Questions</a></li>
               <li><a href={APP_DOWNLOAD_LINKS.directApk} target="_blank" rel="noopener noreferrer">Download APK (GitHub Releases)</a></li>
               <li>
