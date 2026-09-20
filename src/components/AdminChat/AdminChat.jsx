@@ -1,67 +1,78 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { 
-  ChevronLeft, 
-  ChevronRight 
-} from 'lucide-react';
-import adminChat1 from '../../assets/admin-chat-1.png';
-import adminChat2 from '../../assets/admin-chat-2.png';
-import adminChat3 from '../../assets/admin-chat-3.png';
+import React, { useState, useRef } from 'react';
+import { Play, Pause } from 'lucide-react';
 import './AdminChat.css';
 
 export default function AdminChat() {
   const [activeSlide, setActiveSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const timerRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const videoRef = useRef(null);
 
   const slides = [
     {
       id: 1,
       step: 1,
-      image: adminChat1,
+      startTime: 0.0,
+      endTime: 6.5,
+      timeRange: '0:00 – 0:06',
       title: 'Locate Report & Tap Chat',
-      desc: 'Find your active concern in Manage Reports and tap Chat with Admin.',
-      caption: 'Step 1: Open chat from your report',
-      alt: 'CitiSent Manage Reports screen with Chat with Admin button'
+      desc: 'Find your active concern in Manage Reports and tap Chat with Admin.'
     },
     {
       id: 2,
       step: 2,
-      image: adminChat2,
+      startTime: 6.5,
+      endTime: 10.5,
+      timeRange: '0:06 – 0:10',
       title: 'Connect with Assigned Department',
-      desc: 'View your report summary and connect to the assigned LGU office.',
-      caption: 'Step 2: Connect with assigned department',
-      alt: 'CitiSent Admin Discussion screen showing report summary'
+      desc: 'View your report summary and connect to the assigned LGU office.'
     },
     {
       id: 3,
       step: 3,
-      image: adminChat3,
+      startTime: 10.5,
+      endTime: 35.46,
+      timeRange: '0:10 – 0:35',
       title: 'Message Officers in Real Time',
-      desc: 'Direct two-way dialogue to clarify details, and track progress.',
-      caption: 'Step 3: Message city officers in real time',
-      alt: 'Active two-way messaging between citizen and LGU administrator'
+      desc: 'Direct two-way dialogue to clarify details and track resolution progress.'
     }
   ];
 
-  // Automatic slide rotation every 4 seconds, paused on hover
-  useEffect(() => {
-    if (isPaused) return;
+  // Sync active step as video progresses
+  const handleTimeUpdate = () => {
+    if (!videoRef.current) return;
+    const time = videoRef.current.currentTime;
 
-    timerRef.current = setInterval(() => {
-      setActiveSlide(prev => (prev + 1) % slides.length);
-    }, 4000);
+    const stepIdx = slides.findIndex((slide, idx) => {
+      if (idx === slides.length - 1) {
+        return time >= slide.startTime;
+      }
+      return time >= slide.startTime && time < slide.endTime;
+    });
 
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
-  }, [isPaused, slides.length]);
-
-  const handlePrev = () => {
-    setActiveSlide(prev => (prev - 1 + slides.length) % slides.length);
+    if (stepIdx !== -1 && stepIdx !== activeSlide) {
+      setActiveSlide(stepIdx);
+    }
   };
 
-  const handleNext = () => {
-    setActiveSlide(prev => (prev + 1) % slides.length);
+  // Jump to specific step timestamp on click
+  const handleStepClick = (idx) => {
+    setActiveSlide(idx);
+    if (videoRef.current) {
+      videoRef.current.currentTime = slides[idx].startTime;
+      if (videoRef.current.paused) {
+        videoRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
+      }
+    }
+  };
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      videoRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
+    } else {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
   };
 
   return (
@@ -73,11 +84,7 @@ export default function AdminChat() {
         <div className="admin-chat-grid">
           
           {/* Left Column: Heading + Interactive Steps */}
-          <div 
-            className="admin-chat-text-col reveal-item"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-          >
+          <div className="admin-chat-text-col reveal-item">
             <h2 className="admin-chat-heading">
               Chat Directly with Your Assigned LGU Department
             </h2>
@@ -90,14 +97,22 @@ export default function AdminChat() {
                     key={s.id}
                     type="button"
                     className={`admin-step-item ${isActive ? 'admin-step-item--active' : ''}`}
-                    onClick={() => setActiveSlide(index)}
+                    onClick={() => handleStepClick(index)}
                     aria-selected={isActive}
                   >
                     <div className="admin-step-circle">
                       {s.step}
                     </div>
                     <div className="admin-step-content">
-                      <h3 className="admin-step-title">{s.title}</h3>
+                      <div className="admin-step-header">
+                        <h3 className="admin-step-title">{s.title}</h3>
+                        {isActive && (
+                          <span className="admin-active-badge">
+                            <span className="admin-live-pulse" />
+                            Live
+                          </span>
+                        )}
+                      </div>
                       <p className="admin-step-desc">{s.desc}</p>
                     </div>
                   </button>
@@ -106,70 +121,48 @@ export default function AdminChat() {
             </div>
           </div>
 
-          {/* Right Column: Crossfade Image Carousel */}
-          <div 
-            className="admin-chat-image-col reveal-card reveal-delay-150"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-            aria-roledescription="carousel"
-            aria-label="Admin Chat Screenshots"
-          >
+          {/* Right Column: Phone Mockup Video */}
+          <div className="admin-chat-image-col reveal-card reveal-delay-150">
             <div className="admin-chat-showcase">
               
-              {/* Phone Frame with Crossfade Stack */}
-              <div className="admin-chat-phone-frame">
-                {/* Invisible spacer image to maintain exact responsive height */}
-                <img 
-                  src={slides[0].image} 
-                  alt="" 
-                  aria-hidden="true" 
-                  className="admin-chat-spacer-img" 
-                />
-
-                {/* Layered Crossfade Images */}
-                {slides.map((slide, index) => (
-                  <img
-                    key={slide.id}
-                    src={slide.image}
-                    alt={slide.alt}
-                    className={`admin-chat-fade-img ${activeSlide === index ? 'is-active' : ''}`}
-                  />
-                ))}
-              </div>
-
-              {/* Caption & Indicator Controls */}
-              <div className="admin-chat-controls">
-                <button
-                  type="button"
-                  className="admin-chat-nav-btn"
-                  onClick={handlePrev}
-                  aria-label="Previous screenshot"
+              {/* Phone Frame */}
+              <div 
+                className="admin-chat-phone-frame"
+                onClick={togglePlay}
+                role="region"
+                aria-label="Admin chat preview video"
+              >
+                <video
+                  ref={videoRef}
+                  className="admin-chat-video"
+                  poster="/videos/admin-chat-poster.png"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  onTimeUpdate={handleTimeUpdate}
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
                 >
-                  <ChevronLeft size={18} />
-                </button>
+                  <source src="/videos/admin-chat.mp4" type="video/mp4" />
+                  <source src="/videos/mockup (2).mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
 
-                <div className="admin-chat-dots" role="tablist">
-                  {slides.map((slide, index) => (
-                    <button
-                      key={slide.id}
-                      type="button"
-                      role="tab"
-                      aria-selected={activeSlide === index}
-                      className={`admin-chat-dot ${activeSlide === index ? 'is-active' : ''}`}
-                      onClick={() => setActiveSlide(index)}
-                      aria-label={`Show ${slide.title}`}
-                    />
-                  ))}
+                {/* Center Play/Pause Overlay */}
+                <div className={`admin-chat-video-overlay ${!isPlaying ? 'is-paused' : ''}`}>
+                  <button 
+                    type="button" 
+                    className="admin-play-btn-large" 
+                    aria-label={isPlaying ? "Pause video" : "Play video"}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      togglePlay();
+                    }}
+                  >
+                    {isPlaying ? <Pause size={24} /> : <Play size={24} style={{ marginLeft: '3px' }} />}
+                  </button>
                 </div>
-
-                <button
-                  type="button"
-                  className="admin-chat-nav-btn"
-                  onClick={handleNext}
-                  aria-label="Next screenshot"
-                >
-                  <ChevronRight size={18} />
-                </button>
               </div>
 
             </div>
