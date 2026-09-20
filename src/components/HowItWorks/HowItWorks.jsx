@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import SectionHeading from '../common/SectionHeading';
 import { Play, Pause } from 'lucide-react';
 import './HowItWorks.css';
@@ -7,7 +7,6 @@ export default function HowItWorks() {
   const [activeStep, setActiveStep] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef(null);
-  const stepRefs = useRef([]);
 
   const steps = [
     {
@@ -100,14 +99,6 @@ export default function HowItWorks() {
     }
   };
 
-  // Scroll active step into view on mobile / smaller viewports
-  useEffect(() => {
-    const el = stepRefs.current[activeStep];
-    if (el && window.innerWidth <= 900) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-  }, [activeStep]);
-
   return (
     <section id="how-it-works" className="section hiw-section">
       <div className="container scroll-reveal">
@@ -179,7 +170,6 @@ export default function HowItWorks() {
                 return (
                   <div
                     key={step.id}
-                    ref={(el) => (stepRefs.current[idx] = el)}
                     className={`hiw-step-item ${isActive ? 'hiw-step-item--active' : ''} ${isPassed ? 'hiw-step-item--passed' : ''}`}
                     onClick={() => handleStepClick(idx)}
                     role="button"
