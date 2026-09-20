@@ -20,7 +20,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Left Column: Clean Phone Video Preview & Controls
+   Left Column: Clean Phone Video Preview
    -------------------------------------------------------------------------- */
 .hiw-preview-col {
   display: flex;
@@ -108,154 +108,6 @@
 .hiw-play-btn-large:hover {
   transform: scale(1.08);
   background: #FFFFFF;
-}
-
-/* --------------------------------------------------------------------------
-   Scrubber Bar
-   -------------------------------------------------------------------------- */
-.hiw-scrubber-wrapper {
-  width: 100%;
-  max-width: 300px;
-  padding: 12px 0 4px 0;
-  cursor: pointer;
-}
-
-.hiw-scrubber-track {
-  width: 100%;
-  height: 6px;
-  background: #E2E8F0;
-  border-radius: 999px;
-  position: relative;
-  overflow: visible;
-}
-
-.hiw-scrubber-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--civic-blue, #1A52B5), #3B82F6);
-  border-radius: 999px;
-  transition: width 0.08s linear;
-}
-
-.hiw-scrubber-tick {
-  position: absolute;
-  top: -2px;
-  width: 2px;
-  height: 10px;
-  background: #94A3B8;
-  transform: translateX(-50%);
-  pointer-events: none;
-  border-radius: 1px;
-  opacity: 0.6;
-  transition: background-color 0.2s ease, opacity 0.2s ease;
-}
-
-.hiw-scrubber-tick.is-active {
-  background: #2563EB;
-  opacity: 1;
-  width: 3px;
-}
-
-/* --------------------------------------------------------------------------
-   Video Controls Bar
-   -------------------------------------------------------------------------- */
-.hiw-controls-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 300px;
-  margin-top: 0.5rem;
-  gap: 0.5rem;
-}
-
-.hiw-controls-left {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-}
-
-.hiw-control-btn {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: #F8FAFC;
-  border: 1px solid #E2E8F0;
-  color: #475569;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all var(--transition-fast, 0.2s ease);
-}
-
-.hiw-control-btn:hover {
-  background: #EBF0FB;
-  color: var(--civic-blue, #1A52B5);
-  border-color: #CBD5E1;
-  transform: scale(1.05);
-}
-
-.hiw-timestamp {
-  font-size: 0.725rem;
-  font-weight: 600;
-  color: #64748B;
-  font-variant-numeric: tabular-nums;
-  margin-left: 0.2rem;
-}
-
-.hiw-controls-right {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.hiw-nav-arrow {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  color: #475569;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all var(--transition-fast, 0.2s ease);
-  cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
-.hiw-nav-arrow:hover {
-  background: #EBF0FB;
-  color: var(--civic-blue, #1A52B5);
-  border-color: #CBD5E1;
-  transform: scale(1.05);
-}
-
-.hiw-preview-dots {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-.hiw-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #CBD5E1;
-  transition: all var(--transition-fast, 0.2s ease);
-  cursor: pointer;
-  padding: 0;
-  border: none;
-}
-
-.hiw-dot:hover {
-  background: #94A3B8;
-}
-
-.hiw-dot--active {
-  background: var(--civic-blue, #1A52B5);
-  width: 18px;
-  border-radius: 8px;
 }
 
 /* --------------------------------------------------------------------------
@@ -467,11 +319,6 @@
   .hiw-phone-frame {
     max-width: 260px;
   }
-
-  .hiw-scrubber-wrapper,
-  .hiw-controls-row {
-    max-width: 260px;
-  }
 }
 
 @media (max-width: 640px) {
@@ -507,11 +354,6 @@
   }
 
   .hiw-phone-frame {
-    max-width: 230px;
-  }
-
-  .hiw-scrubber-wrapper,
-  .hiw-controls-row {
     max-width: 230px;
   }
 }

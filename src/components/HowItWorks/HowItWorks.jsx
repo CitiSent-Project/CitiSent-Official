@@ -1,13 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import SectionHeading from '../common/SectionHeading';
-import { ChevronLeft, ChevronRight, Play, Pause, RotateCcw } from 'lucide-react';
+import { Play, Pause } from 'lucide-react';
 import './HowItWorks.css';
 
 export default function HowItWorks() {
   const [activeStep, setActiveStep] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(23.64);
   const videoRef = useRef(null);
   const stepRefs = useRef([]);
 
@@ -68,7 +66,6 @@ export default function HowItWorks() {
   const handleTimeUpdate = () => {
     if (!videoRef.current) return;
     const time = videoRef.current.currentTime;
-    setCurrentTime(time);
 
     const stepIdx = steps.findIndex((step, idx) => {
       if (idx === steps.length - 1) {
@@ -79,12 +76,6 @@ export default function HowItWorks() {
 
     if (stepIdx !== -1 && stepIdx !== activeStep) {
       setActiveStep(stepIdx);
-    }
-  };
-
-  const handleLoadedMetadata = () => {
-    if (videoRef.current && videoRef.current.duration) {
-      setDuration(videoRef.current.duration);
     }
   };
 
@@ -109,17 +100,6 @@ export default function HowItWorks() {
     }
   };
 
-  const handleScrubberClick = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const clickX = e.clientX - rect.left;
-    const ratio = Math.max(0, Math.min(1, clickX / rect.width));
-    const targetTime = ratio * (duration || 23.64);
-    if (videoRef.current) {
-      videoRef.current.currentTime = targetTime;
-      setCurrentTime(targetTime);
-    }
-  };
-
   // Scroll active step into view on mobile / smaller viewports
   useEffect(() => {
     const el = stepRefs.current[activeStep];
@@ -127,14 +107,6 @@ export default function HowItWorks() {
       el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   }, [activeStep]);
-
-  const formatTime = (secs) => {
-    const m = Math.floor(secs / 60);
-    const s = Math.floor(secs % 60);
-    return `${m}:${s < 10 ? '0' : ''}${s}`;
-  };
-
-  const progressPercent = duration > 0 ? (currentTime / duration) * 100 : 0;
 
   return (
     <section id="how-it-works" className="section hiw-section">
@@ -170,7 +142,6 @@ export default function HowItWorks() {
                   muted
                   playsInline
                   onTimeUpdate={handleTimeUpdate}
-                  onLoadedMetadata={handleLoadedMetadata}
                   onPlay={() => setIsPlaying(true)}
                   onPause={() => setIsPlaying(false)}
                 >
@@ -191,98 +162,6 @@ export default function HowItWorks() {
                     }}
                   >
                     {isPlaying ? <Pause size={24} /> : <Play size={24} style={{ marginLeft: '3px' }} />}
-                  </button>
-                </div>
-              </div>
-
-              {/* Interactive Video Scrubber with Step Markers */}
-              <div 
-                className="hiw-scrubber-wrapper"
-                onClick={handleScrubberClick}
-                role="slider"
-                aria-label="Video scrubber"
-                aria-valuemin="0"
-                aria-valuemax={duration}
-                aria-valuenow={currentTime}
-              >
-                <div className="hiw-scrubber-track">
-                  <div 
-                    className="hiw-scrubber-fill"
-                    style={{ width: `${progressPercent}%` }}
-                  />
-                  {steps.map((s, i) => {
-                    const tickPercent = (s.startTime / (duration || 23.64)) * 100;
-                    return (
-                      <div
-                        key={s.id}
-                        className={`hiw-scrubber-tick ${activeStep === i ? 'is-active' : ''}`}
-                        style={{ left: `${tickPercent}%` }}
-                        title={`${s.title} (${s.timeRange})`}
-                      />
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Video Controls & Step Navigation Bar */}
-              <div className="hiw-controls-row reveal-item reveal-delay-250">
-                <div className="hiw-controls-left">
-                  <button
-                    type="button"
-                    className="hiw-control-btn"
-                    onClick={togglePlay}
-                    aria-label={isPlaying ? "Pause video" : "Play video"}
-                    title={isPlaying ? "Pause" : "Play"}
-                  >
-                    {isPlaying ? <Pause size={15} /> : <Play size={15} style={{ marginLeft: '1px' }} />}
-                  </button>
-
-                  <button
-                    type="button"
-                    className="hiw-control-btn"
-                    onClick={() => handleStepClick(0)}
-                    aria-label="Restart video"
-                    title="Restart from step 1"
-                  >
-                    <RotateCcw size={14} />
-                  </button>
-
-                  <span className="hiw-timestamp">
-                    {formatTime(currentTime)} / {formatTime(duration)}
-                  </span>
-                </div>
-
-                <div className="hiw-controls-right">
-                  <button
-                    type="button"
-                    className="hiw-nav-arrow"
-                    onClick={() => handleStepClick(activeStep > 0 ? activeStep - 1 : steps.length - 1)}
-                    aria-label="Previous step"
-                    title="Previous step"
-                  >
-                    <ChevronLeft size={18} />
-                  </button>
-
-                  <div className="hiw-preview-dots">
-                    {steps.map((_, i) => (
-                      <button
-                        key={i}
-                        type="button"
-                        className={`hiw-dot ${activeStep === i ? 'hiw-dot--active' : ''}`}
-                        onClick={() => handleStepClick(i)}
-                        aria-label={`Go to step ${i + 1}`}
-                      />
-                    ))}
-                  </div>
-
-                  <button
-                    type="button"
-                    className="hiw-nav-arrow"
-                    onClick={() => handleStepClick(activeStep < steps.length - 1 ? activeStep + 1 : 0)}
-                    aria-label="Next step"
-                    title="Next step"
-                  >
-                    <ChevronRight size={18} />
                   </button>
                 </div>
               </div>
