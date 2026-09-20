@@ -46,7 +46,6 @@ export default function Footer({ onOpenDownload, onOpenPrivacy, onOpenTerms, onO
               <li><a href="#home" onClick={(e) => handleLinkClick(e, '#home')}>Home</a></li>
               <li><a href="#why-citisent" onClick={(e) => handleLinkClick(e, '#why-citisent')}>Why CitiSent</a></li>
               <li><a href="#how-it-works" onClick={(e) => handleLinkClick(e, '#how-it-works')}>How It Works</a></li>
-              <li><a href="#admin-chat" onClick={(e) => handleLinkClick(e, '#admin-chat')}>Admin Chat</a></li>
               <li><a href="#research-survey" onClick={(e) => handleLinkClick(e, '#research-survey')}>Research Survey</a></li>
             </ul>
           </div>
