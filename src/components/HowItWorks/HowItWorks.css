@@ -252,44 +252,6 @@
   color: #2563EB;
 }
 
-/* Live Viewing Pill with Pulsing Dot */
-.hiw-active-indicator {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  background: #DBEAFE;
-  color: #1D4ED8;
-  padding: 0.18rem 0.55rem;
-  border-radius: 999px;
-}
-
-.hiw-live-pulse {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #2563EB;
-  box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7);
-  animation: hiwPulse 1.8s infinite;
-}
-
-@keyframes hiwPulse {
-  0% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7);
-  }
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 6px rgba(37, 99, 235, 0);
-  }
-  100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
-  }
-}
 
 .hiw-step-desc {
   font-size: 0.95rem;

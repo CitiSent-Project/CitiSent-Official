@@ -104,15 +104,7 @@ export default function AdminChat() {
                       {s.step}
                     </div>
                     <div className="admin-step-content">
-                      <div className="admin-step-header">
-                        <h3 className="admin-step-title">{s.title}</h3>
-                        {isActive && (
-                          <span className="admin-active-badge">
-                            <span className="admin-live-pulse" />
-                            Live
-                          </span>
-                        )}
-                      </div>
+                      <h3 className="admin-step-title">{s.title}</h3>
                       <p className="admin-step-desc">{s.desc}</p>
                     </div>
                   </button>

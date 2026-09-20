@@ -199,12 +199,6 @@ export default function HowItWorks() {
                           <h3 className="hiw-step-title">{step.title}</h3>
                           <span className="hiw-step-timerange">{step.timeRange}</span>
                         </div>
-                        {isActive && (
-                          <span className="hiw-active-indicator">
-                            <span className="hiw-live-pulse" />
-                            Live
-                          </span>
-                        )}
                       </div>
 
                       <p className="hiw-step-desc">{step.desc}</p>
