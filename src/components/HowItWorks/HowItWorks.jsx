@@ -1,18 +1,15 @@
-import React, { useState } from 'react';
-
-// Actual User Screenshots
-import step1HomeImg from '../../assets/step1-home.png';
-import step2CreateReportImg from '../../assets/step2-create-report.png';
-import step3LguImg from '../../assets/step3-select-lgu.png';
-import step4FillReportImg from '../../assets/step4-fill-report.png';
-import step6SubmittedImg from '../../assets/step6-submitted.png';
-
+import React, { useState, useRef, useEffect } from 'react';
 import SectionHeading from '../common/SectionHeading';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Play, Pause, RotateCcw } from 'lucide-react';
 import './HowItWorks.css';
 
 export default function HowItWorks() {
   const [activeStep, setActiveStep] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(23.64);
+  const videoRef = useRef(null);
+  const stepRefs = useRef([]);
 
   const steps = [
     {
@@ -20,8 +17,9 @@ export default function HowItWorks() {
       num: 1,
       title: 'Login & Start',
       caption: 'Step 1: Citizen Home Page',
-      image: step1HomeImg,
-      imageAlt: 'CitiSent Home Page after logging in',
+      startTime: 0.0,
+      endTime: 1.5,
+      timeRange: '0:00 – 0:01',
       desc: 'Log in to your CitiSent account and start directly from the Home page. Here, you can view city emergency hotlines and see your latest submitted reports.'
     },
     {
@@ -29,8 +27,9 @@ export default function HowItWorks() {
       num: 2,
       title: 'Create a Report',
       caption: 'Step 2: Bottom Navigation Bar',
-      image: step2CreateReportImg,
-      imageAlt: 'Tap Create Report in the bottom navigation bar',
+      startTime: 1.5,
+      endTime: 5.5,
+      timeRange: '0:01 – 0:05',
       desc: 'From the Home page, click “Create Report” in the bottom navigation bar. This opens the report creation page where you begin drafting your concern.'
     },
     {
@@ -38,8 +37,9 @@ export default function HowItWorks() {
       num: 3,
       title: 'Choose an LGU Office',
       caption: 'Step 3: Select Department / LGU Office',
-      image: step3LguImg,
-      imageAlt: 'Select your Local Government Unit department',
+      startTime: 5.5,
+      endTime: 10.0,
+      timeRange: '0:05 – 0:10',
       desc: 'On the Create Report page, select the specific LGU office you want to submit your concern to. The selected office is the department responsible for handling and resolving the report.'
     },
     {
@@ -47,8 +47,9 @@ export default function HowItWorks() {
       num: 4,
       title: 'Complete Your Report',
       caption: 'Step 4: Fill Out Report Details',
-      image: step4FillReportImg,
-      imageAlt: 'Fill out report details form',
+      startTime: 10.0,
+      endTime: 22.0,
+      timeRange: '0:10 – 0:22',
       desc: 'Fill out the required information for your concern. The description is the most important part because this is what the admin will read and use to understand the concern and determine the appropriate action. You can also specify the actual location of the incident and optionally attach a picture for visual context.'
     },
     {
@@ -56,11 +57,84 @@ export default function HowItWorks() {
       num: 5,
       title: 'Submit Your Report',
       caption: 'Step 5: Submission & Confirmation',
-      image: step6SubmittedImg,
-      imageAlt: 'Report submitted confirmation modal with green checkmark',
+      startTime: 22.0,
+      endTime: 23.64,
+      timeRange: '0:22 – 0:24',
       desc: 'Once all the necessary information has been completed, click “Submit”. Wait for the submission process to finish until the confirmation message “Report submitted” appears, confirming that the report has been successfully submitted.'
     }
   ];
+
+  // Sync active step as the video progresses
+  const handleTimeUpdate = () => {
+    if (!videoRef.current) return;
+    const time = videoRef.current.currentTime;
+    setCurrentTime(time);
+
+    const stepIdx = steps.findIndex((step, idx) => {
+      if (idx === steps.length - 1) {
+        return time >= step.startTime;
+      }
+      return time >= step.startTime && time < step.endTime;
+    });
+
+    if (stepIdx !== -1 && stepIdx !== activeStep) {
+      setActiveStep(stepIdx);
+    }
+  };
+
+  const handleLoadedMetadata = () => {
+    if (videoRef.current && videoRef.current.duration) {
+      setDuration(videoRef.current.duration);
+    }
+  };
+
+  // Jump to specific step timestamp on click
+  const handleStepClick = (idx) => {
+    setActiveStep(idx);
+    if (videoRef.current) {
+      videoRef.current.currentTime = steps[idx].startTime;
+      if (videoRef.current.paused) {
+        videoRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
+      }
+    }
+  };
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      videoRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
+    } else {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const handleScrubberClick = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+    const targetTime = ratio * (duration || 23.64);
+    if (videoRef.current) {
+      videoRef.current.currentTime = targetTime;
+      setCurrentTime(targetTime);
+    }
+  };
+
+  // Scroll active step into view on mobile / smaller viewports
+  useEffect(() => {
+    const el = stepRefs.current[activeStep];
+    if (el && window.innerWidth <= 900) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }, [activeStep]);
+
+  const formatTime = (secs) => {
+    const m = Math.floor(secs / 60);
+    const s = Math.floor(secs % 60);
+    return `${m}:${s < 10 ? '0' : ''}${s}`;
+  };
+
+  const progressPercent = duration > 0 ? (currentTime / duration) * 100 : 0;
 
   return (
     <section id="how-it-works" className="section hiw-section">
@@ -73,64 +147,146 @@ export default function HowItWorks() {
           subtitle="A clear step-by-step walkthrough of how citizens submit concerns directly to their Local Government Unit."
         />
 
-        {/* Two-Column Showcase (Left: Phone Screen, Right: Vertical Stepper) */}
+        {/* Two-Column Showcase (Left: Phone Screen Video, Right: Vertical Stepper) */}
         <div className="hiw-grid">
           
-          {/* Left Column: Phone Mockup Frame */}
+          {/* Left Column: Phone Mockup Frame with Video */}
           <div className="hiw-preview-col">
             <div className="hiw-phone-wrapper reveal-scale reveal-delay-100">
-              <div className="hiw-phone-frame">
-                {/* Invisible spacer image to maintain exact responsive height */}
-                <img
-                  src={steps[0].image}
-                  alt=""
-                  aria-hidden="true"
-                  className="hiw-spacer-img"
-                />
+              
+              {/* Phone Mockup Frame */}
+              <div 
+                className="hiw-phone-frame"
+                onClick={togglePlay}
+                role="region"
+                aria-label="How it works video player"
+              >
+                <video
+                  ref={videoRef}
+                  className="hiw-video"
+                  poster="/videos/how-it-works-poster.png"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  onTimeUpdate={handleTimeUpdate}
+                  onLoadedMetadata={handleLoadedMetadata}
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+                >
+                  <source src="/videos/how-it-works.mp4" type="video/mp4" />
+                  <source src="/videos/mockup (1).mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
 
-                {/* Layered Crossfade Images */}
-                {steps.map((step, index) => (
-                  <img
-                    key={step.id}
-                    src={step.image}
-                    alt={step.imageAlt}
-                    className={`hiw-fade-img ${activeStep === index ? 'is-active' : ''}`}
-                  />
-                ))}
+                {/* Center Play/Pause Indicator Overlay */}
+                <div className={`hiw-video-overlay ${!isPlaying ? 'is-paused' : ''}`}>
+                  <button 
+                    type="button" 
+                    className="hiw-play-btn-large" 
+                    aria-label={isPlaying ? "Pause video" : "Play video"}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      togglePlay();
+                    }}
+                  >
+                    {isPlaying ? <Pause size={24} /> : <Play size={24} style={{ marginLeft: '3px' }} />}
+                  </button>
+                </div>
               </div>
 
-              {/* Navigation Indicator Dots & Arrows */}
-              <div className="hiw-preview-nav reveal-item reveal-delay-250">
-                <button
-                  type="button"
-                  className="hiw-nav-arrow"
-                  onClick={() => setActiveStep(prev => (prev > 0 ? prev - 1 : steps.length - 1))}
-                  aria-label="Previous step"
-                >
-                  <ChevronLeft size={18} />
-                </button>
+              {/* Interactive Video Scrubber with Step Markers */}
+              <div 
+                className="hiw-scrubber-wrapper"
+                onClick={handleScrubberClick}
+                role="slider"
+                aria-label="Video scrubber"
+                aria-valuemin="0"
+                aria-valuemax={duration}
+                aria-valuenow={currentTime}
+              >
+                <div className="hiw-scrubber-track">
+                  <div 
+                    className="hiw-scrubber-fill"
+                    style={{ width: `${progressPercent}%` }}
+                  />
+                  {steps.map((s, i) => {
+                    const tickPercent = (s.startTime / (duration || 23.64)) * 100;
+                    return (
+                      <div
+                        key={s.id}
+                        className={`hiw-scrubber-tick ${activeStep === i ? 'is-active' : ''}`}
+                        style={{ left: `${tickPercent}%` }}
+                        title={`${s.title} (${s.timeRange})`}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
 
-                <div className="hiw-preview-dots">
-                  {steps.map((_, i) => (
-                    <button
-                      key={i}
-                      type="button"
-                      className={`hiw-dot ${activeStep === i ? 'hiw-dot--active' : ''}`}
-                      onClick={() => setActiveStep(i)}
-                      aria-label={`Go to step ${i + 1}`}
-                    />
-                  ))}
+              {/* Video Controls & Step Navigation Bar */}
+              <div className="hiw-controls-row reveal-item reveal-delay-250">
+                <div className="hiw-controls-left">
+                  <button
+                    type="button"
+                    className="hiw-control-btn"
+                    onClick={togglePlay}
+                    aria-label={isPlaying ? "Pause video" : "Play video"}
+                    title={isPlaying ? "Pause" : "Play"}
+                  >
+                    {isPlaying ? <Pause size={15} /> : <Play size={15} style={{ marginLeft: '1px' }} />}
+                  </button>
+
+                  <button
+                    type="button"
+                    className="hiw-control-btn"
+                    onClick={() => handleStepClick(0)}
+                    aria-label="Restart video"
+                    title="Restart from step 1"
+                  >
+                    <RotateCcw size={14} />
+                  </button>
+
+                  <span className="hiw-timestamp">
+                    {formatTime(currentTime)} / {formatTime(duration)}
+                  </span>
                 </div>
 
-                <button
-                  type="button"
-                  className="hiw-nav-arrow"
-                  onClick={() => setActiveStep(prev => (prev < steps.length - 1 ? prev + 1 : 0))}
-                  aria-label="Next step"
-                >
-                  <ChevronRight size={18} />
-                </button>
+                <div className="hiw-controls-right">
+                  <button
+                    type="button"
+                    className="hiw-nav-arrow"
+                    onClick={() => handleStepClick(activeStep > 0 ? activeStep - 1 : steps.length - 1)}
+                    aria-label="Previous step"
+                    title="Previous step"
+                  >
+                    <ChevronLeft size={18} />
+                  </button>
+
+                  <div className="hiw-preview-dots">
+                    {steps.map((_, i) => (
+                      <button
+                        key={i}
+                        type="button"
+                        className={`hiw-dot ${activeStep === i ? 'hiw-dot--active' : ''}`}
+                        onClick={() => handleStepClick(i)}
+                        aria-label={`Go to step ${i + 1}`}
+                      />
+                    ))}
+                  </div>
+
+                  <button
+                    type="button"
+                    className="hiw-nav-arrow"
+                    onClick={() => handleStepClick(activeStep < steps.length - 1 ? activeStep + 1 : 0)}
+                    aria-label="Next step"
+                    title="Next step"
+                  >
+                    <ChevronRight size={18} />
+                  </button>
+                </div>
               </div>
+
             </div>
           </div>
 
@@ -139,17 +295,19 @@ export default function HowItWorks() {
             <div className="hiw-stepper reveal-stagger-list">
               {steps.map((step, idx) => {
                 const isActive = activeStep === idx;
+                const isPassed = activeStep > idx;
 
                 return (
                   <div
                     key={step.id}
-                    className={`hiw-step-item ${isActive ? 'hiw-step-item--active' : ''}`}
-                    onClick={() => setActiveStep(idx)}
+                    ref={(el) => (stepRefs.current[idx] = el)}
+                    className={`hiw-step-item ${isActive ? 'hiw-step-item--active' : ''} ${isPassed ? 'hiw-step-item--passed' : ''}`}
+                    onClick={() => handleStepClick(idx)}
                     role="button"
                     tabIndex={0}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter' || e.key === ' ') {
-                        setActiveStep(idx);
+                        handleStepClick(idx);
                       }
                     }}
                   >
@@ -158,15 +316,25 @@ export default function HowItWorks() {
                       <div className="hiw-circle">
                         {step.num}
                       </div>
-                      {idx < steps.length - 1 && <div className="hiw-line" />}
+                      {idx < steps.length - 1 && (
+                        <div className="hiw-line">
+                          <div className={`hiw-line-fill ${isPassed ? 'is-filled' : ''}`} />
+                        </div>
+                      )}
                     </div>
 
                     {/* Step Information Block */}
                     <div className="hiw-step-body">
                       <div className="hiw-step-title-row">
-                        <h3 className="hiw-step-title">{step.title}</h3>
+                        <div className="hiw-step-title-wrap">
+                          <h3 className="hiw-step-title">{step.title}</h3>
+                          <span className="hiw-step-timerange">{step.timeRange}</span>
+                        </div>
                         {isActive && (
-                          <span className="hiw-active-indicator">Viewing</span>
+                          <span className="hiw-active-indicator">
+                            <span className="hiw-live-pulse" />
+                            Live
+                          </span>
                         )}
                       </div>
 
