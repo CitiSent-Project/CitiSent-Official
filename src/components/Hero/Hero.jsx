@@ -43,6 +43,8 @@ export default function Hero({ onOpenDownload }) {
   // Linear interpolation helper
   const lerp = (start, end, factor) => start + (end - start) * factor;
 
+  const animateRef = useRef(null);
+
   const animate = useCallback(() => {
     const current = currentRef.current;
     const target = targetRef.current;
@@ -72,7 +74,7 @@ export default function Hero({ onOpenDownload }) {
       Math.abs(target.y - current.y) > 0.001;
 
     if (isMoving || isHoveredRef.current) {
-      rafIdRef.current = requestAnimationFrame(animate);
+      rafIdRef.current = requestAnimationFrame(animateRef.current);
     } else {
       if (phoneRef.current) {
         phoneRef.current.style.transform = '';
@@ -80,6 +82,8 @@ export default function Hero({ onOpenDownload }) {
       rafIdRef.current = null;
     }
   }, []);
+
+  animateRef.current = animate;
 
   const isTouchDevice = () => {
     if (typeof window === 'undefined') return true;
@@ -212,6 +216,10 @@ export default function Hero({ onOpenDownload }) {
                 src={homepageImg}
                 alt="CitiSent Sto. Tomas Mobile App Preview"
                 className="hero-phone-img"
+                width="874"
+                height="1249"
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
           </div>
