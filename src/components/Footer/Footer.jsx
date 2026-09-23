@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  ShieldCheck,
-  Mail,
-  ArrowUp,
-  Heart,
-  Activity,
-  Download
-} from 'lucide-react';
+import { Mail, ArrowUp } from 'lucide-react';
 import { APP_DOWNLOAD_LINKS } from '../../config/downloadLinks';
 import './Footer.css';
 import logoLeft from '../../assets/logo-left.png';
@@ -54,9 +47,7 @@ export default function Footer({ onOpenDownload, onOpenPrivacy, onOpenTerms, onO
           <div className="footer-col">
             <h4 className="footer-heading">Resources</h4>
             <ul className="footer-links">
-              <li><a href={APP_DOWNLOAD_LINKS.researchSurvey} target="_blank" rel="noopener noreferrer">Research Questionnaire (Google Form)</a></li>
               <li><a href="#faq" onClick={(e) => handleLinkClick(e, '#faq')}>Frequently Asked Questions</a></li>
-              <li><a href={APP_DOWNLOAD_LINKS.directApk} target="_blank" rel="noopener noreferrer">Download APK (GitHub Releases)</a></li>
               <li>
                 <button
                   type="button"
