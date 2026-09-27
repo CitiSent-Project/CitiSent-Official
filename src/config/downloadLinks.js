@@ -22,7 +22,7 @@ export const APP_DOWNLOAD_LINKS = {
   webPortal: "#",
 
   // Academic Research Survey Questionnaire
-  researchSurvey: "https://docs.google.com/forms/d/e/1FAIpQLScv9vd1zIfWRABqG_BXUkiOJ8btiR5gPUQSZsuQ8KnL9cZkag/viewform",
+  researchSurvey: "https://forms.gle/YA7ruggVrrhXrDzFA",
 
   // Demo Video / Documentation
   demoVideo: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
