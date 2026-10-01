@@ -7,8 +7,8 @@ export default function DownloadCTA({
   title = "Try CitiSent for free",
   subtitle,
   primaryBtnText = "DOWNLOAD NOW",
-  secondaryBtnText = "TALK TO US",
-  secondaryBtnHref = `mailto:${APP_DOWNLOAD_LINKS.contactEmail}`,
+  secondaryBtnText = null,
+  secondaryBtnHref = null,
   onSecondaryClick,
 }) {
   const handleSecondaryClick = (e) => {
@@ -46,35 +46,37 @@ export default function DownloadCTA({
           )}
 
           <div className="citi-slack-cta-actions">
-          <button
-            type="button"
-            className="citi-slack-cta-btn-primary"
-            onClick={onOpenDownload}
-            aria-label="Download CitiSent application package"
-          >
-            {primaryBtnText}
-          </button>
-
-          {secondaryBtnHref?.startsWith('mailto:') ? (
-            <a
-              href={secondaryBtnHref}
-              className="citi-slack-cta-btn-secondary"
-              aria-label="Contact the CitiSent development team"
-            >
-              {secondaryBtnText}
-            </a>
-          ) : (
             <button
               type="button"
-              className="citi-slack-cta-btn-secondary"
-              onClick={handleSecondaryClick}
+              className="citi-slack-cta-btn-primary"
+              onClick={onOpenDownload}
+              aria-label="Download CitiSent application package"
             >
-              {secondaryBtnText}
+              {primaryBtnText}
             </button>
-          )}
+
+            {secondaryBtnText && (
+              secondaryBtnHref?.startsWith('mailto:') ? (
+                <a
+                  href={secondaryBtnHref}
+                  className="citi-slack-cta-btn-secondary"
+                  aria-label="Contact the CitiSent development team"
+                >
+                  {secondaryBtnText}
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  className="citi-slack-cta-btn-secondary"
+                  onClick={handleSecondaryClick}
+                >
+                  {secondaryBtnText}
+                </button>
+              )
+            )}
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
   );
 }
