@@ -1,16 +1,22 @@
+/* ==========================================================================
+   CitiSent Footer Section - White Theme
+   Clean, modern, accessible civic-tech footer on crisp white background
+   ========================================================================== */
+
 .footer-section {
-  background: #001233;
-  color: #96B5E8;
-  padding-top: 5rem;
+  background: #FFFFFF;
+  color: var(--text-secondary, #2A4475);
+  padding-top: 4.5rem;
   padding-bottom: 2.5rem;
-  border-top: 1px solid rgba(184, 208, 245, 0.12);
+  border-top: 1px solid #E2E8F0;
+  position: relative;
 }
 
 .footer-grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
   gap: 3.5rem;
-  margin-bottom: 4rem;
+  margin-bottom: 3.5rem;
 }
 
 .footer-brand {
@@ -20,15 +26,18 @@
   margin-bottom: 1.25rem;
 }
 
-.brand-logo-image { width: 300px; height: auto; }
+.brand-logo-image {
+  width: 300px;
+  height: auto;
+}
 
 .text-white {
-  color: #FFFFFF !important;
+  color: var(--brand-navy, #001845) !important;
 }
 
 .footer-about {
   font-size: 0.95rem;
-  color: #94A3B8;
+  color: #475569;
   line-height: 1.65;
   margin-bottom: 1.75rem;
   max-width: 380px;
@@ -40,11 +49,11 @@
   gap: 0.5rem;
   padding: 0.4rem 0.85rem;
   background: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.25);
+  border: 1px solid rgba(16, 185, 129, 0.3);
   border-radius: var(--radius-full);
   font-size: 0.75rem;
   font-weight: 600;
-  color: #34D399;
+  color: #059669;
 }
 
 .status-ping {
@@ -58,7 +67,7 @@
 .footer-heading {
   font-size: 1.05rem;
   font-weight: 700;
-  color: #FFFFFF;
+  color: var(--brand-navy, #001845);
   margin-bottom: 1.5rem;
   letter-spacing: -0.01em;
 }
@@ -73,7 +82,7 @@
 .footer-link-btn {
   font-family: inherit;
   font-size: 0.925rem;
-  color: #94A3B8;
+  color: #475569;
   background: transparent;
   border: none;
   padding: 0;
@@ -84,14 +93,14 @@
 
 .footer-links a:hover,
 .footer-link-btn:hover {
-  color: #38BDF8;
+  color: var(--brand-primary, #0A3D91);
   transform: translateX(3px);
   display: inline-block;
 }
 
 .footer-contact-text {
   font-size: 0.925rem;
-  color: #94A3B8;
+  color: #64748B;
   line-height: 1.55;
   margin-bottom: 1.25rem;
 }
@@ -101,19 +110,23 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.65rem 1.25rem;
-  background: rgba(37, 99, 235, 0.15);
-  border: 1px solid rgba(37, 99, 235, 0.35);
+  background: var(--brand-light-bg, #EBF0FB);
+  border: 1px solid rgba(10, 61, 145, 0.18);
   border-radius: var(--radius-full);
-  color: #60A5FA;
+  color: var(--brand-primary, #0A3D91);
   font-size: 0.875rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
   transition: all var(--transition-fast);
+  text-decoration: none;
 }
 
 .footer-contact-btn:hover {
-  background: rgba(37, 99, 235, 0.25);
-  color: #93C5FD;
+  background: var(--brand-primary, #0A3D91);
+  border-color: var(--brand-primary, #0A3D91);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(10, 61, 145, 0.2);
 }
 
 .footer-socials {
@@ -125,26 +138,28 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #94A3B8;
+  color: #475569;
   transition: all var(--transition-fast);
+  text-decoration: none;
 }
 
 .social-icon:hover {
-  background: var(--civic-blue);
+  background: var(--brand-navy, #001845);
   color: #FFFFFF;
   border-color: transparent;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 24, 69, 0.18);
 }
 
 /* Bottom Bar */
 .footer-bottom {
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid #E2E8F0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -178,30 +193,34 @@
 
 .footer-legal a:hover,
 .footer-legal-link:hover {
-  color: #94A3B8;
+  color: var(--brand-navy, #001845);
   text-decoration: underline;
 }
 
 .dot-divider {
-  color: #334155;
+  color: #CBD5E1;
 }
 
 .footer-scroll-top {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  color: #CBD5E1;
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  color: #475569;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   transition: all var(--transition-fast);
 }
 
 .footer-scroll-top:hover {
-  background: var(--civic-blue);
+  background: var(--brand-navy, #001845);
+  border-color: transparent;
   color: #FFFFFF;
   transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 24, 69, 0.18);
 }
 
 @media (max-width: 1024px) {
