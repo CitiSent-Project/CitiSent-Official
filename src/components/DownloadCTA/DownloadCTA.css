@@ -1,117 +1,184 @@
-.cta-section {
-  background-color: #FFFFFF;
-  padding-bottom: 5rem;
+/* ==========================================================================
+   CitiSent Curved CTA Banner
+   Flat top edge with smooth downward-curving bottom arch matching CitiSent
+   brand palette and civic-tech design system
+   ========================================================================== */
+
+:root {
+  --citi-cta-navy: var(--brand-navy, #001845);
+  --citi-cta-navy-dark: var(--bg-dark, #001233);
+  --citi-cta-navy-accent: var(--brand-dark-blue, #002D6E);
 }
 
-.cta-card {
-  background: linear-gradient(135deg, #001233 0%, #001845 50%, #002D6E 100%);
-  border-radius: var(--radius-2xl);
-  padding: 4.5rem 3rem;
-  color: #FFFFFF;
-  text-align: center;
+.citi-slack-cta-section {
+  background-color: #FFFFFF;
+  padding: 1.5rem 0 3.5rem 0;
+  width: 100%;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(0, 18, 51, 0.4);
-  border: 1px solid rgba(184, 208, 245, 0.15);
 }
 
-.cta-bg-glow {
-  position: absolute;
-  top: -50%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(107, 159, 228, 0.3), transparent 70%);
-  pointer-events: none;
-}
-
-.cta-content {
+.citi-slack-cta-banner {
+  background-color: var(--citi-cta-navy);
+  width: 100%;
+  /* Generous top & bottom padding with extra clearance at the bottom for the curve */
+  padding: clamp(4.5rem, 7vw, 6.25rem) 1.5rem clamp(5.75rem, 9vw, 8rem) 1.5rem;
+  /* Flat top edge with continuous smooth downward curve along the bottom */
+  -webkit-clip-path: ellipse(75% 100% at 50% 0%);
+  clip-path: ellipse(75% 100% at 50% 0%);
   position: relative;
-  z-index: 1;
-  max-width: 760px;
+  box-sizing: border-box;
   margin: 0 auto;
 }
 
-.cta-badge-wrap {
+.citi-slack-cta-inner {
   display: flex;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-}
-
-.cta-title {
-  font-size: clamp(2.25rem, 4vw, 3.25rem);
-  font-weight: 800;
-  line-height: 1.15;
-  color: #FFFFFF;
-  margin-bottom: 1.25rem;
-  letter-spacing: -0.03em;
-}
-
-.cta-subtitle {
-  font-size: 1.15rem;
-  color: #CBD5E1;
-  line-height: 1.6;
-  margin-bottom: 2.5rem;
-}
-
-.cta-actions {
-  display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Big bold headline matching modern clean typography */
+.citi-slack-cta-title {
+  color: #FFFFFF;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(2rem, 3.8vw, 3.15rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  margin: 0 0 2rem 0;
+  max-width: 820px;
+  text-shadow: 0 1px 3px rgba(0, 18, 51, 0.35);
+}
+
+.citi-slack-cta-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  line-height: 1.6;
+  margin: -1rem 0 2rem 0;
+  max-width: 640px;
+}
+
+/* Button action container */
+.citi-slack-cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 1rem;
-  margin-bottom: 2.5rem;
   flex-wrap: wrap;
 }
 
-.cta-store-badge {
+/* Primary Button: Solid White with CitiSent Navy Text and Crisp 4px Corners */
+.citi-slack-cta-btn-primary {
   display: inline-flex;
   align-items: center;
-  padding: 0.85rem 1.75rem;
-  border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #FFFFFF;
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.95rem;
-  transition: all var(--transition-normal);
+  justify-content: center;
+  padding: 0.95rem 1.85rem;
+  background-color: #FFFFFF;
+  color: var(--citi-cta-navy);
+  font-family: var(--font-heading, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 1px solid #FFFFFF;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-normal, 0.2s cubic-bezier(0.4, 0, 0.2, 1));
+  box-shadow: 0 2px 6px rgba(0, 18, 51, 0.18);
+  white-space: nowrap;
+  user-select: none;
 }
 
-.cta-store-badge:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.4);
+.citi-slack-cta-btn-primary:hover {
+  background-color: #F2F5FC;
+  color: var(--citi-cta-navy);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 18, 51, 0.28);
+}
+
+.citi-slack-cta-btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 18, 51, 0.2);
+}
+
+.citi-slack-cta-btn-primary:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 3px;
+}
+
+/* Secondary Button: Clean Outline with Crisp 4px Corners */
+.citi-slack-cta-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 1.85rem;
+  background-color: transparent;
+  color: #FFFFFF;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-normal, 0.2s cubic-bezier(0.4, 0, 0.2, 1));
+  white-space: nowrap;
+  user-select: none;
+}
+
+.citi-slack-cta-btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+  border-color: #FFFFFF;
+  color: #FFFFFF;
   transform: translateY(-2px);
 }
 
-.cta-guarantees {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+.citi-slack-cta-btn-secondary:active {
+  transform: translateY(0);
 }
 
-.cta-guarantee-item {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-size: 0.875rem;
-  color: #94A3B8;
-  font-weight: 500;
+.citi-slack-cta-btn-secondary:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 3px;
 }
 
-.cta-guarantee-item svg {
-  color: #10B981;
-}
-
+/* Responsive adjustments for phones and smaller tablets */
 @media (max-width: 640px) {
-  .cta-card {
-    padding: 3rem 1.5rem;
+  .citi-slack-cta-section {
+    padding: 1.25rem 0 2.5rem 0;
   }
-  .cta-guarantees {
-    gap: 1rem;
+
+  .citi-slack-cta-banner {
+    padding: 3.5rem 1.25rem 4.75rem 1.25rem;
+    -webkit-clip-path: ellipse(90% 100% at 50% 0%);
+    clip-path: ellipse(90% 100% at 50% 0%);
+  }
+
+  .citi-slack-cta-title {
+    margin-bottom: 1.75rem;
+  }
+
+  .citi-slack-cta-actions {
     flex-direction: column;
-    align-items: center;
+    width: 100%;
+    max-width: 320px;
+    gap: 0.75rem;
+  }
+
+  .citi-slack-cta-btn-primary,
+  .citi-slack-cta-btn-secondary {
+    width: 100%;
+    padding: 0.9rem 1.5rem;
+    text-align: center;
   }
 }
